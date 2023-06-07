@@ -8,6 +8,9 @@
 #import "FeaturesViewController.h"
 #import "FeaturesViewModel.h"
 #import "ContentUnavailableViewController.h"
+#import "ShapeViewController.h"
+#import "UniformAcrossSiblingsViewController.h"
+#import "PageControlViewController.h"
 
 @interface FeaturesViewController () <UICollectionViewDelegate>
 @property (retain) UICollectionView *collectionView;
@@ -117,6 +120,48 @@
                 cell.contentConfiguration = configuration;
                 break;
             }
+            case FeaturesItemModelTypeShape: {
+                UICellAccessoryOutlineDisclosure *outlineDisclosure = [UICellAccessoryOutlineDisclosure new];
+                
+                cell.accessories = @[
+                    outlineDisclosure
+                ];
+                
+                [outlineDisclosure release];
+                
+                UIListContentConfiguration *contentConfiguration = [UIListContentConfiguration cellConfiguration];
+                contentConfiguration.text = @"UIShape";
+                cell.contentConfiguration = contentConfiguration;
+                break;
+            }
+            case FeaturesItemModelTypeUniformAcrossSiblings: {
+                UICellAccessoryOutlineDisclosure *outlineDisclosure = [UICellAccessoryOutlineDisclosure new];
+                
+                cell.accessories = @[
+                    outlineDisclosure
+                ];
+                
+                [outlineDisclosure release];
+                
+                UIListContentConfiguration *contentConfiguration = [UIListContentConfiguration cellConfiguration];
+                contentConfiguration.text = @"UniformAcrossSiblings";
+                cell.contentConfiguration = contentConfiguration;
+                break;
+            }
+            case FeaturesItemModelTypePageControl: {
+                UICellAccessoryOutlineDisclosure *outlineDisclosure = [UICellAccessoryOutlineDisclosure new];
+                
+                cell.accessories = @[
+                    outlineDisclosure
+                ];
+                
+                [outlineDisclosure release];
+                
+                UIListContentConfiguration *contentConfiguration = [UIListContentConfiguration cellConfiguration];
+                contentConfiguration.text = @"PageControl";
+                cell.contentConfiguration = contentConfiguration;
+                break;
+            }
             default:
                 break;
         }
@@ -138,6 +183,27 @@
                 }];
                 break;
             }
+            case FeaturesItemModelTypeShape:
+                [NSOperationQueue.mainQueue addOperationWithBlock:^{
+                    ShapeViewController *viewController = [ShapeViewController new];
+                    [self.navigationController pushViewController:viewController animated:YES];
+                    [viewController release];
+                }];
+                break;
+            case FeaturesItemModelTypeUniformAcrossSiblings:
+                [NSOperationQueue.mainQueue addOperationWithBlock:^{
+                    UniformAcrossSiblingsViewController *viewController = [UniformAcrossSiblingsViewController new];
+                    [self.navigationController pushViewController:viewController animated:YES];
+                    [viewController release];
+                }];
+                break;
+            case FeaturesItemModelTypePageControl:
+                [NSOperationQueue.mainQueue addOperationWithBlock:^{
+                    PageControlViewController *viewController = [PageControlViewController new];
+                    [self.navigationController pushViewController:viewController animated:YES];
+                    [viewController release];
+                }];
+                break;
             default:
                 break;
         }

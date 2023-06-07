@@ -40,10 +40,16 @@
         [snapshot appendSectionsWithIdentifiers:@[firstSection]];
         
         FeaturesItemModel *contentUnavilableViewItemModel = [[FeaturesItemModel alloc] initWithType:FeaturesItemModelTypeContentUnavailableView];
+        FeaturesItemModel *shapeItemModel = [[FeaturesItemModel alloc] initWithType:FeaturesItemModelTypeShape];
+        FeaturesItemModel *uniformAcrossSiblingsItemModel = [[FeaturesItemModel alloc] initWithType:FeaturesItemModelTypeUniformAcrossSiblings];
+        FeaturesItemModel *pageControlItemModel = [[FeaturesItemModel alloc] initWithType:FeaturesItemModelTypePageControl];
         
-        [snapshot appendItemsWithIdentifiers:@[contentUnavilableViewItemModel] intoSectionWithIdentifier:firstSection];
+        [snapshot appendItemsWithIdentifiers:@[contentUnavilableViewItemModel, shapeItemModel, uniformAcrossSiblingsItemModel, pageControlItemModel] intoSectionWithIdentifier:firstSection];
         
         [contentUnavilableViewItemModel release];
+        [shapeItemModel release];
+        [uniformAcrossSiblingsItemModel release];
+        [pageControlItemModel release];
         
         [dataSource applySnapshot:snapshot animatingDifferences:YES completion:completionHandler];
         [snapshot release];

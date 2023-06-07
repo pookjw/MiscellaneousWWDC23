@@ -17,6 +17,11 @@
 		4F3FFEC52A2EE3CB001F3BEC /* FeaturesItemModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F3FFEC42A2EE3CB001F3BEC /* FeaturesItemModel.m */; };
 		4F3FFEC92A2EE7C7001F3BEC /* ContentUnavailableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F3FFEC82A2EE7C7001F3BEC /* ContentUnavailableViewController.m */; };
 		4F3FFECC2A2F25AA001F3BEC /* UIDevice+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F3FFECB2A2F25AA001F3BEC /* UIDevice+Category.m */; };
+		4F83914A2A30D9510014137B /* ShapeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F8391492A30D9510014137B /* ShapeViewController.m */; };
+		4F83916F2A30ED840014137B /* UniformAcrossSiblingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F83916E2A30ED840014137B /* UniformAcrossSiblingsViewController.m */; };
+		4F8391722A30EE050014137B /* UniformAcrossSiblingsContentConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F8391712A30EE050014137B /* UniformAcrossSiblingsContentConfiguration.m */; };
+		4F8391752A30EEAC0014137B /* UniformAcrossSiblingsContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F8391742A30EEAC0014137B /* UniformAcrossSiblingsContentView.m */; };
+		4F8391792A30F4E60014137B /* PageControlViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F8391782A30F4E60014137B /* PageControlViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +44,16 @@
 		4F3FFEC82A2EE7C7001F3BEC /* ContentUnavailableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ContentUnavailableViewController.m; sourceTree = "<group>"; };
 		4F3FFECA2A2F25AA001F3BEC /* UIDevice+Category.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIDevice+Category.h"; sourceTree = "<group>"; };
 		4F3FFECB2A2F25AA001F3BEC /* UIDevice+Category.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+Category.m"; sourceTree = "<group>"; };
+		4F8391482A30D9510014137B /* ShapeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShapeViewController.h; sourceTree = "<group>"; };
+		4F8391492A30D9510014137B /* ShapeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShapeViewController.m; sourceTree = "<group>"; };
+		4F83916D2A30ED840014137B /* UniformAcrossSiblingsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UniformAcrossSiblingsViewController.h; sourceTree = "<group>"; };
+		4F83916E2A30ED840014137B /* UniformAcrossSiblingsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UniformAcrossSiblingsViewController.m; sourceTree = "<group>"; };
+		4F8391702A30EE050014137B /* UniformAcrossSiblingsContentConfiguration.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UniformAcrossSiblingsContentConfiguration.h; sourceTree = "<group>"; };
+		4F8391712A30EE050014137B /* UniformAcrossSiblingsContentConfiguration.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UniformAcrossSiblingsContentConfiguration.m; sourceTree = "<group>"; };
+		4F8391732A30EEAC0014137B /* UniformAcrossSiblingsContentView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UniformAcrossSiblingsContentView.h; sourceTree = "<group>"; };
+		4F8391742A30EEAC0014137B /* UniformAcrossSiblingsContentView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UniformAcrossSiblingsContentView.m; sourceTree = "<group>"; };
+		4F8391772A30F4E60014137B /* PageControlViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PageControlViewController.h; sourceTree = "<group>"; };
+		4F8391782A30F4E60014137B /* PageControlViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PageControlViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +94,9 @@
 				4F3FFECB2A2F25AA001F3BEC /* UIDevice+Category.m */,
 				4F3FFEBF2A2EE344001F3BEC /* Features */,
 				4F3FFEC62A2EE7B5001F3BEC /* ContentUnavailable */,
+				4F8391472A30D9460014137B /* Shape */,
+				4F83916C2A30ED6C0014137B /* UniformAcrossSiblings */,
+				4F8391762A30F4D20014137B /* PageControl */,
 				4F3FFEB22A2EE107001F3BEC /* Assets.xcassets */,
 				4F3FFEB42A2EE107001F3BEC /* LaunchScreen.storyboard */,
 				4F3FFEB72A2EE107001F3BEC /* Info.plist */,
@@ -107,6 +125,37 @@
 				4F3FFEC82A2EE7C7001F3BEC /* ContentUnavailableViewController.m */,
 			);
 			path = ContentUnavailable;
+			sourceTree = "<group>";
+		};
+		4F8391472A30D9460014137B /* Shape */ = {
+			isa = PBXGroup;
+			children = (
+				4F8391482A30D9510014137B /* ShapeViewController.h */,
+				4F8391492A30D9510014137B /* ShapeViewController.m */,
+			);
+			path = Shape;
+			sourceTree = "<group>";
+		};
+		4F83916C2A30ED6C0014137B /* UniformAcrossSiblings */ = {
+			isa = PBXGroup;
+			children = (
+				4F83916D2A30ED840014137B /* UniformAcrossSiblingsViewController.h */,
+				4F83916E2A30ED840014137B /* UniformAcrossSiblingsViewController.m */,
+				4F8391702A30EE050014137B /* UniformAcrossSiblingsContentConfiguration.h */,
+				4F8391712A30EE050014137B /* UniformAcrossSiblingsContentConfiguration.m */,
+				4F8391732A30EEAC0014137B /* UniformAcrossSiblingsContentView.h */,
+				4F8391742A30EEAC0014137B /* UniformAcrossSiblingsContentView.m */,
+			);
+			path = UniformAcrossSiblings;
+			sourceTree = "<group>";
+		};
+		4F8391762A30F4D20014137B /* PageControl */ = {
+			isa = PBXGroup;
+			children = (
+				4F8391772A30F4E60014137B /* PageControlViewController.h */,
+				4F8391782A30F4E60014137B /* PageControlViewController.m */,
+			);
+			path = PageControl;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -181,11 +230,16 @@
 				4F3FFEAE2A2EE106001F3BEC /* FeaturesViewController.m in Sources */,
 				4F3FFEC22A2EE35B001F3BEC /* FeaturesViewModel.m in Sources */,
 				4F3FFEC92A2EE7C7001F3BEC /* ContentUnavailableViewController.m in Sources */,
+				4F83914A2A30D9510014137B /* ShapeViewController.m in Sources */,
 				4F3FFEA82A2EE106001F3BEC /* AppDelegate.m in Sources */,
+				4F8391752A30EEAC0014137B /* UniformAcrossSiblingsContentView.m in Sources */,
 				4F3FFEB92A2EE107001F3BEC /* main.m in Sources */,
+				4F8391722A30EE050014137B /* UniformAcrossSiblingsContentConfiguration.m in Sources */,
 				4F3FFECC2A2F25AA001F3BEC /* UIDevice+Category.m in Sources */,
 				4F3FFEAB2A2EE106001F3BEC /* SceneDelegate.m in Sources */,
 				4F3FFEC52A2EE3CB001F3BEC /* FeaturesItemModel.m in Sources */,
+				4F8391792A30F4E60014137B /* PageControlViewController.m in Sources */,
+				4F83916F2A30ED840014137B /* UniformAcrossSiblingsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
