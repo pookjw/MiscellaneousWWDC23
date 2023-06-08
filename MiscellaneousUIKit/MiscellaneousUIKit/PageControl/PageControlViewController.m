@@ -38,6 +38,7 @@
     // customDurationByPage
     UIPageControlTimerProgress *timerProgess = [[UIPageControlTimerProgress alloc] initWithPreferredDuration:1.f];
     timerProgess.currentProgress = 0.5f;
+    timerProgess.resetsToInitialPageAfterEnd = YES;
     timerProgess.delegate = self;
     pageControl.progress = timerProgess;
     self.timerProgess = timerProgess;
