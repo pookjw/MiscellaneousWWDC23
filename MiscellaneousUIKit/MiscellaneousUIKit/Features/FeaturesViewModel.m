@@ -43,13 +43,19 @@
         FeaturesItemModel *shapeItemModel = [[FeaturesItemModel alloc] initWithType:FeaturesItemModelTypeShape];
         FeaturesItemModel *uniformAcrossSiblingsItemModel = [[FeaturesItemModel alloc] initWithType:FeaturesItemModelTypeUniformAcrossSiblings];
         FeaturesItemModel *pageControlItemModel = [[FeaturesItemModel alloc] initWithType:FeaturesItemModelTypePageControl];
+        FeaturesItemModel *labelVibrancyItemModel = [[FeaturesItemModel alloc] initWithType:FeaturesItemModelTypeLabelVibrancy];
+        FeaturesItemModel *lefferformAwareAdjustingItemModel = [[FeaturesItemModel alloc] initWithType:FeaturesItemModelTypeLefferformAwareAdjusting];
+        FeaturesItemModel *hdrImageItemModel = [[FeaturesItemModel alloc] initWithType:FeaturesItemModelTypeHDRImage];
         
-        [snapshot appendItemsWithIdentifiers:@[contentUnavilableViewItemModel, shapeItemModel, uniformAcrossSiblingsItemModel, pageControlItemModel] intoSectionWithIdentifier:firstSection];
+        [snapshot appendItemsWithIdentifiers:@[contentUnavilableViewItemModel, shapeItemModel, uniformAcrossSiblingsItemModel, pageControlItemModel, labelVibrancyItemModel, lefferformAwareAdjustingItemModel, hdrImageItemModel] intoSectionWithIdentifier:firstSection];
         
         [contentUnavilableViewItemModel release];
         [shapeItemModel release];
         [uniformAcrossSiblingsItemModel release];
         [pageControlItemModel release];
+        [labelVibrancyItemModel release];
+        [lefferformAwareAdjustingItemModel release];
+        [hdrImageItemModel release];
         
         [dataSource applySnapshot:snapshot animatingDifferences:YES completion:completionHandler];
         [snapshot release];

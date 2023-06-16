@@ -11,6 +11,9 @@
 #import "ShapeViewController.h"
 #import "UniformAcrossSiblingsViewController.h"
 #import "PageControlViewController.h"
+#import "LabelVibrancyViewController.h"
+#import "LefferformAwareAdjustingViewController.h"
+#import "HDRImageViewController.h"
 
 @interface FeaturesViewController () <UICollectionViewDelegate>
 @property (retain) UICollectionView *collectionView;
@@ -162,6 +165,48 @@
                 cell.contentConfiguration = contentConfiguration;
                 break;
             }
+            case FeaturesItemModelTypeLabelVibrancy: {
+                UICellAccessoryOutlineDisclosure *outlineDisclosure = [UICellAccessoryOutlineDisclosure new];
+                
+                cell.accessories = @[
+                    outlineDisclosure
+                ];
+                
+                [outlineDisclosure release];
+                
+                UIListContentConfiguration *contentConfiguration = [UIListContentConfiguration cellConfiguration];
+                contentConfiguration.text = @"LabelVibrancy";
+                cell.contentConfiguration = contentConfiguration;
+                break;
+            }
+            case FeaturesItemModelTypeLefferformAwareAdjusting: {
+                UICellAccessoryOutlineDisclosure *outlineDisclosure = [UICellAccessoryOutlineDisclosure new];
+                
+                cell.accessories = @[
+                    outlineDisclosure
+                ];
+                
+                [outlineDisclosure release];
+                
+                UIListContentConfiguration *contentConfiguration = [UIListContentConfiguration cellConfiguration];
+                contentConfiguration.text = @"LefferformAwareAdjusting";
+                cell.contentConfiguration = contentConfiguration;
+                break;
+            }
+            case FeaturesItemModelTypeHDRImage: {
+                UICellAccessoryOutlineDisclosure *outlineDisclosure = [UICellAccessoryOutlineDisclosure new];
+                
+                cell.accessories = @[
+                    outlineDisclosure
+                ];
+                
+                [outlineDisclosure release];
+                
+                UIListContentConfiguration *contentConfiguration = [UIListContentConfiguration cellConfiguration];
+                contentConfiguration.text = @"HDRImage";
+                cell.contentConfiguration = contentConfiguration;
+                break;
+            }
             default:
                 break;
         }
@@ -204,6 +249,24 @@
                     [viewController release];
                 }];
                 break;
+            case FeaturesItemModelTypeLabelVibrancy:
+                [NSOperationQueue.mainQueue addOperationWithBlock:^{
+                    LabelVibrancyViewController *viewController = [LabelVibrancyViewController new];
+                    [self.navigationController pushViewController:viewController animated:YES];
+                    [viewController release];
+                }];
+            case FeaturesItemModelTypeLefferformAwareAdjusting:
+                [NSOperationQueue.mainQueue addOperationWithBlock:^{
+                    LefferformAwareAdjustingViewController *viewController = [LefferformAwareAdjustingViewController new];
+                    [self.navigationController pushViewController:viewController animated:YES];
+                    [viewController release];
+                }];
+            case FeaturesItemModelTypeHDRImage:
+                [NSOperationQueue.mainQueue addOperationWithBlock:^{
+                    HDRImageViewController *viewController = [HDRImageViewController new];
+                    [self.navigationController pushViewController:viewController animated:YES];
+                    [viewController release];
+                }];
             default:
                 break;
         }

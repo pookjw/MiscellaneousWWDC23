@@ -22,6 +22,9 @@
 		4F8391722A30EE050014137B /* UniformAcrossSiblingsContentConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F8391712A30EE050014137B /* UniformAcrossSiblingsContentConfiguration.m */; };
 		4F8391752A30EEAC0014137B /* UniformAcrossSiblingsContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F8391742A30EEAC0014137B /* UniformAcrossSiblingsContentView.m */; };
 		4F8391792A30F4E60014137B /* PageControlViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F8391782A30F4E60014137B /* PageControlViewController.m */; };
+		4FD1D6162A3CB4FA00D1510D /* LabelVibrancyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FD1D6152A3CB4FA00D1510D /* LabelVibrancyViewController.m */; };
+		4FD1D61A2A3CBE5B00D1510D /* LefferformAwareAdjustingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FD1D6192A3CBE5B00D1510D /* LefferformAwareAdjustingViewController.m */; };
+		4FD1D61E2A3CC57200D1510D /* HDRImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FD1D61D2A3CC57200D1510D /* HDRImageViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +57,12 @@
 		4F8391742A30EEAC0014137B /* UniformAcrossSiblingsContentView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UniformAcrossSiblingsContentView.m; sourceTree = "<group>"; };
 		4F8391772A30F4E60014137B /* PageControlViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PageControlViewController.h; sourceTree = "<group>"; };
 		4F8391782A30F4E60014137B /* PageControlViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PageControlViewController.m; sourceTree = "<group>"; };
+		4FD1D6142A3CB4FA00D1510D /* LabelVibrancyViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LabelVibrancyViewController.h; sourceTree = "<group>"; };
+		4FD1D6152A3CB4FA00D1510D /* LabelVibrancyViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LabelVibrancyViewController.m; sourceTree = "<group>"; };
+		4FD1D6182A3CBE5B00D1510D /* LefferformAwareAdjustingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LefferformAwareAdjustingViewController.h; sourceTree = "<group>"; };
+		4FD1D6192A3CBE5B00D1510D /* LefferformAwareAdjustingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LefferformAwareAdjustingViewController.m; sourceTree = "<group>"; };
+		4FD1D61C2A3CC57200D1510D /* HDRImageViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HDRImageViewController.h; sourceTree = "<group>"; };
+		4FD1D61D2A3CC57200D1510D /* HDRImageViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HDRImageViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +106,9 @@
 				4F8391472A30D9460014137B /* Shape */,
 				4F83916C2A30ED6C0014137B /* UniformAcrossSiblings */,
 				4F8391762A30F4D20014137B /* PageControl */,
+				4FD1D6132A3CB4E500D1510D /* LabelVibrancy */,
+				4FD1D6172A3CBE0D00D1510D /* LefferformAwareAdjusting */,
+				4FD1D61B2A3CC56200D1510D /* HDRImage */,
 				4F3FFEB22A2EE107001F3BEC /* Assets.xcassets */,
 				4F3FFEB42A2EE107001F3BEC /* LaunchScreen.storyboard */,
 				4F3FFEB72A2EE107001F3BEC /* Info.plist */,
@@ -156,6 +168,33 @@
 				4F8391782A30F4E60014137B /* PageControlViewController.m */,
 			);
 			path = PageControl;
+			sourceTree = "<group>";
+		};
+		4FD1D6132A3CB4E500D1510D /* LabelVibrancy */ = {
+			isa = PBXGroup;
+			children = (
+				4FD1D6142A3CB4FA00D1510D /* LabelVibrancyViewController.h */,
+				4FD1D6152A3CB4FA00D1510D /* LabelVibrancyViewController.m */,
+			);
+			path = LabelVibrancy;
+			sourceTree = "<group>";
+		};
+		4FD1D6172A3CBE0D00D1510D /* LefferformAwareAdjusting */ = {
+			isa = PBXGroup;
+			children = (
+				4FD1D6182A3CBE5B00D1510D /* LefferformAwareAdjustingViewController.h */,
+				4FD1D6192A3CBE5B00D1510D /* LefferformAwareAdjustingViewController.m */,
+			);
+			path = LefferformAwareAdjusting;
+			sourceTree = "<group>";
+		};
+		4FD1D61B2A3CC56200D1510D /* HDRImage */ = {
+			isa = PBXGroup;
+			children = (
+				4FD1D61C2A3CC57200D1510D /* HDRImageViewController.h */,
+				4FD1D61D2A3CC57200D1510D /* HDRImageViewController.m */,
+			);
+			path = HDRImage;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -228,8 +267,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				4F3FFEAE2A2EE106001F3BEC /* FeaturesViewController.m in Sources */,
+				4FD1D61A2A3CBE5B00D1510D /* LefferformAwareAdjustingViewController.m in Sources */,
 				4F3FFEC22A2EE35B001F3BEC /* FeaturesViewModel.m in Sources */,
+				4FD1D61E2A3CC57200D1510D /* HDRImageViewController.m in Sources */,
 				4F3FFEC92A2EE7C7001F3BEC /* ContentUnavailableViewController.m in Sources */,
+				4FD1D6162A3CB4FA00D1510D /* LabelVibrancyViewController.m in Sources */,
 				4F83914A2A30D9510014137B /* ShapeViewController.m in Sources */,
 				4F3FFEA82A2EE106001F3BEC /* AppDelegate.m in Sources */,
 				4F8391752A30EEAC0014137B /* UniformAcrossSiblingsContentView.m in Sources */,

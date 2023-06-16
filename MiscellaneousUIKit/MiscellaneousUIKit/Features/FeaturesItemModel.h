@@ -13,7 +13,10 @@ typedef NS_ENUM(NSUInteger, FeaturesItemModelType) {
     FeaturesItemModelTypeContentUnavailableView,
     FeaturesItemModelTypeShape,
     FeaturesItemModelTypeUniformAcrossSiblings,
-    FeaturesItemModelTypePageControl
+    FeaturesItemModelTypePageControl,
+    FeaturesItemModelTypeLabelVibrancy,
+    FeaturesItemModelTypeLefferformAwareAdjusting,
+    FeaturesItemModelTypeHDRImage
 };
 
 @interface FeaturesItemModel : NSObject
