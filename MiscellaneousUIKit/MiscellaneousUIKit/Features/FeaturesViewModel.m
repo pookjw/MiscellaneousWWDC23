@@ -46,8 +46,13 @@
         FeaturesItemModel *labelVibrancyItemModel = [[FeaturesItemModel alloc] initWithType:FeaturesItemModelTypeLabelVibrancy];
         FeaturesItemModel *lefferformAwareAdjustingItemModel = [[FeaturesItemModel alloc] initWithType:FeaturesItemModelTypeLefferformAwareAdjusting];
         FeaturesItemModel *hdrImageItemModel = [[FeaturesItemModel alloc] initWithType:FeaturesItemModelTypeHDRImage];
+        FeaturesItemModel *symbolEffectsItemModel = [[FeaturesItemModel alloc] initWithType:FeaturesItemModelTypeSymbolEffects];
+        FeaturesItemModel *textViewBorderItemModel = [[FeaturesItemModel alloc] initWithType:FeaturesItemModelTypeTextViewBorder];
+        FeaturesItemModel *viewIsAppearingItemModel = [[FeaturesItemModel alloc] initWithType:FeaturesItemModelTypeViewIsAppearing];
+        FeaturesItemModel *searchControllerItemModel = [[FeaturesItemModel alloc] initWithType:FeaturesItemModelTypeSearchController];
+        FeaturesItemModel *textSelectionDisplayItemModel = [[FeaturesItemModel alloc] initWithType:FeaturesItemModelTextSelectionDisplay];
         
-        [snapshot appendItemsWithIdentifiers:@[contentUnavilableViewItemModel, shapeItemModel, uniformAcrossSiblingsItemModel, pageControlItemModel, labelVibrancyItemModel, lefferformAwareAdjustingItemModel, hdrImageItemModel] intoSectionWithIdentifier:firstSection];
+        [snapshot appendItemsWithIdentifiers:@[contentUnavilableViewItemModel, shapeItemModel, uniformAcrossSiblingsItemModel, pageControlItemModel, labelVibrancyItemModel, lefferformAwareAdjustingItemModel, hdrImageItemModel, symbolEffectsItemModel, textViewBorderItemModel, viewIsAppearingItemModel, searchControllerItemModel, textSelectionDisplayItemModel] intoSectionWithIdentifier:firstSection];
         
         [contentUnavilableViewItemModel release];
         [shapeItemModel release];
@@ -56,6 +61,11 @@
         [labelVibrancyItemModel release];
         [lefferformAwareAdjustingItemModel release];
         [hdrImageItemModel release];
+        [symbolEffectsItemModel release];
+        [textViewBorderItemModel release];
+        [viewIsAppearingItemModel release];
+        [searchControllerItemModel release];
+        [textSelectionDisplayItemModel release];
         
         [dataSource applySnapshot:snapshot animatingDifferences:YES completion:completionHandler];
         [snapshot release];

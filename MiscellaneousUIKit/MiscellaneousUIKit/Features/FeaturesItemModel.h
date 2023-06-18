@@ -16,7 +16,12 @@ typedef NS_ENUM(NSUInteger, FeaturesItemModelType) {
     FeaturesItemModelTypePageControl,
     FeaturesItemModelTypeLabelVibrancy,
     FeaturesItemModelTypeLefferformAwareAdjusting,
-    FeaturesItemModelTypeHDRImage
+    FeaturesItemModelTypeHDRImage,
+    FeaturesItemModelTypeSymbolEffects,
+    FeaturesItemModelTypeTextViewBorder,
+    FeaturesItemModelTypeViewIsAppearing,
+    FeaturesItemModelTypeSearchController,
+    FeaturesItemModelTextSelectionDisplay
 };
 
 @interface FeaturesItemModel : NSObject

@@ -54,6 +54,9 @@
     }];
     
     testAction2.attributes = UIMenuElementAttributesKeepsMenuPresented;
+    testAction2.state = UIMenuElementStateOn;
+    // iOS 17.0+
+    testAction2.selectedImage = [UIImage systemImageNamed:@"cellularbars"];
     
     UIMenu *menu = [UIMenu menuWithTitle:@"Menu" image:[UIImage systemImageNamed:@"heart.fill"] identifier:nil options:UIMenuOptionsDisplayAsPalette children:@[testAction1, testAction2]];
     configuration.secondaryButtonProperties.menu = menu;

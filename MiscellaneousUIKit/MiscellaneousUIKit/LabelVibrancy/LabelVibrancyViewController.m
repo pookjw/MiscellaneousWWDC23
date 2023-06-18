@@ -72,7 +72,7 @@
 - (void)setupLabel {
     UILabel *label = [UILabel new];
     label.text = @"Vibrancy!!!";
-    label.font = [UIFont preferredFontForTextStyle:UIFontTextStyleLargeTitle];
+    label.font = [UIFont preferredFontForTextStyle:UIFontTextStyleExtraLargeTitle];
     label.textColor = UIColor.secondaryLabelColor;
     
     label.backgroundColor = UIColor.purpleColor;

@@ -14,6 +14,11 @@
 #import "LabelVibrancyViewController.h"
 #import "LefferformAwareAdjustingViewController.h"
 #import "HDRImageViewController.h"
+#import "SymbolEffectsViewController.h"
+#import "TextViewBorderViewController.h"
+#import "ViewIsAppearingViewController.h"
+#import "SearchControllerViewController.h"
+#import "TextSelectionDisplayViewController.h"
 
 @interface FeaturesViewController () <UICollectionViewDelegate>
 @property (retain) UICollectionView *collectionView;
@@ -207,6 +212,76 @@
                 cell.contentConfiguration = contentConfiguration;
                 break;
             }
+            case FeaturesItemModelTypeSymbolEffects: {
+                UICellAccessoryOutlineDisclosure *outlineDisclosure = [UICellAccessoryOutlineDisclosure new];
+                
+                cell.accessories = @[
+                    outlineDisclosure
+                ];
+                
+                [outlineDisclosure release];
+                
+                UIListContentConfiguration *contentConfiguration = [UIListContentConfiguration cellConfiguration];
+                contentConfiguration.text = @"Symbol Effects";
+                cell.contentConfiguration = contentConfiguration;
+                break;
+            }
+            case FeaturesItemModelTypeTextViewBorder: {
+                UICellAccessoryOutlineDisclosure *outlineDisclosure = [UICellAccessoryOutlineDisclosure new];
+                
+                cell.accessories = @[
+                    outlineDisclosure
+                ];
+                
+                [outlineDisclosure release];
+                
+                UIListContentConfiguration *contentConfiguration = [UIListContentConfiguration cellConfiguration];
+                contentConfiguration.text = @"TextView Border";
+                cell.contentConfiguration = contentConfiguration;
+                break;
+            }
+            case FeaturesItemModelTypeViewIsAppearing: {
+                UICellAccessoryOutlineDisclosure *outlineDisclosure = [UICellAccessoryOutlineDisclosure new];
+                
+                cell.accessories = @[
+                    outlineDisclosure
+                ];
+                
+                [outlineDisclosure release];
+                
+                UIListContentConfiguration *contentConfiguration = [UIListContentConfiguration cellConfiguration];
+                contentConfiguration.text = @"viewIsAppearing";
+                cell.contentConfiguration = contentConfiguration;
+                break;
+            }
+            case FeaturesItemModelTypeSearchController: {
+                UICellAccessoryOutlineDisclosure *outlineDisclosure = [UICellAccessoryOutlineDisclosure new];
+                
+                cell.accessories = @[
+                    outlineDisclosure
+                ];
+                
+                [outlineDisclosure release];
+                
+                UIListContentConfiguration *contentConfiguration = [UIListContentConfiguration cellConfiguration];
+                contentConfiguration.text = @"Search Controller";
+                cell.contentConfiguration = contentConfiguration;
+                break;
+            }
+            case FeaturesItemModelTextSelectionDisplay: {
+                UICellAccessoryOutlineDisclosure *outlineDisclosure = [UICellAccessoryOutlineDisclosure new];
+                
+                cell.accessories = @[
+                    outlineDisclosure
+                ];
+                
+                [outlineDisclosure release];
+                
+                UIListContentConfiguration *contentConfiguration = [UIListContentConfiguration cellConfiguration];
+                contentConfiguration.text = @"Text Selection Display";
+                cell.contentConfiguration = contentConfiguration;
+                break;
+            }
             default:
                 break;
         }
@@ -255,18 +330,60 @@
                     [self.navigationController pushViewController:viewController animated:YES];
                     [viewController release];
                 }];
+                break;
             case FeaturesItemModelTypeLefferformAwareAdjusting:
                 [NSOperationQueue.mainQueue addOperationWithBlock:^{
                     LefferformAwareAdjustingViewController *viewController = [LefferformAwareAdjustingViewController new];
                     [self.navigationController pushViewController:viewController animated:YES];
                     [viewController release];
                 }];
+                break;
             case FeaturesItemModelTypeHDRImage:
                 [NSOperationQueue.mainQueue addOperationWithBlock:^{
                     HDRImageViewController *viewController = [HDRImageViewController new];
                     [self.navigationController pushViewController:viewController animated:YES];
                     [viewController release];
                 }];
+                break;
+            case FeaturesItemModelTypeSymbolEffects:
+                [NSOperationQueue.mainQueue addOperationWithBlock:^{
+                    SymbolEffectsViewController *viewController = [SymbolEffectsViewController new];
+                    [self.navigationController pushViewController:viewController animated:YES];
+                    [viewController release];
+                }];
+                break;
+            case FeaturesItemModelTypeTextViewBorder: {
+                [NSOperationQueue.mainQueue addOperationWithBlock:^{
+                    TextViewBorderViewController *viewController = [TextViewBorderViewController new];
+                    [self.navigationController pushViewController:viewController animated:YES];
+                    [viewController release];
+                }];
+                break;
+            }
+            case FeaturesItemModelTypeViewIsAppearing: {
+                [NSOperationQueue.mainQueue addOperationWithBlock:^{
+                    ViewIsAppearingViewController *viewController = [ViewIsAppearingViewController new];
+                    [self.navigationController pushViewController:viewController animated:YES];
+                    [viewController release];
+                }];
+                break;
+            }
+            case FeaturesItemModelTypeSearchController: {
+                [NSOperationQueue.mainQueue addOperationWithBlock:^{
+                    SearchControllerViewController *viewController = [SearchControllerViewController new];
+                    [self.navigationController pushViewController:viewController animated:YES];
+                    [viewController release];
+                }];
+                break;
+            }
+            case FeaturesItemModelTextSelectionDisplay: {
+                [NSOperationQueue.mainQueue addOperationWithBlock:^{
+                    TextSelectionDisplayViewController *viewController = [TextSelectionDisplayViewController new];
+                    [self.navigationController pushViewController:viewController animated:YES];
+                    [viewController release];
+                }];
+                break;
+            }
             default:
                 break;
         }

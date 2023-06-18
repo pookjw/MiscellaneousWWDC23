@@ -9,6 +9,13 @@
 /* Begin PBXBuildFile section */
 		4F0C46D32A3E1A960076BF2B /* kloppenheim_06_4k.hdr in Resources */ = {isa = PBXBuildFile; fileRef = 4F0C46D12A3E17CE0076BF2B /* kloppenheim_06_4k.hdr */; };
 		4F0C46FF2A3ED29C0076BF2B /* image.dng in Resources */ = {isa = PBXBuildFile; fileRef = 4F0C46FE2A3ED29C0076BF2B /* image.dng */; };
+		4F0C47032A3ED94D0076BF2B /* SymbolEffectsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F0C47022A3ED94D0076BF2B /* SymbolEffectsViewController.m */; };
+		4F0C47072A3F15360076BF2B /* TextViewBorderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F0C47062A3F15360076BF2B /* TextViewBorderViewController.m */; };
+		4F0C470B2A3F1B530076BF2B /* ViewIsAppearingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F0C470A2A3F1B530076BF2B /* ViewIsAppearingViewController.m */; };
+		4F0C470E2A3F1BB40076BF2B /* _ViewIsAppearingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F0C470D2A3F1BB40076BF2B /* _ViewIsAppearingViewController.m */; };
+		4F0C47122A3F1F7F0076BF2B /* SearchControllerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F0C47112A3F1F7F0076BF2B /* SearchControllerViewController.m */; };
+		4F0C47152A3F20BE0076BF2B /* _SearchControllerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F0C47142A3F20BE0076BF2B /* _SearchControllerViewController.m */; };
+		4F0C47392A3F5CBE0076BF2B /* TextSelectionDisplayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F0C47382A3F5CBE0076BF2B /* TextSelectionDisplayViewController.m */; };
 		4F3FFEA82A2EE106001F3BEC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F3FFEA72A2EE106001F3BEC /* AppDelegate.m */; };
 		4F3FFEAB2A2EE106001F3BEC /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F3FFEAA2A2EE106001F3BEC /* SceneDelegate.m */; };
 		4F3FFEAE2A2EE106001F3BEC /* FeaturesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F3FFEAD2A2EE106001F3BEC /* FeaturesViewController.m */; };
@@ -33,6 +40,20 @@
 		4F0C46CF2A3DEF230076BF2B /* MiscellaneousUIKit.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MiscellaneousUIKit.entitlements; sourceTree = "<group>"; };
 		4F0C46D12A3E17CE0076BF2B /* kloppenheim_06_4k.hdr */ = {isa = PBXFileReference; lastKnownFileType = file; path = kloppenheim_06_4k.hdr; sourceTree = "<group>"; };
 		4F0C46FE2A3ED29C0076BF2B /* image.dng */ = {isa = PBXFileReference; lastKnownFileType = file; path = image.dng; sourceTree = "<group>"; };
+		4F0C47012A3ED94D0076BF2B /* SymbolEffectsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SymbolEffectsViewController.h; sourceTree = "<group>"; };
+		4F0C47022A3ED94D0076BF2B /* SymbolEffectsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SymbolEffectsViewController.m; sourceTree = "<group>"; };
+		4F0C47052A3F15360076BF2B /* TextViewBorderViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TextViewBorderViewController.h; sourceTree = "<group>"; };
+		4F0C47062A3F15360076BF2B /* TextViewBorderViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TextViewBorderViewController.m; sourceTree = "<group>"; };
+		4F0C47092A3F1B530076BF2B /* ViewIsAppearingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewIsAppearingViewController.h; sourceTree = "<group>"; };
+		4F0C470A2A3F1B530076BF2B /* ViewIsAppearingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewIsAppearingViewController.m; sourceTree = "<group>"; };
+		4F0C470C2A3F1BB40076BF2B /* _ViewIsAppearingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = _ViewIsAppearingViewController.h; sourceTree = "<group>"; };
+		4F0C470D2A3F1BB40076BF2B /* _ViewIsAppearingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = _ViewIsAppearingViewController.m; sourceTree = "<group>"; };
+		4F0C47102A3F1F7F0076BF2B /* SearchControllerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchControllerViewController.h; sourceTree = "<group>"; };
+		4F0C47112A3F1F7F0076BF2B /* SearchControllerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchControllerViewController.m; sourceTree = "<group>"; };
+		4F0C47132A3F20BE0076BF2B /* _SearchControllerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = _SearchControllerViewController.h; sourceTree = "<group>"; };
+		4F0C47142A3F20BE0076BF2B /* _SearchControllerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = _SearchControllerViewController.m; sourceTree = "<group>"; };
+		4F0C47372A3F5CBE0076BF2B /* TextSelectionDisplayViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TextSelectionDisplayViewController.h; sourceTree = "<group>"; };
+		4F0C47382A3F5CBE0076BF2B /* TextSelectionDisplayViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TextSelectionDisplayViewController.m; sourceTree = "<group>"; };
 		4F3FFEA32A2EE106001F3BEC /* MiscellaneousUIKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MiscellaneousUIKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F3FFEA62A2EE106001F3BEC /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		4F3FFEA72A2EE106001F3BEC /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -81,6 +102,55 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4F0C47002A3ED93A0076BF2B /* SymbolEffects */ = {
+			isa = PBXGroup;
+			children = (
+				4F0C47012A3ED94D0076BF2B /* SymbolEffectsViewController.h */,
+				4F0C47022A3ED94D0076BF2B /* SymbolEffectsViewController.m */,
+			);
+			path = SymbolEffects;
+			sourceTree = "<group>";
+		};
+		4F0C47042A3F15270076BF2B /* TextViewBorder */ = {
+			isa = PBXGroup;
+			children = (
+				4F0C47052A3F15360076BF2B /* TextViewBorderViewController.h */,
+				4F0C47062A3F15360076BF2B /* TextViewBorderViewController.m */,
+			);
+			path = TextViewBorder;
+			sourceTree = "<group>";
+		};
+		4F0C47082A3F1B440076BF2B /* ViewIsAppearing */ = {
+			isa = PBXGroup;
+			children = (
+				4F0C47092A3F1B530076BF2B /* ViewIsAppearingViewController.h */,
+				4F0C470A2A3F1B530076BF2B /* ViewIsAppearingViewController.m */,
+				4F0C470C2A3F1BB40076BF2B /* _ViewIsAppearingViewController.h */,
+				4F0C470D2A3F1BB40076BF2B /* _ViewIsAppearingViewController.m */,
+			);
+			path = ViewIsAppearing;
+			sourceTree = "<group>";
+		};
+		4F0C470F2A3F1F400076BF2B /* SearchController */ = {
+			isa = PBXGroup;
+			children = (
+				4F0C47102A3F1F7F0076BF2B /* SearchControllerViewController.h */,
+				4F0C47112A3F1F7F0076BF2B /* SearchControllerViewController.m */,
+				4F0C47132A3F20BE0076BF2B /* _SearchControllerViewController.h */,
+				4F0C47142A3F20BE0076BF2B /* _SearchControllerViewController.m */,
+			);
+			path = SearchController;
+			sourceTree = "<group>";
+		};
+		4F0C47162A3F595F0076BF2B /* TextSelectionDisplay */ = {
+			isa = PBXGroup;
+			children = (
+				4F0C47372A3F5CBE0076BF2B /* TextSelectionDisplayViewController.h */,
+				4F0C47382A3F5CBE0076BF2B /* TextSelectionDisplayViewController.m */,
+			);
+			path = TextSelectionDisplay;
+			sourceTree = "<group>";
+		};
 		4F3FFE9A2A2EE106001F3BEC = {
 			isa = PBXGroup;
 			children = (
@@ -117,6 +187,11 @@
 				4FD1D6132A3CB4E500D1510D /* LabelVibrancy */,
 				4FD1D6172A3CBE0D00D1510D /* LefferformAwareAdjusting */,
 				4FD1D61B2A3CC56200D1510D /* HDRImage */,
+				4F0C47002A3ED93A0076BF2B /* SymbolEffects */,
+				4F0C47042A3F15270076BF2B /* TextViewBorder */,
+				4F0C47082A3F1B440076BF2B /* ViewIsAppearing */,
+				4F0C470F2A3F1F400076BF2B /* SearchController */,
+				4F0C47162A3F595F0076BF2B /* TextSelectionDisplay */,
 				4F3FFEB22A2EE107001F3BEC /* Assets.xcassets */,
 				4F3FFEB42A2EE107001F3BEC /* LaunchScreen.storyboard */,
 				4F3FFEB72A2EE107001F3BEC /* Info.plist */,
@@ -276,21 +351,28 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4F0C47072A3F15360076BF2B /* TextViewBorderViewController.m in Sources */,
 				4F3FFEAE2A2EE106001F3BEC /* FeaturesViewController.m in Sources */,
 				4FD1D61A2A3CBE5B00D1510D /* LefferformAwareAdjustingViewController.m in Sources */,
 				4F3FFEC22A2EE35B001F3BEC /* FeaturesViewModel.m in Sources */,
 				4FD1D61E2A3CC57200D1510D /* HDRImageViewController.m in Sources */,
 				4F3FFEC92A2EE7C7001F3BEC /* ContentUnavailableViewController.m in Sources */,
+				4F0C470E2A3F1BB40076BF2B /* _ViewIsAppearingViewController.m in Sources */,
 				4FD1D6162A3CB4FA00D1510D /* LabelVibrancyViewController.m in Sources */,
+				4F0C47152A3F20BE0076BF2B /* _SearchControllerViewController.m in Sources */,
 				4F83914A2A30D9510014137B /* ShapeViewController.m in Sources */,
 				4F3FFEA82A2EE106001F3BEC /* AppDelegate.m in Sources */,
 				4F8391752A30EEAC0014137B /* UniformAcrossSiblingsContentView.m in Sources */,
+				4F0C470B2A3F1B530076BF2B /* ViewIsAppearingViewController.m in Sources */,
+				4F0C47032A3ED94D0076BF2B /* SymbolEffectsViewController.m in Sources */,
 				4F3FFEB92A2EE107001F3BEC /* main.m in Sources */,
 				4F8391722A30EE050014137B /* UniformAcrossSiblingsContentConfiguration.m in Sources */,
 				4F3FFECC2A2F25AA001F3BEC /* UIDevice+Category.m in Sources */,
+				4F0C47392A3F5CBE0076BF2B /* TextSelectionDisplayViewController.m in Sources */,
 				4F3FFEAB2A2EE106001F3BEC /* SceneDelegate.m in Sources */,
 				4F3FFEC52A2EE3CB001F3BEC /* FeaturesItemModel.m in Sources */,
 				4F8391792A30F4E60014137B /* PageControlViewController.m in Sources */,
+				4F0C47122A3F1F7F0076BF2B /* SearchControllerViewController.m in Sources */,
 				4F83916F2A30ED840014137B /* UniformAcrossSiblingsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
