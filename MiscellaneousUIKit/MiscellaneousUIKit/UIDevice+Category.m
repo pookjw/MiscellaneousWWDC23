@@ -21,9 +21,9 @@ static UIUserInterfaceIdiom custom_UIDevice_userInterfaceIdiom(id self, SEL _cmd
 @implementation UIDevice (Category)
 
 + (void)load {
-    Method original = class_getInstanceMethod(self, @selector(userInterfaceIdiom));
-    original_UIDevice_userInterfaceIdiom = (UIUserInterfaceIdiom (*)(id self, SEL _cmd))method_getImplementation(original);
-    method_setImplementation(original, (IMP)custom_UIDevice_userInterfaceIdiom);
+//    Method original = class_getInstanceMethod(self, @selector(userInterfaceIdiom));
+//    original_UIDevice_userInterfaceIdiom = (UIUserInterfaceIdiom (*)(id self, SEL _cmd))method_getImplementation(original);
+//    method_setImplementation(original, (IMP)custom_UIDevice_userInterfaceIdiom);
 }
 
 @end

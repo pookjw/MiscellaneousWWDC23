@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4F0C46D32A3E1A960076BF2B /* kloppenheim_06_4k.hdr in Resources */ = {isa = PBXBuildFile; fileRef = 4F0C46D12A3E17CE0076BF2B /* kloppenheim_06_4k.hdr */; };
+		4F0C46FF2A3ED29C0076BF2B /* image.dng in Resources */ = {isa = PBXBuildFile; fileRef = 4F0C46FE2A3ED29C0076BF2B /* image.dng */; };
 		4F3FFEA82A2EE106001F3BEC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F3FFEA72A2EE106001F3BEC /* AppDelegate.m */; };
 		4F3FFEAB2A2EE106001F3BEC /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F3FFEAA2A2EE106001F3BEC /* SceneDelegate.m */; };
 		4F3FFEAE2A2EE106001F3BEC /* FeaturesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F3FFEAD2A2EE106001F3BEC /* FeaturesViewController.m */; };
@@ -28,6 +30,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4F0C46CF2A3DEF230076BF2B /* MiscellaneousUIKit.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MiscellaneousUIKit.entitlements; sourceTree = "<group>"; };
+		4F0C46D12A3E17CE0076BF2B /* kloppenheim_06_4k.hdr */ = {isa = PBXFileReference; lastKnownFileType = file; path = kloppenheim_06_4k.hdr; sourceTree = "<group>"; };
+		4F0C46FE2A3ED29C0076BF2B /* image.dng */ = {isa = PBXFileReference; lastKnownFileType = file; path = image.dng; sourceTree = "<group>"; };
 		4F3FFEA32A2EE106001F3BEC /* MiscellaneousUIKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MiscellaneousUIKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F3FFEA62A2EE106001F3BEC /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		4F3FFEA72A2EE106001F3BEC /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -95,6 +100,9 @@
 		4F3FFEA52A2EE106001F3BEC /* MiscellaneousUIKit */ = {
 			isa = PBXGroup;
 			children = (
+				4F0C46CF2A3DEF230076BF2B /* MiscellaneousUIKit.entitlements */,
+				4F0C46D12A3E17CE0076BF2B /* kloppenheim_06_4k.hdr */,
+				4F0C46FE2A3ED29C0076BF2B /* image.dng */,
 				4F3FFEA62A2EE106001F3BEC /* AppDelegate.h */,
 				4F3FFEA72A2EE106001F3BEC /* AppDelegate.m */,
 				4F3FFEA92A2EE106001F3BEC /* SceneDelegate.h */,
@@ -256,6 +264,8 @@
 			files = (
 				4F3FFEB62A2EE107001F3BEC /* LaunchScreen.storyboard in Resources */,
 				4F3FFEB32A2EE107001F3BEC /* Assets.xcassets in Resources */,
+				4F0C46D32A3E1A960076BF2B /* kloppenheim_06_4k.hdr in Resources */,
+				4F0C46FF2A3ED29C0076BF2B /* image.dng in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -420,11 +430,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = MiscellaneousUIKit/MiscellaneousUIKit.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = P53D29U9LJ;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MiscellaneousUIKit/Info.plist;
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = Hello;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -436,6 +448,9 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.pookjw.MiscellaneousUIKit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = YES;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -446,11 +461,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = MiscellaneousUIKit/MiscellaneousUIKit.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = P53D29U9LJ;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MiscellaneousUIKit/Info.plist;
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = Hello;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -462,6 +479,9 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.pookjw.MiscellaneousUIKit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = YES;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
