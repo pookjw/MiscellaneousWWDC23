@@ -16,6 +16,7 @@
 		4F0C47122A3F1F7F0076BF2B /* SearchControllerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F0C47112A3F1F7F0076BF2B /* SearchControllerViewController.m */; };
 		4F0C47152A3F20BE0076BF2B /* _SearchControllerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F0C47142A3F20BE0076BF2B /* _SearchControllerViewController.m */; };
 		4F0C47392A3F5CBE0076BF2B /* TextSelectionDisplayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F0C47382A3F5CBE0076BF2B /* TextSelectionDisplayViewController.m */; };
+		4F0C473C2A409AB90076BF2B /* NSObject+Foundation_IvarDescription.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4F0C473A2A409AB90076BF2B /* NSObject+Foundation_IvarDescription.mm */; };
 		4F3FFEA82A2EE106001F3BEC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F3FFEA72A2EE106001F3BEC /* AppDelegate.m */; };
 		4F3FFEAB2A2EE106001F3BEC /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F3FFEAA2A2EE106001F3BEC /* SceneDelegate.m */; };
 		4F3FFEAE2A2EE106001F3BEC /* FeaturesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F3FFEAD2A2EE106001F3BEC /* FeaturesViewController.m */; };
@@ -54,6 +55,8 @@
 		4F0C47142A3F20BE0076BF2B /* _SearchControllerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = _SearchControllerViewController.m; sourceTree = "<group>"; };
 		4F0C47372A3F5CBE0076BF2B /* TextSelectionDisplayViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TextSelectionDisplayViewController.h; sourceTree = "<group>"; };
 		4F0C47382A3F5CBE0076BF2B /* TextSelectionDisplayViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TextSelectionDisplayViewController.m; sourceTree = "<group>"; };
+		4F0C473A2A409AB90076BF2B /* NSObject+Foundation_IvarDescription.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "NSObject+Foundation_IvarDescription.mm"; sourceTree = "<group>"; };
+		4F0C473B2A409AB90076BF2B /* NSObject+Foundation_IvarDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Foundation_IvarDescription.h"; sourceTree = "<group>"; };
 		4F3FFEA32A2EE106001F3BEC /* MiscellaneousUIKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MiscellaneousUIKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F3FFEA62A2EE106001F3BEC /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		4F3FFEA72A2EE106001F3BEC /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -170,6 +173,8 @@
 		4F3FFEA52A2EE106001F3BEC /* MiscellaneousUIKit */ = {
 			isa = PBXGroup;
 			children = (
+				4F0C473B2A409AB90076BF2B /* NSObject+Foundation_IvarDescription.h */,
+				4F0C473A2A409AB90076BF2B /* NSObject+Foundation_IvarDescription.mm */,
 				4F0C46CF2A3DEF230076BF2B /* MiscellaneousUIKit.entitlements */,
 				4F0C46D12A3E17CE0076BF2B /* kloppenheim_06_4k.hdr */,
 				4F0C46FE2A3ED29C0076BF2B /* image.dng */,
@@ -364,6 +369,7 @@
 				4F3FFEA82A2EE106001F3BEC /* AppDelegate.m in Sources */,
 				4F8391752A30EEAC0014137B /* UniformAcrossSiblingsContentView.m in Sources */,
 				4F0C470B2A3F1B530076BF2B /* ViewIsAppearingViewController.m in Sources */,
+				4F0C473C2A409AB90076BF2B /* NSObject+Foundation_IvarDescription.mm in Sources */,
 				4F0C47032A3ED94D0076BF2B /* SymbolEffectsViewController.m in Sources */,
 				4F3FFEB92A2EE107001F3BEC /* main.m in Sources */,
 				4F8391722A30EE050014137B /* UniformAcrossSiblingsContentConfiguration.m in Sources */,
