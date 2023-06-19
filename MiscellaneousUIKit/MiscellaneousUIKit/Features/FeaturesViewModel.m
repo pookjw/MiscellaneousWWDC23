@@ -51,8 +51,9 @@
         FeaturesItemModel *viewIsAppearingItemModel = [[FeaturesItemModel alloc] initWithType:FeaturesItemModelTypeViewIsAppearing];
         FeaturesItemModel *searchControllerItemModel = [[FeaturesItemModel alloc] initWithType:FeaturesItemModelTypeSearchController];
         FeaturesItemModel *textSelectionDisplayItemModel = [[FeaturesItemModel alloc] initWithType:FeaturesItemModelTextSelectionDisplay];
+        FeaturesItemModel *windowSceneDragInteractionItemModel = [[FeaturesItemModel alloc] initWithType:FeaturesItemModelTypeWindowSceneDragInteraction];
         
-        [snapshot appendItemsWithIdentifiers:@[contentUnavilableViewItemModel, shapeItemModel, uniformAcrossSiblingsItemModel, pageControlItemModel, labelVibrancyItemModel, lefferformAwareAdjustingItemModel, hdrImageItemModel, symbolEffectsItemModel, textViewBorderItemModel, viewIsAppearingItemModel, searchControllerItemModel, textSelectionDisplayItemModel] intoSectionWithIdentifier:firstSection];
+        [snapshot appendItemsWithIdentifiers:@[contentUnavilableViewItemModel, shapeItemModel, uniformAcrossSiblingsItemModel, pageControlItemModel, labelVibrancyItemModel, lefferformAwareAdjustingItemModel, hdrImageItemModel, symbolEffectsItemModel, textViewBorderItemModel, viewIsAppearingItemModel, searchControllerItemModel, textSelectionDisplayItemModel, windowSceneDragInteractionItemModel] intoSectionWithIdentifier:firstSection];
         
         [contentUnavilableViewItemModel release];
         [shapeItemModel release];
@@ -66,6 +67,7 @@
         [viewIsAppearingItemModel release];
         [searchControllerItemModel release];
         [textSelectionDisplayItemModel release];
+        [windowSceneDragInteractionItemModel release];
         
         [dataSource applySnapshot:snapshot animatingDifferences:YES completion:completionHandler];
         [snapshot release];

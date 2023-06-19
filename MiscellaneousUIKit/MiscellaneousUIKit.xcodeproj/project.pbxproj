@@ -27,6 +27,7 @@
 		4F3FFEC52A2EE3CB001F3BEC /* FeaturesItemModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F3FFEC42A2EE3CB001F3BEC /* FeaturesItemModel.m */; };
 		4F3FFEC92A2EE7C7001F3BEC /* ContentUnavailableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F3FFEC82A2EE7C7001F3BEC /* ContentUnavailableViewController.m */; };
 		4F3FFECC2A2F25AA001F3BEC /* UIDevice+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F3FFECB2A2F25AA001F3BEC /* UIDevice+Category.m */; };
+		4F40749E2A40BE770046332F /* WindowSceneDragInteractionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F40749D2A40BE770046332F /* WindowSceneDragInteractionViewController.m */; };
 		4F83914A2A30D9510014137B /* ShapeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F8391492A30D9510014137B /* ShapeViewController.m */; };
 		4F83916F2A30ED840014137B /* UniformAcrossSiblingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F83916E2A30ED840014137B /* UniformAcrossSiblingsViewController.m */; };
 		4F8391722A30EE050014137B /* UniformAcrossSiblingsContentConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F8391712A30EE050014137B /* UniformAcrossSiblingsContentConfiguration.m */; };
@@ -76,6 +77,8 @@
 		4F3FFEC82A2EE7C7001F3BEC /* ContentUnavailableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ContentUnavailableViewController.m; sourceTree = "<group>"; };
 		4F3FFECA2A2F25AA001F3BEC /* UIDevice+Category.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIDevice+Category.h"; sourceTree = "<group>"; };
 		4F3FFECB2A2F25AA001F3BEC /* UIDevice+Category.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+Category.m"; sourceTree = "<group>"; };
+		4F40749C2A40BE770046332F /* WindowSceneDragInteractionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WindowSceneDragInteractionViewController.h; sourceTree = "<group>"; };
+		4F40749D2A40BE770046332F /* WindowSceneDragInteractionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WindowSceneDragInteractionViewController.m; sourceTree = "<group>"; };
 		4F8391482A30D9510014137B /* ShapeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShapeViewController.h; sourceTree = "<group>"; };
 		4F8391492A30D9510014137B /* ShapeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShapeViewController.m; sourceTree = "<group>"; };
 		4F83916D2A30ED840014137B /* UniformAcrossSiblingsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UniformAcrossSiblingsViewController.h; sourceTree = "<group>"; };
@@ -197,6 +200,7 @@
 				4F0C47082A3F1B440076BF2B /* ViewIsAppearing */,
 				4F0C470F2A3F1F400076BF2B /* SearchController */,
 				4F0C47162A3F595F0076BF2B /* TextSelectionDisplay */,
+				4F40749A2A40BE600046332F /* WindowSceneDragInteraction */,
 				4F3FFEB22A2EE107001F3BEC /* Assets.xcassets */,
 				4F3FFEB42A2EE107001F3BEC /* LaunchScreen.storyboard */,
 				4F3FFEB72A2EE107001F3BEC /* Info.plist */,
@@ -225,6 +229,15 @@
 				4F3FFEC82A2EE7C7001F3BEC /* ContentUnavailableViewController.m */,
 			);
 			path = ContentUnavailable;
+			sourceTree = "<group>";
+		};
+		4F40749A2A40BE600046332F /* WindowSceneDragInteraction */ = {
+			isa = PBXGroup;
+			children = (
+				4F40749C2A40BE770046332F /* WindowSceneDragInteractionViewController.h */,
+				4F40749D2A40BE770046332F /* WindowSceneDragInteractionViewController.m */,
+			);
+			path = WindowSceneDragInteraction;
 			sourceTree = "<group>";
 		};
 		4F8391472A30D9460014137B /* Shape */ = {
@@ -368,6 +381,7 @@
 				4F83914A2A30D9510014137B /* ShapeViewController.m in Sources */,
 				4F3FFEA82A2EE106001F3BEC /* AppDelegate.m in Sources */,
 				4F8391752A30EEAC0014137B /* UniformAcrossSiblingsContentView.m in Sources */,
+				4F40749E2A40BE770046332F /* WindowSceneDragInteractionViewController.m in Sources */,
 				4F0C470B2A3F1B530076BF2B /* ViewIsAppearingViewController.m in Sources */,
 				4F0C473C2A409AB90076BF2B /* NSObject+Foundation_IvarDescription.mm in Sources */,
 				4F0C47032A3ED94D0076BF2B /* SymbolEffectsViewController.m in Sources */,

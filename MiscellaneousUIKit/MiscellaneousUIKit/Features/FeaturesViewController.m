@@ -19,6 +19,7 @@
 #import "ViewIsAppearingViewController.h"
 #import "SearchControllerViewController.h"
 #import "TextSelectionDisplayViewController.h"
+#import "WindowSceneDragInteractionViewController.h"
 
 @interface FeaturesViewController () <UICollectionViewDelegate>
 @property (retain) UICollectionView *collectionView;
@@ -282,6 +283,20 @@
                 cell.contentConfiguration = contentConfiguration;
                 break;
             }
+            case FeaturesItemModelTypeWindowSceneDragInteraction: {
+                UICellAccessoryOutlineDisclosure *outlineDisclosure = [UICellAccessoryOutlineDisclosure new];
+                
+                cell.accessories = @[
+                    outlineDisclosure
+                ];
+                
+                [outlineDisclosure release];
+                
+                UIListContentConfiguration *contentConfiguration = [UIListContentConfiguration cellConfiguration];
+                contentConfiguration.text = @"UIWindowSceneDragInteraction";
+                cell.contentConfiguration = contentConfiguration;
+                break;
+            }
             default:
                 break;
         }
@@ -383,6 +398,13 @@
                     [viewController release];
                 }];
                 break;
+            }
+            case FeaturesItemModelTypeWindowSceneDragInteraction: {
+                [NSOperationQueue.mainQueue addOperationWithBlock:^{
+                    WindowSceneDragInteractionViewController *viewController = [WindowSceneDragInteractionViewController new];
+                    [self.navigationController pushViewController:viewController animated:YES];
+                    [viewController release];
+                }];
             }
             default:
                 break;
