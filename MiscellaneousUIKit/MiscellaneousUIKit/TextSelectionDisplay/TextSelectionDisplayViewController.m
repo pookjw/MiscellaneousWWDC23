@@ -10,6 +10,21 @@
 #import <objc/runtime.h>
 #import "NSObject+Foundation_IvarDescription.h"
 
+@interface TextSelectionDisplayInteraction : UITextSelectionDisplayInteraction
+@end
+
+@implementation TextSelectionDisplayInteraction
+
+//- (UIView *)_highlightView {
+//    return self.highlightView;
+//}
+//
+//- (UIView *)_underlineView {
+//    return self.highlightView;
+//}
+
+@end
+
 @interface TextSelectionDisplayCursorView : UIView <UITextCursorView>
 @end
 
@@ -91,7 +106,7 @@
 
 - (instancetype)init {
     if (self = [super init]) {
-        
+        self.backgroundColor = [UIColor.purpleColor colorWithAlphaComponent:0.3f];
     }
     
     return self;
@@ -103,51 +118,69 @@
 }
 
 - (void)setSelectionRects:(NSArray<UITextSelectionRect *> *)selectionRects {
-    
+    NSLog(@"%@", selectionRects);
 }
 
 @end
 
 @interface TextSelectionDisplayViewController () <UITextSelectionDisplayInteractionDelegate>
 @property (retain) UITextView *textView;
+@property (retain) TextSelectionDisplayInteraction *interaction;
 @end
 
 @implementation TextSelectionDisplayViewController
 
+// UITextInteractionAssistant
+
 - (void)dealloc {
     [_textView release];
+    [_interaction release];
     [super dealloc];
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+//    NSLog(@"%@", [NSObject _fd__protocolDescriptionForProtocol:NSProtocolFromString(@"UITextSelectionDisplayInteractionDelegate_Internal")]);
     self.view.backgroundColor = UIColor.systemBackgroundColor;
     
     UITextView *textView = [[UITextView alloc] initWithFrame:self.view.bounds];
+    textView.delegate = self;
     textView.translatesAutoresizingMaskIntoConstraints = NO;
     
-    
+    NSMutableArray *toBeRemoved = [NSMutableArray new];
     [textView.interactions enumerateObjectsUsingBlock:^(id<UIInteraction>  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         if ([obj isKindOfClass:UITextSelectionDisplayInteraction.class]) {
-            [textView removeInteraction:obj];
-            *stop = YES;
+            [toBeRemoved addObject:obj];
 //            UITextSelectionDisplayInteraction *interaction = (UITextSelectionDisplayInteraction *)obj;
+            // UITextInteractionAssistant
+//            NSLog(@"%@", [interaction.delegate selectionContainerViewBelowTextForSelectionDisplayInteraction:interaction]);
 //            ((void (*)(id, SEL, BOOL))objc_msgSend)(interaction.cursorView, NSSelectorFromString(@"setGlowEffectEnabled:"), YES);
+        } else if ([obj isKindOfClass:NSClassFromString(@"UITextSelectionInteraction")]) {
+//            [toBeRemoved addObject:obj];
         }
     }];
     
-    UITextSelectionDisplayInteraction *interaction = [[UITextSelectionDisplayInteraction alloc] initWithTextInput:textView delegate:self];
+    [toBeRemoved enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        [textView removeInteraction:obj];
+    }];
+    [toBeRemoved release];
+    
+    id<UITextSelectionDisplayInteractionDelegate> interactionAssistant = ((id (*)(id, SEL))objc_msgSend)(textView, NSSelectorFromString(@"interactionAssistant"));
+    TextSelectionDisplayInteraction *interaction = [[TextSelectionDisplayInteraction alloc] initWithTextInput:textView delegate:interactionAssistant];
     TextSelectionDisplayCursorView *cursorView = [TextSelectionDisplayCursorView new];
     interaction.cursorView = cursorView;
     [cursorView release];
     
     TextSelectionDisplayHighlightView *highlightView = [TextSelectionDisplayHighlightView new];
     interaction.highlightView = highlightView;
+    NSLog(@"%@", [interaction view]);
     [highlightView release];
+    
+    NSLog(@"%@", interaction.handleViews);
     
     [textView addInteraction:interaction];
     
-    interaction.activated = YES;
+    self.interaction = interaction;
     [interaction release];
     
     [self.view addSubview:textView];
@@ -162,8 +195,14 @@
     [textView release];
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [self.textView becomeFirstResponder];
+    self.interaction.activated = YES;
+}
+
 //- (UIView *)selectionContainerViewBelowTextForSelectionDisplayInteraction:(UITextSelectionDisplayInteraction *)interaction {
-//    return self.textView;
+//    return ((UIView * (*)(id, SEL))objc_msgSend)(interaction.textInput, NSSelectorFromString(@"selectionContainerView"));
 //}
 
 @end
