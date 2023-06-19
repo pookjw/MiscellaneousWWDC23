@@ -17,6 +17,8 @@
     [super viewDidLoad];
     self.view.backgroundColor = UIColor.systemPurpleColor;
     self.contentUnavailableConfiguration = [UIContentUnavailableConfiguration loadingConfiguration];
+    
+//    [self setNeedsUpdateContentUnavailableConfiguration];
 }
 
 @end

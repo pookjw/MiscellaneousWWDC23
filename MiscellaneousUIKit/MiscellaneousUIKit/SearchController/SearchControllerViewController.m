@@ -8,7 +8,7 @@
 #import "SearchControllerViewController.h"
 #import "_SearchControllerViewController.h"
 
-@interface SearchControllerViewController ()
+@interface SearchControllerViewController () <UISearchResultsUpdating>
 
 @end
 
@@ -23,6 +23,7 @@
     UISearchController *searchController = [[UISearchController alloc] initWithSearchResultsController:searchResultsController];
     [searchResultsController release];
     searchController.obscuresBackgroundDuringPresentation = YES;
+    searchController.searchResultsUpdater = self;
     
     // ???
     searchController.searchBar.lookToDictateEnabled = YES;
@@ -30,6 +31,15 @@
     
     self.navigationItem.searchController = searchController;
     [searchController release];
+}
+
+- (void)updateSearchResultsForSearchController:(UISearchController *)searchController {
+    [self setNeedsUpdateContentUnavailableConfiguration];
+}
+
+- (void)updateContentUnavailableConfigurationUsingState:(UIContentUnavailableConfigurationState *)state {
+    [super updateContentUnavailableConfigurationUsingState:state];
+    NSLog(@"%@", state.searchText);
 }
 
 @end
