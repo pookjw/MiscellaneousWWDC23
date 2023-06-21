@@ -25,8 +25,13 @@
     self.view.backgroundColor = UIColor.systemBackgroundColor;
     
 //    UIImage *image = [UIImage systemImageNamed:@"square.and.at.rectangle.fill" withConfiguration:nil];
-    UIImage *image = [UIImage systemImageNamed:@"cellularbars" withConfiguration:nil];
-    UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
+    UIImage *cellularbarsImage = [UIImage systemImageNamed:@"cellularbars" withConfiguration:nil];
+    
+    NSArray *_availableLocaleIdentifiers = ((NSArray * (*)(id, SEL))objc_msgSend)(NSLocale.class, NSSelectorFromString(@"_availableLocaleIdentifiers"));
+    NSLog(@"%@", _availableLocaleIdentifiers);
+//    UIImageSymbolConfiguration *configuration = [UIImageSymbolConfiguration configurationWithLocale:[NSLocale loca]]
+//    UIImage *characterImage = [UIImage systemImageNamed:@"character.textbox" withConfiguration:<#(nullable UIImageConfiguration *)#>]
+    UIImageView *imageView = [[UIImageView alloc] initWithImage:cellularbarsImage];
     
 //    CALayer *_rbSymbolLayer = ((CALayer * (*)(id, SEL))objc_msgSend)(imageView, NSSelectorFromString(@"_rbSymbolLayer"));
 //    id animator = ((id (*)(id, SEL))objc_msgSend)(_rbSymbolLayer, NSSelectorFromString(@"animator"));
