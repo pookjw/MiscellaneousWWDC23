@@ -53,7 +53,6 @@
     SymbolButtonConfiguration *configuration = [self.button.configuration copy];
     [configuration.sbc_effects removeAllObjects];
     
-    configuration.image = nil;
     NSSymbolContentTransition *transition = [NSSymbolReplaceContentTransition replaceDownUpTransition];
     NSSymbolEffectOptions *options = [NSSymbolEffectOptions optionsWithNonRepeating];
     

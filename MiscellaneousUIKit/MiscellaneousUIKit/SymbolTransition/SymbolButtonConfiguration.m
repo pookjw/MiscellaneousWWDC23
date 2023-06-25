@@ -139,8 +139,7 @@
     SymbolButtonConfigurationTransition *copy = [self.class new];
     
     [copy->_symbolImage release];
-    // UIImage internally supports NSCopying.
-    copy->_symbolImage = ((UIImage * (*)(UIImage *, SEL, struct _NSZone *))objc_msgSend)(_symbolImage, @selector(copyWithZone:), zone);
+    copy->_symbolImage = [_symbolImage retain];
     
     [copy->_transition release];
     copy->_transition = [_transition copyWithZone:zone];
