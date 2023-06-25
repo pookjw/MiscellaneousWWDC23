@@ -20,6 +20,7 @@
 #import "SearchControllerViewController.h"
 #import "TextSelectionDisplayViewController.h"
 #import "WindowSceneDragInteractionViewController.h"
+#import "SymbolTransitionViewController.h"
 
 @interface FeaturesViewController () <UICollectionViewDelegate>
 @property (retain) UICollectionView *collectionView;
@@ -297,6 +298,20 @@
                 cell.contentConfiguration = contentConfiguration;
                 break;
             }
+            case FeaturesItemModelTypeSymbolTransition: {
+                UICellAccessoryOutlineDisclosure *outlineDisclosure = [UICellAccessoryOutlineDisclosure new];
+                
+                cell.accessories = @[
+                    outlineDisclosure
+                ];
+                
+                [outlineDisclosure release];
+                
+                UIListContentConfiguration *contentConfiguration = [UIListContentConfiguration cellConfiguration];
+                contentConfiguration.text = @"SymbolTransition";
+                cell.contentConfiguration = contentConfiguration;
+                break;
+            }
             default:
                 break;
         }
@@ -405,6 +420,15 @@
                     [self.navigationController pushViewController:viewController animated:YES];
                     [viewController release];
                 }];
+                break;
+            }
+            case FeaturesItemModelTypeSymbolTransition: {
+                [NSOperationQueue.mainQueue addOperationWithBlock:^{
+                    SymbolTransitionViewController *viewController = [SymbolTransitionViewController new];
+                    [self.navigationController pushViewController:viewController animated:YES];
+                    [viewController release];
+                }];
+                break;
             }
             default:
                 break;
