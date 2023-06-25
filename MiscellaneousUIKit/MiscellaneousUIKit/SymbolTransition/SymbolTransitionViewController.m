@@ -15,6 +15,11 @@
 
 @implementation SymbolTransitionViewController
 
+- (void)dealloc {
+    [_button release];
+    [super dealloc];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = UIColor.systemBackgroundColor;
