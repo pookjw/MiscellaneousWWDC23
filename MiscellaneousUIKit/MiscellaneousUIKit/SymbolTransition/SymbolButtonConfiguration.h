@@ -23,7 +23,7 @@ API_AVAILABLE(ios(17.0),tvos(17.0),watchos(10.0))
 @end
 
 API_AVAILABLE(ios(17.0),tvos(17.0),watchos(10.0))
-@interface SymbolButtonConfigurationTransition : NSObject <NSCopying>
+@interface SymbolButtonConfigurationTransition : NSObject <NSCopying, NSSecureCoding>
 + (instancetype)new NS_UNAVAILABLE;
 - (instancetype)init NS_UNAVAILABLE;
 - (instancetype)initWithSymbolImage:(UIImage *)symbolImage transition:(NSSymbolContentTransition *)transition options:(NSSymbolEffectOptions * _Nullable)options completion:(UISymbolEffectCompletion _Nullable)completionHandler;
@@ -38,7 +38,8 @@ API_AVAILABLE(ios(17.0),tvos(17.0),watchos(10.0))
 API_AVAILABLE(ios(17.0),tvos(17.0),watchos(10.0))
 @interface SymbolButtonConfiguration : UIButtonConfiguration
 @property (retain, readonly) NSMutableArray<SymbolButtonConfigurationEffect *> *sbc_effects;
-@property (retain, nullable) SymbolButtonConfigurationTransition *sbc_transition;
+/// nonatomic, but Key-Value Coding Compliant.
+@property (retain, nullable, nonatomic, setter=set_sbc_transition:) SymbolButtonConfigurationTransition *sbc_transition;
 @end
 
 NS_ASSUME_NONNULL_END
