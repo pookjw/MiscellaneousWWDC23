@@ -23,7 +23,9 @@ typedef NS_ENUM(NSUInteger, FeaturesItemModelType) {
     FeaturesItemModelTypeSearchController,
     FeaturesItemModelTextSelectionDisplay,
     FeaturesItemModelTypeWindowSceneDragInteraction,
-    FeaturesItemModelTypeSymbolTransition
+    FeaturesItemModelTypeSymbolTransition,
+    FeaturesItemModelTypeTypesettingLanguage,
+    FeaturesItemModelTypeLocaleImage
 };
 
 @interface FeaturesItemModel : NSObject

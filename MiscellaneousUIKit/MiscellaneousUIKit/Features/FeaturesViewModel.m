@@ -52,9 +52,11 @@
         FeaturesItemModel *searchControllerItemModel = [[FeaturesItemModel alloc] initWithType:FeaturesItemModelTypeSearchController];
         FeaturesItemModel *textSelectionDisplayItemModel = [[FeaturesItemModel alloc] initWithType:FeaturesItemModelTextSelectionDisplay];
         FeaturesItemModel *windowSceneDragInteractionItemModel = [[FeaturesItemModel alloc] initWithType:FeaturesItemModelTypeWindowSceneDragInteraction];
-        FeaturesItemModel *symbolTransition = [[FeaturesItemModel alloc] initWithType:FeaturesItemModelTypeSymbolTransition];
+        FeaturesItemModel *symbolTransitionItemModel = [[FeaturesItemModel alloc] initWithType:FeaturesItemModelTypeSymbolTransition];
+        FeaturesItemModel *typesettingLanguageItemModel = [[FeaturesItemModel alloc] initWithType:FeaturesItemModelTypeTypesettingLanguage];
+        FeaturesItemModel *localeImageItemModel = [[FeaturesItemModel alloc] initWithType:FeaturesItemModelTypeLocaleImage];
         
-        [snapshot appendItemsWithIdentifiers:@[contentUnavilableViewItemModel, shapeItemModel, uniformAcrossSiblingsItemModel, pageControlItemModel, labelVibrancyItemModel, lefferformAwareAdjustingItemModel, hdrImageItemModel, symbolEffectsItemModel, textViewBorderItemModel, viewIsAppearingItemModel, searchControllerItemModel, textSelectionDisplayItemModel, windowSceneDragInteractionItemModel, symbolTransition] intoSectionWithIdentifier:firstSection];
+        [snapshot appendItemsWithIdentifiers:@[contentUnavilableViewItemModel, shapeItemModel, uniformAcrossSiblingsItemModel, pageControlItemModel, labelVibrancyItemModel, lefferformAwareAdjustingItemModel, hdrImageItemModel, symbolEffectsItemModel, textViewBorderItemModel, viewIsAppearingItemModel, searchControllerItemModel, textSelectionDisplayItemModel, windowSceneDragInteractionItemModel, symbolTransitionItemModel, typesettingLanguageItemModel, localeImageItemModel] intoSectionWithIdentifier:firstSection];
         
         [contentUnavilableViewItemModel release];
         [shapeItemModel release];
@@ -69,7 +71,9 @@
         [searchControllerItemModel release];
         [textSelectionDisplayItemModel release];
         [windowSceneDragInteractionItemModel release];
-        [symbolTransition release];
+        [symbolTransitionItemModel release];
+        [typesettingLanguageItemModel release];
+        [localeImageItemModel release];
         
         [dataSource applySnapshot:snapshot animatingDifferences:YES completion:completionHandler];
         [snapshot release];

@@ -17,6 +17,8 @@
 		4F0C47152A3F20BE0076BF2B /* _SearchControllerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F0C47142A3F20BE0076BF2B /* _SearchControllerViewController.m */; };
 		4F0C47392A3F5CBE0076BF2B /* TextSelectionDisplayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F0C47382A3F5CBE0076BF2B /* TextSelectionDisplayViewController.m */; };
 		4F0C473C2A409AB90076BF2B /* NSObject+Foundation_IvarDescription.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4F0C473A2A409AB90076BF2B /* NSObject+Foundation_IvarDescription.mm */; };
+		4F1FB5862A4893ED00ED58C0 /* TypesettingLanguageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F1FB5852A4893ED00ED58C0 /* TypesettingLanguageViewController.m */; };
+		4F1FB58A2A48969200ED58C0 /* LocaleImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F1FB5892A48969200ED58C0 /* LocaleImageViewController.m */; };
 		4F3FFEA82A2EE106001F3BEC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F3FFEA72A2EE106001F3BEC /* AppDelegate.m */; };
 		4F3FFEAB2A2EE106001F3BEC /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F3FFEAA2A2EE106001F3BEC /* SceneDelegate.m */; };
 		4F3FFEAE2A2EE106001F3BEC /* FeaturesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F3FFEAD2A2EE106001F3BEC /* FeaturesViewController.m */; };
@@ -61,6 +63,10 @@
 		4F0C47382A3F5CBE0076BF2B /* TextSelectionDisplayViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TextSelectionDisplayViewController.m; sourceTree = "<group>"; };
 		4F0C473A2A409AB90076BF2B /* NSObject+Foundation_IvarDescription.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "NSObject+Foundation_IvarDescription.mm"; sourceTree = "<group>"; };
 		4F0C473B2A409AB90076BF2B /* NSObject+Foundation_IvarDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Foundation_IvarDescription.h"; sourceTree = "<group>"; };
+		4F1FB5842A4893ED00ED58C0 /* TypesettingLanguageViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TypesettingLanguageViewController.h; sourceTree = "<group>"; };
+		4F1FB5852A4893ED00ED58C0 /* TypesettingLanguageViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TypesettingLanguageViewController.m; sourceTree = "<group>"; };
+		4F1FB5882A48969200ED58C0 /* LocaleImageViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocaleImageViewController.h; sourceTree = "<group>"; };
+		4F1FB5892A48969200ED58C0 /* LocaleImageViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LocaleImageViewController.m; sourceTree = "<group>"; };
 		4F3FFEA32A2EE106001F3BEC /* MiscellaneousUIKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MiscellaneousUIKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F3FFEA62A2EE106001F3BEC /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		4F3FFEA72A2EE106001F3BEC /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -166,6 +172,24 @@
 			path = TextSelectionDisplay;
 			sourceTree = "<group>";
 		};
+		4F1FB5832A4893DC00ED58C0 /* TypesettingLanguage */ = {
+			isa = PBXGroup;
+			children = (
+				4F1FB5842A4893ED00ED58C0 /* TypesettingLanguageViewController.h */,
+				4F1FB5852A4893ED00ED58C0 /* TypesettingLanguageViewController.m */,
+			);
+			path = TypesettingLanguage;
+			sourceTree = "<group>";
+		};
+		4F1FB5872A48968200ED58C0 /* LocaleImage */ = {
+			isa = PBXGroup;
+			children = (
+				4F1FB5882A48969200ED58C0 /* LocaleImageViewController.h */,
+				4F1FB5892A48969200ED58C0 /* LocaleImageViewController.m */,
+			);
+			path = LocaleImage;
+			sourceTree = "<group>";
+		};
 		4F3FFE9A2A2EE106001F3BEC = {
 			isa = PBXGroup;
 			children = (
@@ -211,6 +235,8 @@
 				4F0C47162A3F595F0076BF2B /* TextSelectionDisplay */,
 				4F40749A2A40BE600046332F /* WindowSceneDragInteraction */,
 				4FB5AABA2A447C6900D943E4 /* SymbolTransition */,
+				4F1FB5832A4893DC00ED58C0 /* TypesettingLanguage */,
+				4F1FB5872A48968200ED58C0 /* LocaleImage */,
 				4F3FFEB22A2EE107001F3BEC /* Assets.xcassets */,
 				4F3FFEB42A2EE107001F3BEC /* LaunchScreen.storyboard */,
 				4F3FFEB72A2EE107001F3BEC /* Info.plist */,
@@ -392,6 +418,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4F1FB58A2A48969200ED58C0 /* LocaleImageViewController.m in Sources */,
 				4F0C47072A3F15360076BF2B /* TextViewBorderViewController.m in Sources */,
 				4F3FFEAE2A2EE106001F3BEC /* FeaturesViewController.m in Sources */,
 				4FD1D61A2A3CBE5B00D1510D /* LefferformAwareAdjustingViewController.m in Sources */,
@@ -420,6 +447,7 @@
 				4F8391792A30F4E60014137B /* PageControlViewController.m in Sources */,
 				4F0C47122A3F1F7F0076BF2B /* SearchControllerViewController.m in Sources */,
 				4F83916F2A30ED840014137B /* UniformAcrossSiblingsViewController.m in Sources */,
+				4F1FB5862A4893ED00ED58C0 /* TypesettingLanguageViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -21,6 +21,8 @@
 #import "TextSelectionDisplayViewController.h"
 #import "WindowSceneDragInteractionViewController.h"
 #import "SymbolTransitionViewController.h"
+#import "TypesettingLanguageViewController.h"
+#import "LocaleImageViewController.h"
 
 @interface FeaturesViewController () <UICollectionViewDelegate>
 @property (retain) UICollectionView *collectionView;
@@ -312,6 +314,34 @@
                 cell.contentConfiguration = contentConfiguration;
                 break;
             }
+            case FeaturesItemModelTypeTypesettingLanguage: {
+                UICellAccessoryOutlineDisclosure *outlineDisclosure = [UICellAccessoryOutlineDisclosure new];
+                
+                cell.accessories = @[
+                    outlineDisclosure
+                ];
+                
+                [outlineDisclosure release];
+                
+                UIListContentConfiguration *contentConfiguration = [UIListContentConfiguration cellConfiguration];
+                contentConfiguration.text = @"TypesettingLanguage";
+                cell.contentConfiguration = contentConfiguration;
+                break;
+            }
+            case FeaturesItemModelTypeLocaleImage: {
+                UICellAccessoryOutlineDisclosure *outlineDisclosure = [UICellAccessoryOutlineDisclosure new];
+                
+                cell.accessories = @[
+                    outlineDisclosure
+                ];
+                
+                [outlineDisclosure release];
+                
+                UIListContentConfiguration *contentConfiguration = [UIListContentConfiguration cellConfiguration];
+                contentConfiguration.text = @"LocaleImage";
+                cell.contentConfiguration = contentConfiguration;
+                break;
+            }
             default:
                 break;
         }
@@ -425,6 +455,22 @@
             case FeaturesItemModelTypeSymbolTransition: {
                 [NSOperationQueue.mainQueue addOperationWithBlock:^{
                     SymbolTransitionViewController *viewController = [SymbolTransitionViewController new];
+                    [self.navigationController pushViewController:viewController animated:YES];
+                    [viewController release];
+                }];
+                break;
+            }
+            case FeaturesItemModelTypeTypesettingLanguage: {
+                [NSOperationQueue.mainQueue addOperationWithBlock:^{
+                    TypesettingLanguageViewController *viewController = [TypesettingLanguageViewController new];
+                    [self.navigationController pushViewController:viewController animated:YES];
+                    [viewController release];
+                }];
+                break;
+            }
+            case FeaturesItemModelTypeLocaleImage: {
+                [NSOperationQueue.mainQueue addOperationWithBlock:^{
+                    LocaleImageViewController *viewController = [LocaleImageViewController new];
                     [self.navigationController pushViewController:viewController animated:YES];
                     [viewController release];
                 }];
