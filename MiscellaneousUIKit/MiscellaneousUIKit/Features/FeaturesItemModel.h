@@ -25,7 +25,8 @@ typedef NS_ENUM(NSUInteger, FeaturesItemModelType) {
     FeaturesItemModelTypeWindowSceneDragInteraction,
     FeaturesItemModelTypeSymbolTransition,
     FeaturesItemModelTypeTypesettingLanguage,
-    FeaturesItemModelTypeLocaleImage
+    FeaturesItemModelTypeLocaleImage,
+    FeaturesItemModelTypeDocument
 };
 
 @interface FeaturesItemModel : NSObject

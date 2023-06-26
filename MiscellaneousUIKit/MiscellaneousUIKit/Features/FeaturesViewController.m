@@ -23,6 +23,7 @@
 #import "SymbolTransitionViewController.h"
 #import "TypesettingLanguageViewController.h"
 #import "LocaleImageViewController.h"
+#import "DocumentViewController.h"
 
 @interface FeaturesViewController () <UICollectionViewDelegate>
 @property (retain) UICollectionView *collectionView;
@@ -342,6 +343,20 @@
                 cell.contentConfiguration = contentConfiguration;
                 break;
             }
+            case FeaturesItemModelTypeDocument: {
+                UICellAccessoryOutlineDisclosure *outlineDisclosure = [UICellAccessoryOutlineDisclosure new];
+                
+                cell.accessories = @[
+                    outlineDisclosure
+                ];
+                
+                [outlineDisclosure release];
+                
+                UIListContentConfiguration *contentConfiguration = [UIListContentConfiguration cellConfiguration];
+                contentConfiguration.text = @"Document";
+                cell.contentConfiguration = contentConfiguration;
+                break;
+            }
             default:
                 break;
         }
@@ -471,6 +486,14 @@
             case FeaturesItemModelTypeLocaleImage: {
                 [NSOperationQueue.mainQueue addOperationWithBlock:^{
                     LocaleImageViewController *viewController = [LocaleImageViewController new];
+                    [self.navigationController pushViewController:viewController animated:YES];
+                    [viewController release];
+                }];
+                break;
+            }
+            case FeaturesItemModelTypeDocument: {
+                [NSOperationQueue.mainQueue addOperationWithBlock:^{
+                    DocumentViewController *viewController = [DocumentViewController new];
                     [self.navigationController pushViewController:viewController animated:YES];
                     [viewController release];
                 }];

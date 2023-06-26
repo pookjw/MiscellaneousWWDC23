@@ -55,8 +55,9 @@
         FeaturesItemModel *symbolTransitionItemModel = [[FeaturesItemModel alloc] initWithType:FeaturesItemModelTypeSymbolTransition];
         FeaturesItemModel *typesettingLanguageItemModel = [[FeaturesItemModel alloc] initWithType:FeaturesItemModelTypeTypesettingLanguage];
         FeaturesItemModel *localeImageItemModel = [[FeaturesItemModel alloc] initWithType:FeaturesItemModelTypeLocaleImage];
+        FeaturesItemModel *documentItemModel = [[FeaturesItemModel alloc] initWithType:FeaturesItemModelTypeDocument];
         
-        [snapshot appendItemsWithIdentifiers:@[contentUnavilableViewItemModel, shapeItemModel, uniformAcrossSiblingsItemModel, pageControlItemModel, labelVibrancyItemModel, lefferformAwareAdjustingItemModel, hdrImageItemModel, symbolEffectsItemModel, textViewBorderItemModel, viewIsAppearingItemModel, searchControllerItemModel, textSelectionDisplayItemModel, windowSceneDragInteractionItemModel, symbolTransitionItemModel, typesettingLanguageItemModel, localeImageItemModel] intoSectionWithIdentifier:firstSection];
+        [snapshot appendItemsWithIdentifiers:@[contentUnavilableViewItemModel, shapeItemModel, uniformAcrossSiblingsItemModel, pageControlItemModel, labelVibrancyItemModel, lefferformAwareAdjustingItemModel, hdrImageItemModel, symbolEffectsItemModel, textViewBorderItemModel, viewIsAppearingItemModel, searchControllerItemModel, textSelectionDisplayItemModel, windowSceneDragInteractionItemModel, symbolTransitionItemModel, typesettingLanguageItemModel, localeImageItemModel, documentItemModel] intoSectionWithIdentifier:firstSection];
         
         [contentUnavilableViewItemModel release];
         [shapeItemModel release];
@@ -74,6 +75,7 @@
         [symbolTransitionItemModel release];
         [typesettingLanguageItemModel release];
         [localeImageItemModel release];
+        [documentItemModel release];
         
         [dataSource applySnapshot:snapshot animatingDifferences:YES completion:completionHandler];
         [snapshot release];
