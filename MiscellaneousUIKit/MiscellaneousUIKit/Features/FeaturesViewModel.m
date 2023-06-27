@@ -56,8 +56,9 @@
         FeaturesItemModel *typesettingLanguageItemModel = [[FeaturesItemModel alloc] initWithType:FeaturesItemModelTypeTypesettingLanguage];
         FeaturesItemModel *localeImageItemModel = [[FeaturesItemModel alloc] initWithType:FeaturesItemModelTypeLocaleImage];
         FeaturesItemModel *documentItemModel = [[FeaturesItemModel alloc] initWithType:FeaturesItemModelTypeDocument];
+        FeaturesItemModel *springDurationItemModel = [[FeaturesItemModel alloc] initWithType:FeaturesItemModelTypeSpringDuration];
         
-        [snapshot appendItemsWithIdentifiers:@[contentUnavilableViewItemModel, shapeItemModel, uniformAcrossSiblingsItemModel, pageControlItemModel, labelVibrancyItemModel, lefferformAwareAdjustingItemModel, hdrImageItemModel, symbolEffectsItemModel, textViewBorderItemModel, viewIsAppearingItemModel, searchControllerItemModel, textSelectionDisplayItemModel, windowSceneDragInteractionItemModel, symbolTransitionItemModel, typesettingLanguageItemModel, localeImageItemModel, documentItemModel] intoSectionWithIdentifier:firstSection];
+        [snapshot appendItemsWithIdentifiers:@[contentUnavilableViewItemModel, shapeItemModel, uniformAcrossSiblingsItemModel, pageControlItemModel, labelVibrancyItemModel, lefferformAwareAdjustingItemModel, hdrImageItemModel, symbolEffectsItemModel, textViewBorderItemModel, viewIsAppearingItemModel, searchControllerItemModel, textSelectionDisplayItemModel, windowSceneDragInteractionItemModel, symbolTransitionItemModel, typesettingLanguageItemModel, localeImageItemModel, documentItemModel, springDurationItemModel] intoSectionWithIdentifier:firstSection];
         
         [contentUnavilableViewItemModel release];
         [shapeItemModel release];
@@ -76,6 +77,7 @@
         [typesettingLanguageItemModel release];
         [localeImageItemModel release];
         [documentItemModel release];
+        [springDurationItemModel release];
         
         [dataSource applySnapshot:snapshot animatingDifferences:YES completion:completionHandler];
         [snapshot release];

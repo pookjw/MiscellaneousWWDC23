@@ -23,7 +23,8 @@
 #import "SymbolTransitionViewController.h"
 #import "TypesettingLanguageViewController.h"
 #import "LocaleImageViewController.h"
-#import "DocumentViewController.h"
+#import "DocumentRootViewController.h"
+#import "SpringDurationViewController.h"
 
 @interface FeaturesViewController () <UICollectionViewDelegate>
 @property (retain) UICollectionView *collectionView;
@@ -357,6 +358,20 @@
                 cell.contentConfiguration = contentConfiguration;
                 break;
             }
+            case FeaturesItemModelTypeSpringDuration: {
+                UICellAccessoryOutlineDisclosure *outlineDisclosure = [UICellAccessoryOutlineDisclosure new];
+                
+                cell.accessories = @[
+                    outlineDisclosure
+                ];
+                
+                [outlineDisclosure release];
+                
+                UIListContentConfiguration *contentConfiguration = [UIListContentConfiguration cellConfiguration];
+                contentConfiguration.text = @"SpringDuration";
+                cell.contentConfiguration = contentConfiguration;
+                break;
+            }
             default:
                 break;
         }
@@ -493,7 +508,15 @@
             }
             case FeaturesItemModelTypeDocument: {
                 [NSOperationQueue.mainQueue addOperationWithBlock:^{
-                    DocumentViewController *viewController = [DocumentViewController new];
+                    DocumentRootViewController *viewController = [DocumentRootViewController new];
+                    [self.navigationController pushViewController:viewController animated:YES];
+                    [viewController release];
+                }];
+                break;
+            }
+            case FeaturesItemModelTypeSpringDuration: {
+                [NSOperationQueue.mainQueue addOperationWithBlock:^{
+                    SpringDurationViewController *viewController = [SpringDurationViewController new];
                     [self.navigationController pushViewController:viewController animated:YES];
                     [viewController release];
                 }];

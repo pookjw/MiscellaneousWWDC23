@@ -6,6 +6,8 @@
 //
 
 #import "TextDocumentBrowserViewController.h"
+#import "DocumentViewController.h"
+#import "Document.h"
 #import <UniformTypeIdentifiers/UniformTypeIdentifiers.h>
 
 @interface TextDocumentBrowserViewController () <UIDocumentBrowserViewControllerDelegate>
@@ -26,10 +28,6 @@
     return self;
 }
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-}
-
 - (void)documentBrowser:(UIDocumentBrowserViewController *)controller didRequestDocumentCreationWithHandler:(void (^)(NSURL * _Nullable, UIDocumentBrowserImportMode))importHandler {
     NSFileManager *fileManager = NSFileManager.defaultManager;
     NSURL *temporaryURL = fileManager.temporaryDirectory;
@@ -41,24 +39,32 @@
         NSAssert((error == nil), error.localizedDescription);
     }
     
-    [fileManager createFileAtPath:demoFileURL.path contents:nil attributes:@{}];
+    NSString *text = @"Hello World!";
+    [fileManager createFileAtPath:demoFileURL.path contents:[text dataUsingEncoding:NSUTF8StringEncoding] attributes:@{}];
     
     importHandler(demoFileURL, UIDocumentBrowserImportModeMove);
 }
 
-- (void)documentBrowser:(UIDocumentBrowserViewController *)controller didPickDocumentURLs:(NSArray<NSURL *> *)documentURLs {
-    NSLog(@"TODO");
-}
-
-- (void)documentBrowser:(UIDocumentBrowserViewController *)controller didImportDocumentAtURL:(NSURL *)sourceURL toDestinationURL:(NSURL *)destinationURL {
-    NSLog(@"%@ %@", sourceURL, destinationURL);
-    UIDocument *document = [[UIDocument alloc] initWithFileURL:destinationURL];
-    
+- (void)documentBrowser:(UIDocumentBrowserViewController *)controller didPickDocumentsAtURLs:(NSArray<NSURL *> *)documentURLs {
+    NSURL *documentURL = documentURLs.firstObject;
+    NSAssert(documentURL, @"");
+    Document *document = [[Document alloc] initWithFileURL:documentURL];
+    DocumentViewController *documentViewController = [[DocumentViewController alloc] initWithDocument:document];
     [document release];
+    [self.navigationController pushViewController:documentViewController animated:YES];
+    [documentViewController release];
 }
 
 - (void)documentBrowser:(UIDocumentBrowserViewController *)controller failedToImportDocumentAtURL:(NSURL *)documentURL error:(NSError *)error {
     assert(error);
+}
+
+- (void)documentBrowser:(UIDocumentBrowserViewController *)controller willPresentActivityViewController:(UIActivityViewController *)activityViewController {
+    
+}
+
+- (NSArray<__kindof UIActivity *> *)documentBrowser:(UIDocumentBrowserViewController *)controller applicationActivitiesForDocumentURLs:(NSArray<NSURL *> *)documentURLs {
+    return @[];
 }
 
 @end
