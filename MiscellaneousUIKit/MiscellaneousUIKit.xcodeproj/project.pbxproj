@@ -36,6 +36,7 @@
 		4F8391752A30EEAC0014137B /* UniformAcrossSiblingsContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F8391742A30EEAC0014137B /* UniformAcrossSiblingsContentView.m */; };
 		4F8391792A30F4E60014137B /* PageControlViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F8391782A30F4E60014137B /* PageControlViewController.m */; };
 		4FB5AABD2A447C7F00D943E4 /* SymbolTransitionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FB5AABC2A447C7F00D943E4 /* SymbolTransitionViewController.m */; };
+		4FC06CAF2A4C7624005C3405 /* UIViewController+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FC06CAE2A4C7624005C3405 /* UIViewController+Category.m */; };
 		4FD1D6162A3CB4FA00D1510D /* LabelVibrancyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FD1D6152A3CB4FA00D1510D /* LabelVibrancyViewController.m */; };
 		4FD1D61A2A3CBE5B00D1510D /* LefferformAwareAdjustingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FD1D6192A3CBE5B00D1510D /* LefferformAwareAdjustingViewController.m */; };
 		4FD1D61E2A3CC57200D1510D /* HDRImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FD1D61D2A3CC57200D1510D /* HDRImageViewController.m */; };
@@ -105,6 +106,8 @@
 		4F8391782A30F4E60014137B /* PageControlViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PageControlViewController.m; sourceTree = "<group>"; };
 		4FB5AABB2A447C7F00D943E4 /* SymbolTransitionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SymbolTransitionViewController.h; sourceTree = "<group>"; };
 		4FB5AABC2A447C7F00D943E4 /* SymbolTransitionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SymbolTransitionViewController.m; sourceTree = "<group>"; };
+		4FC06CAD2A4C7624005C3405 /* UIViewController+Category.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Category.h"; sourceTree = "<group>"; };
+		4FC06CAE2A4C7624005C3405 /* UIViewController+Category.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Category.m"; sourceTree = "<group>"; };
 		4FD1D6142A3CB4FA00D1510D /* LabelVibrancyViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LabelVibrancyViewController.h; sourceTree = "<group>"; };
 		4FD1D6152A3CB4FA00D1510D /* LabelVibrancyViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LabelVibrancyViewController.m; sourceTree = "<group>"; };
 		4FD1D6182A3CBE5B00D1510D /* LefferformAwareAdjustingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LefferformAwareAdjustingViewController.h; sourceTree = "<group>"; };
@@ -236,6 +239,8 @@
 				4F3FFEAA2A2EE106001F3BEC /* SceneDelegate.m */,
 				4F3FFECA2A2F25AA001F3BEC /* UIDevice+Category.h */,
 				4F3FFECB2A2F25AA001F3BEC /* UIDevice+Category.m */,
+				4FC06CAD2A4C7624005C3405 /* UIViewController+Category.h */,
+				4FC06CAE2A4C7624005C3405 /* UIViewController+Category.m */,
 				4F3FFEBF2A2EE344001F3BEC /* Features */,
 				4F3FFEC62A2EE7B5001F3BEC /* ContentUnavailable */,
 				4F8391472A30D9460014137B /* Shape */,
@@ -466,6 +471,7 @@
 				4F0C47072A3F15360076BF2B /* TextViewBorderViewController.m in Sources */,
 				4F3FFEAE2A2EE106001F3BEC /* FeaturesViewController.m in Sources */,
 				4FD1D61A2A3CBE5B00D1510D /* LefferformAwareAdjustingViewController.m in Sources */,
+				4FC06CAF2A4C7624005C3405 /* UIViewController+Category.m in Sources */,
 				4F3FFEC22A2EE35B001F3BEC /* FeaturesViewModel.m in Sources */,
 				4FD57CEF2A4846030018DBA9 /* SymbolButtonConfiguration.m in Sources */,
 				4FE4C77D2A4B3876003A4483 /* Document.m in Sources */,
