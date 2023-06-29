@@ -9,6 +9,7 @@
 #import "FeaturesViewController.h"
 #import "UIViewController+Category.h"
 #import <WebKit/WebKit.h>
+#import <UniformTypeIdentifiers/UniformTypeIdentifiers.h>
 
 @interface SceneDelegate ()
 @end
@@ -47,11 +48,12 @@
         UIViewController *webViewController = [UIViewController new];
         WKWebView *webView = [WKWebView new];
         
-//        NSDictionary *dictionary = [NSDictionary d]
-        NSLog(@"%@", obj.options.annotation);
-        NSString *path = [[NSString alloc] initWithContentsOfURL:obj.URL encoding:NSUTF8StringEncoding error:nil];
+        NSError * _Nullable error = nil;
+        NSArray *array = [NSArray arrayWithContentsOfURL:obj.URL];
+        NSAssert((error == nil), error.localizedDescription);
+        
+        NSString *path = array.firstObject;
         NSURL *url = [[NSURL alloc] initWithString:path];
-        [path release];
         NSURLRequest *request = [[NSURLRequest alloc] initWithURL:url];
         [url release];
         [webView loadRequest:request];
