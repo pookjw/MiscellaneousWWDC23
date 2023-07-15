@@ -16,7 +16,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = UIColor.systemPurpleColor;
+    self.view.backgroundColor = UIColor.systemOrangeColor;
     
     UIWindowSceneDragInteraction *interaction = [UIWindowSceneDragInteraction new];
     [self.view addInteraction:interaction];

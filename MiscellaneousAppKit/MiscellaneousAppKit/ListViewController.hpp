@@ -9,6 +9,9 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+static NSNotificationName const NSNotificationNameListViewControllerDidSelectClass = @"NSNotificationNameListViewControllerDidSelectClass";
+static NSString * const ListViewControllerDidSelectClassKey = @"ListViewControllerDidSelectClassKey";
+
 @interface ListViewController : NSViewController
 
 @end

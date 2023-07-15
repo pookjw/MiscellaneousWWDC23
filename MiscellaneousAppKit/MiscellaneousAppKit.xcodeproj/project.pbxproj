@@ -17,6 +17,16 @@
 		4F4381972A6162D800CCDA0A /* EmptyViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4F4381962A6162D800CCDA0A /* EmptyViewController.mm */; };
 		4F43819A2A6163DB00CCDA0A /* InspectorViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4F4381992A6163DB00CCDA0A /* InspectorViewController.mm */; };
 		4F43819D2A6169BC00CCDA0A /* RootSplitView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4F43819C2A6169BC00CCDA0A /* RootSplitView.mm */; };
+		4F4381A12A6178F900CCDA0A /* NSApplicationViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4F4381A02A6178F900CCDA0A /* NSApplicationViewController.mm */; };
+		4F4381A42A617AB200CCDA0A /* ListTableCellView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4F4381A32A617AB200CCDA0A /* ListTableCellView.mm */; };
+		4F4381A62A617ABD00CCDA0A /* ListTableCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F4381A52A617ABD00CCDA0A /* ListTableCellView.xib */; };
+		4F4381A82A61854200CCDA0A /* Symbols.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F4381A72A61854200CCDA0A /* Symbols.framework */; };
+		4FCAA8252A6270E400CA29CB /* DisplayLinkViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4FCAA8242A6270E400CA29CB /* DisplayLinkViewController.mm */; };
+		4FCAA8292A6272AA00CA29CB /* TextViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4FCAA8282A6272AA00CA29CB /* TextViewController.mm */; };
+		4FCAA82D2A627BAA00CA29CB /* ButtonsViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4FCAA82C2A627BAA00CA29CB /* ButtonsViewController.mm */; };
+		4FCAA8312A62876300CA29CB /* ColorWellViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4FCAA8302A62876300CA29CB /* ColorWellViewController.mm */; };
+		4FCAA8352A62CADC00CA29CB /* ProcessIndicatorViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4FCAA8342A62CADC00CA29CB /* ProcessIndicatorViewController.mm */; };
+		4FCAA8392A63024100CA29CB /* PresentViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4FCAA8382A63024100CA29CB /* PresentViewController.mm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +49,24 @@
 		4F4381992A6163DB00CCDA0A /* InspectorViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = InspectorViewController.mm; sourceTree = "<group>"; };
 		4F43819B2A6169BC00CCDA0A /* RootSplitView.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = RootSplitView.hpp; sourceTree = "<group>"; };
 		4F43819C2A6169BC00CCDA0A /* RootSplitView.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = RootSplitView.mm; sourceTree = "<group>"; };
+		4F43819F2A6178F900CCDA0A /* NSApplicationViewController.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = NSApplicationViewController.hpp; sourceTree = "<group>"; };
+		4F4381A02A6178F900CCDA0A /* NSApplicationViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = NSApplicationViewController.mm; sourceTree = "<group>"; };
+		4F4381A22A617AB200CCDA0A /* ListTableCellView.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ListTableCellView.hpp; sourceTree = "<group>"; };
+		4F4381A32A617AB200CCDA0A /* ListTableCellView.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ListTableCellView.mm; sourceTree = "<group>"; };
+		4F4381A52A617ABD00CCDA0A /* ListTableCellView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListTableCellView.xib; sourceTree = "<group>"; };
+		4F4381A72A61854200CCDA0A /* Symbols.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Symbols.framework; path = System/Library/Frameworks/Symbols.framework; sourceTree = SDKROOT; };
+		4FCAA8232A6270E400CA29CB /* DisplayLinkViewController.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = DisplayLinkViewController.hpp; sourceTree = "<group>"; };
+		4FCAA8242A6270E400CA29CB /* DisplayLinkViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = DisplayLinkViewController.mm; sourceTree = "<group>"; };
+		4FCAA8272A6272AA00CA29CB /* TextViewController.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = TextViewController.hpp; sourceTree = "<group>"; };
+		4FCAA8282A6272AA00CA29CB /* TextViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = TextViewController.mm; sourceTree = "<group>"; };
+		4FCAA82B2A627BAA00CA29CB /* ButtonsViewController.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ButtonsViewController.hpp; sourceTree = "<group>"; };
+		4FCAA82C2A627BAA00CA29CB /* ButtonsViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ButtonsViewController.mm; sourceTree = "<group>"; };
+		4FCAA82F2A62876300CA29CB /* ColorWellViewController.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ColorWellViewController.hpp; sourceTree = "<group>"; };
+		4FCAA8302A62876300CA29CB /* ColorWellViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ColorWellViewController.mm; sourceTree = "<group>"; };
+		4FCAA8332A62CADC00CA29CB /* ProcessIndicatorViewController.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ProcessIndicatorViewController.hpp; sourceTree = "<group>"; };
+		4FCAA8342A62CADC00CA29CB /* ProcessIndicatorViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ProcessIndicatorViewController.mm; sourceTree = "<group>"; };
+		4FCAA8372A63024100CA29CB /* PresentViewController.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = PresentViewController.hpp; sourceTree = "<group>"; };
+		4FCAA8382A63024100CA29CB /* PresentViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = PresentViewController.mm; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,6 +74,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4F4381A82A61854200CCDA0A /* Symbols.framework in Frameworks */,
 				4F43818E2A615C9900CCDA0A /* AppKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -81,10 +110,14 @@
 				4F43819C2A6169BC00CCDA0A /* RootSplitView.mm */,
 				4F4381922A6161E200CCDA0A /* ListViewController.hpp */,
 				4F4381932A6161E200CCDA0A /* ListViewController.mm */,
+				4F4381A22A617AB200CCDA0A /* ListTableCellView.hpp */,
+				4F4381A32A617AB200CCDA0A /* ListTableCellView.mm */,
+				4F4381A52A617ABD00CCDA0A /* ListTableCellView.xib */,
 				4F4381952A6162D800CCDA0A /* EmptyViewController.hpp */,
 				4F4381962A6162D800CCDA0A /* EmptyViewController.mm */,
 				4F4381982A6163DB00CCDA0A /* InspectorViewController.hpp */,
 				4F4381992A6163DB00CCDA0A /* InspectorViewController.mm */,
+				4F43819E2A6178DB00CCDA0A /* Contents */,
 				4F43817F2A615C7300CCDA0A /* Assets.xcassets */,
 				4F4381902A61616300CCDA0A /* NSObject+Foundation_IvarDescription.h */,
 				4F43818F2A61616300CCDA0A /* NSObject+Foundation_IvarDescription.mm */,
@@ -97,9 +130,87 @@
 		4F43818C2A615C9900CCDA0A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4F4381A72A61854200CCDA0A /* Symbols.framework */,
 				4F43818D2A615C9900CCDA0A /* AppKit.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4F43819E2A6178DB00CCDA0A /* Contents */ = {
+			isa = PBXGroup;
+			children = (
+				4FCAA8212A6270CB00CA29CB /* NSApplication */,
+				4FCAA8222A6270CF00CA29CB /* DisplayLink */,
+				4FCAA8262A62726700CA29CB /* TextView */,
+				4FCAA82A2A627B8D00CA29CB /* Buttons */,
+				4FCAA82E2A62874E00CA29CB /* ColorWell */,
+				4FCAA8322A62C9B000CA29CB /* ProcessIndicator */,
+				4FCAA8362A63022B00CA29CB /* Present */,
+			);
+			path = Contents;
+			sourceTree = "<group>";
+		};
+		4FCAA8212A6270CB00CA29CB /* NSApplication */ = {
+			isa = PBXGroup;
+			children = (
+				4F43819F2A6178F900CCDA0A /* NSApplicationViewController.hpp */,
+				4F4381A02A6178F900CCDA0A /* NSApplicationViewController.mm */,
+			);
+			path = NSApplication;
+			sourceTree = "<group>";
+		};
+		4FCAA8222A6270CF00CA29CB /* DisplayLink */ = {
+			isa = PBXGroup;
+			children = (
+				4FCAA8232A6270E400CA29CB /* DisplayLinkViewController.hpp */,
+				4FCAA8242A6270E400CA29CB /* DisplayLinkViewController.mm */,
+			);
+			path = DisplayLink;
+			sourceTree = "<group>";
+		};
+		4FCAA8262A62726700CA29CB /* TextView */ = {
+			isa = PBXGroup;
+			children = (
+				4FCAA8272A6272AA00CA29CB /* TextViewController.hpp */,
+				4FCAA8282A6272AA00CA29CB /* TextViewController.mm */,
+			);
+			path = TextView;
+			sourceTree = "<group>";
+		};
+		4FCAA82A2A627B8D00CA29CB /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				4FCAA82B2A627BAA00CA29CB /* ButtonsViewController.hpp */,
+				4FCAA82C2A627BAA00CA29CB /* ButtonsViewController.mm */,
+			);
+			path = Buttons;
+			sourceTree = "<group>";
+		};
+		4FCAA82E2A62874E00CA29CB /* ColorWell */ = {
+			isa = PBXGroup;
+			children = (
+				4FCAA82F2A62876300CA29CB /* ColorWellViewController.hpp */,
+				4FCAA8302A62876300CA29CB /* ColorWellViewController.mm */,
+			);
+			path = ColorWell;
+			sourceTree = "<group>";
+		};
+		4FCAA8322A62C9B000CA29CB /* ProcessIndicator */ = {
+			isa = PBXGroup;
+			children = (
+				4FCAA8332A62CADC00CA29CB /* ProcessIndicatorViewController.hpp */,
+				4FCAA8342A62CADC00CA29CB /* ProcessIndicatorViewController.mm */,
+			);
+			path = ProcessIndicator;
+			sourceTree = "<group>";
+		};
+		4FCAA8362A63022B00CA29CB /* Present */ = {
+			isa = PBXGroup;
+			children = (
+				4FCAA8372A63024100CA29CB /* PresentViewController.hpp */,
+				4FCAA8382A63024100CA29CB /* PresentViewController.mm */,
+			);
+			path = Present;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -160,6 +271,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4F4381802A615C7300CCDA0A /* Assets.xcassets in Resources */,
+				4F4381A62A617ABD00CCDA0A /* ListTableCellView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -171,10 +283,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				4F4381942A6161E200CCDA0A /* ListViewController.mm in Sources */,
+				4F4381A42A617AB200CCDA0A /* ListTableCellView.mm in Sources */,
+				4FCAA8392A63024100CA29CB /* PresentViewController.mm in Sources */,
+				4FCAA8352A62CADC00CA29CB /* ProcessIndicatorViewController.mm in Sources */,
+				4FCAA8252A6270E400CA29CB /* DisplayLinkViewController.mm in Sources */,
+				4FCAA8292A6272AA00CA29CB /* TextViewController.mm in Sources */,
 				4F43817E2A615C7000CCDA0A /* RootViewController.mm in Sources */,
 				4F4381912A61616300CCDA0A /* NSObject+Foundation_IvarDescription.mm in Sources */,
 				4F4381852A615C7300CCDA0A /* main.mm in Sources */,
 				4F4381972A6162D800CCDA0A /* EmptyViewController.mm in Sources */,
+				4F4381A12A6178F900CCDA0A /* NSApplicationViewController.mm in Sources */,
+				4FCAA82D2A627BAA00CA29CB /* ButtonsViewController.mm in Sources */,
+				4FCAA8312A62876300CA29CB /* ColorWellViewController.mm in Sources */,
 				4F43819D2A6169BC00CCDA0A /* RootSplitView.mm in Sources */,
 				4F43817B2A615C7000CCDA0A /* AppDelegate.mm in Sources */,
 				4F43819A2A6163DB00CCDA0A /* InspectorViewController.mm in Sources */,

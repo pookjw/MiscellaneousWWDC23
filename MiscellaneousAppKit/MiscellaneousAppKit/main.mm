@@ -14,7 +14,7 @@ int main(int argc, const char * argv[]) {
     NSApplication *application = NSApplication.sharedApplication;
     AppDelegate *appDelegate = [AppDelegate new];
     application.delegate = appDelegate;
-    [application release];
+    [appDelegate release];
     [application run];
     
     [pool release];

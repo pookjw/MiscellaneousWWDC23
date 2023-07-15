@@ -49,10 +49,10 @@ OBJC_EXPORT id objc_msgSendSuper2(void);
         [label.centerYAnchor constraintEqualToAnchor:self.view.centerYAnchor]
     ]];
     
-    UIHoverAutomaticEffect *effect = [UIHoverAutomaticEffect new];
-    UIShape *shape = [UIShape capsuleShape];
-    
-    DemoHoverStyle *hoverStyle = [DemoHoverStyle styleWithEffect:effect shape:shape];
+//    UIHoverAutomaticEffect *effect = [UIHoverAutomaticEffect new];
+//    UIShape *shape = [UIShape capsuleShape];
+//    
+//    DemoHoverStyle *hoverStyle = [DemoHoverStyle styleWithEffect:effect shape:shape];
 //    UIHoverStyle *garbage = ((id (*)(id, SEL))objc_msgSend)(UIHoverStyle.class, @selector(new));
 //    UIHoverStyle *hoverStyle = ((id (*)(id, SEL, id, id))objc_msgSend)(garbage, @selector(styleWithEffect:shape:), effect, shape);
     
@@ -61,9 +61,9 @@ OBJC_EXPORT id objc_msgSendSuper2(void);
 //    UIHoverStyle *hoverStyle = ((id (*)(Class, SEL, id, id))imp)(UIHoverStyle.class, @selector(styleWithEffect:shape:), effect, shape);
     
 //    UIHoverStyle *hoverStyle = [UIHoverStyle styleWithEffect:effect shape:shape];
-    [effect release];
-    label.hoverStyle = hoverStyle;
-    [label release];
+//    [effect release];
+//    label.hoverStyle = hoverStyle;
+//    [label release];
 }
 
 @end

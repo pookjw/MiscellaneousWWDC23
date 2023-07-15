@@ -25,6 +25,7 @@
 #import "LocaleImageViewController.h"
 #import "DocumentRootViewController.h"
 #import "SpringDurationViewController.h"
+#import "ActivateSceneSessionViewController.h"
 
 @interface FeaturesViewController () <UICollectionViewDelegate>
 @property (retain) UICollectionView *collectionView;
@@ -372,6 +373,20 @@
                 cell.contentConfiguration = contentConfiguration;
                 break;
             }
+            case FeaturesItemModelTypeActivateSceneSession: {
+                UICellAccessoryOutlineDisclosure *outlineDisclosure = [UICellAccessoryOutlineDisclosure new];
+                
+                cell.accessories = @[
+                    outlineDisclosure
+                ];
+                
+                [outlineDisclosure release];
+                
+                UIListContentConfiguration *contentConfiguration = [UIListContentConfiguration cellConfiguration];
+                contentConfiguration.text = @"ActivateSceneSession";
+                cell.contentConfiguration = contentConfiguration;
+                break;
+            }
             default:
                 break;
         }
@@ -517,6 +532,14 @@
             case FeaturesItemModelTypeSpringDuration: {
                 [NSOperationQueue.mainQueue addOperationWithBlock:^{
                     SpringDurationViewController *viewController = [SpringDurationViewController new];
+                    [self.navigationController pushViewController:viewController animated:YES];
+                    [viewController release];
+                }];
+                break;
+            }
+            case FeaturesItemModelTypeActivateSceneSession: {
+                [NSOperationQueue.mainQueue addOperationWithBlock:^{
+                    ActivateSceneSessionViewController *viewController = [ActivateSceneSessionViewController new];
                     [self.navigationController pushViewController:viewController animated:YES];
                     [viewController release];
                 }];

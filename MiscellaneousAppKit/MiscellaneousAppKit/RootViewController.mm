@@ -39,6 +39,10 @@
     [rootSplitView release];
     
     ListViewController *listViewController = [ListViewController new];
+    [NSNotificationCenter.defaultCenter addObserver:self
+                                           selector:@selector(listViewDidSelectClass:)
+                                               name:NSNotificationNameListViewControllerDidSelectClass
+                                             object:listViewController];
     NSSplitViewItem *listItem = [NSSplitViewItem sidebarWithViewController:listViewController];
     [listViewController release];
     listItem.canCollapse = NO;
@@ -69,6 +73,19 @@
     ]];
     self.splitViewController = splitViewController;
     [splitViewController release];
+}
+
+- (void)listViewDidSelectClass:(NSNotification *)notification {
+    Class selectedClass = notification.userInfo[ListViewControllerDidSelectClassKey];
+    
+    [NSOperationQueue.mainQueue addOperationWithBlock:^{
+        __kindof NSViewController *viewController = [selectedClass new];
+        NSSplitViewItem *item = [NSSplitViewItem contentListWithViewController:viewController];
+        [viewController release];
+        
+        [self.splitViewController removeSplitViewItem:self.splitViewController.splitViewItems[1]];
+        [self.splitViewController insertSplitViewItem:item atIndex:1];
+    }];
 }
 
 @end
