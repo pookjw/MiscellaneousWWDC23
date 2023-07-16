@@ -60,9 +60,19 @@ void animatePresentationOfViewController_fromViewController(id<NSViewControllerP
     blurView.emphasized = YES;
     blurView.state = NSVisualEffectStateActive;
     blurView.blendingMode = NSVisualEffectBlendingModeWithinWindow;
-    blurView.autoresizingMask = NSViewWidthSizable | NSViewHeightSizable;
-    [fromViewController.view addSubview:blurView];
-    setBlurView(animator, fromViewController, blurView);
+//    blurView.autoresizingMask = NSViewWidthSizable | NSViewHeightSizable;
+    blurView.translatesAutoresizingMaskIntoConstraints = NO;
+    
+    // NSThemeFrame
+    auto _themeFrame = reinterpret_cast<__kindof NSView * (*)(id, SEL)>(objc_msgSend)(fromViewController.view.window, NSSelectorFromString(@"_themeFrame"));
+    [_themeFrame addSubview:blurView];
+    [NSLayoutConstraint activateConstraints:@[
+        [blurView.topAnchor constraintEqualToAnchor:_themeFrame.topAnchor],
+        [blurView.leadingAnchor constraintEqualToAnchor:_themeFrame.leadingAnchor],
+        [blurView.trailingAnchor constraintEqualToAnchor:_themeFrame.trailingAnchor],
+        [blurView.bottomAnchor constraintEqualToAnchor:_themeFrame.bottomAnchor],
+    ]];
+    setBlurView(animator, fromViewController.view.window, blurView);
     [blurView release];
     
     blurView.alphaValue = 0.f;
@@ -78,7 +88,7 @@ void animatePresentationOfViewController_fromViewController(id<NSViewControllerP
 void animateDismissalOfViewController_fromViewController(id<NSViewControllerPresentationAnimator> animator, SEL _cmd, NSViewController *viewController, NSViewController *fromViewController) {
     [NSApp stopModal];
     
-    NSVisualEffectView * _Nullable _blurView = blurView(animator, fromViewController);
+    NSVisualEffectView * _Nullable _blurView = blurView(animator, fromViewController.view.window);
     
     [NSAnimationContext runAnimationGroup:^(NSAnimationContext * _Nonnull context) {
         context.duration = 0.3f;
@@ -87,7 +97,7 @@ void animateDismissalOfViewController_fromViewController(id<NSViewControllerPres
         [_blurView removeFromSuperview];
     }];
     
-    setBlurView(animator, fromViewController, nil);
+    setBlurView(animator, fromViewController.view.window, nil);
     
     struct objc_super superInfo = { animator, animator.superclass };
     reinterpret_cast<void (*)(struct objc_super *, SEL, id, id)>(objc_msgSendSuper)(&superInfo, _cmd, viewController, fromViewController);
