@@ -27,6 +27,7 @@
 		4FCAA8312A62876300CA29CB /* ColorWellViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4FCAA8302A62876300CA29CB /* ColorWellViewController.mm */; };
 		4FCAA8352A62CADC00CA29CB /* ProcessIndicatorViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4FCAA8342A62CADC00CA29CB /* ProcessIndicatorViewController.mm */; };
 		4FCAA8392A63024100CA29CB /* PresentViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4FCAA8382A63024100CA29CB /* PresentViewController.mm */; };
+		4FCAA83B2A6422A400CA29CB /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FCAA83A2A6422A400CA29CB /* QuartzCore.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -67,6 +68,7 @@
 		4FCAA8342A62CADC00CA29CB /* ProcessIndicatorViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ProcessIndicatorViewController.mm; sourceTree = "<group>"; };
 		4FCAA8372A63024100CA29CB /* PresentViewController.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = PresentViewController.hpp; sourceTree = "<group>"; };
 		4FCAA8382A63024100CA29CB /* PresentViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = PresentViewController.mm; sourceTree = "<group>"; };
+		4FCAA83A2A6422A400CA29CB /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +78,7 @@
 			files = (
 				4F4381A82A61854200CCDA0A /* Symbols.framework in Frameworks */,
 				4F43818E2A615C9900CCDA0A /* AppKit.framework in Frameworks */,
+				4FCAA83B2A6422A400CA29CB /* QuartzCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -130,6 +133,7 @@
 		4F43818C2A615C9900CCDA0A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4FCAA83A2A6422A400CA29CB /* QuartzCore.framework */,
 				4F4381A72A61854200CCDA0A /* Symbols.framework */,
 				4F43818D2A615C9900CCDA0A /* AppKit.framework */,
 			);

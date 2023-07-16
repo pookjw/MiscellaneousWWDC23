@@ -74,10 +74,17 @@
 @end
 
 @interface ColorWellViewController ()
+@property (retain) ColorWell *colorWell;
 @property (assign) std::shared_ptr<std::uint8_t> context;
 @end
 
 @implementation ColorWellViewController
+
+- (void)dealloc {
+    [_colorWell removeObserver:self forKeyPath:@"color" context:_context.get()];
+    [_colorWell release];
+    [super dealloc];
+}
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context {
     if (context == self.context.get()) {
@@ -108,6 +115,7 @@
         [colorWell.centerYAnchor constraintEqualToAnchor:self.view.centerYAnchor]
     ]];
     
+    self.colorWell = colorWell;
     [colorWell release];
 }
 
