@@ -11,14 +11,17 @@
 #import <objc/message.h>
 
 @interface ToolbarItem : NSToolbarItem
+@property (retain) NSMenuItem *menuFormRepresentation; // public: readonly
 @end
 
 @implementation ToolbarItem
+@dynamic menuFormRepresentation;
 
 - (NSMenuItem *)menuFormRepresentation {
     NSMenuItem *menuItem = [super menuFormRepresentation];
     menuItem.title = self.label;
     menuItem.image = self.image;
+    
     return menuItem;
 }
 
@@ -28,13 +31,14 @@
 
 @end
 
-// TODO: NSToolbarItemGroup
+// TODO: NSToolbarItemGroup, NSTrackingSeparatorToolbarItem, NSSearchToolbarItem, NSMenuToolbarItem, NSUIViewToolbarItem
 
 namespace AppDelegateIdentifiers {
 static NSToolbarIdentifier const toolbarIdentifier = @"com.pookjw.MiscellaneousAppKit.AppDelegate.toolbar";
 static NSToolbarItemIdentifier const toggleInspectorItemIdentifier = @"com.pookjw.MiscellaneousAppKit.AppDelegate.toggleInspectorItem";
 static NSToolbarItemIdentifier const showsBaselineSeparatorItemIdentifier = @"com.pookjw.MiscellaneousAppKit.AppDelegate.showsBaselineSeparator";
 static NSToolbarItemIdentifier const runCustomizationPaletteItemIdentifier = @"com.pookjw.MiscellaneousAppKit.AppDelegate.runCustomizationPalette";
+static NSToolbarItemIdentifier const progressIndicatorItemIdentifier = @"com.pookjw.MiscellaneousAppKit.AppDelegate.progressIndicator";
 }
 
 @interface AppDelegate () <NSToolbarDelegate>
@@ -97,22 +101,52 @@ static NSToolbarItemIdentifier const runCustomizationPaletteItemIdentifier = @"c
 #pragma mark - NSToolbarDelegate
 
 - (NSToolbarItem *)toolbar:(NSToolbar *)toolbar itemForItemIdentifier:(NSToolbarItemIdentifier)itemIdentifier willBeInsertedIntoToolbar:(BOOL)flag {
-    ToolbarItem *toolbarItem = [[ToolbarItem alloc] initWithItemIdentifier:itemIdentifier];
-    toolbarItem.target = self;
-    toolbarItem.action = @selector(foo:);
-    
     if ([itemIdentifier isEqualToString:AppDelegateIdentifiers::toggleInspectorItemIdentifier]) {
+        ToolbarItem *toolbarItem = [[ToolbarItem alloc] initWithItemIdentifier:itemIdentifier];
+        toolbarItem.target = self;
+        toolbarItem.action = @selector(foo:);
+        
         toolbarItem.image = [NSImage imageWithSystemSymbolName:@"arrowshape.left.arrowshape.right.fill" accessibilityDescription:nil];
         toolbarItem.label = @"Inspector";
+        
+        return [toolbarItem autorelease];
     } else if ([itemIdentifier isEqualToString:AppDelegateIdentifiers::showsBaselineSeparatorItemIdentifier]) {
+        ToolbarItem *toolbarItem = [[ToolbarItem alloc] initWithItemIdentifier:itemIdentifier];
+        toolbarItem.target = self;
+        toolbarItem.action = @selector(foo:);
+        
         toolbarItem.image = [NSImage imageWithSystemSymbolName:@"line.diagonal" accessibilityDescription:nil];
         toolbarItem.label = @"showsBaselineSeparator";
+        toolbarItem.possibleLabels = [NSSet setWithObject:@"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"];
+        
+        return [toolbarItem autorelease];
     } else if ([itemIdentifier isEqualToString:AppDelegateIdentifiers::runCustomizationPaletteItemIdentifier]) {
+        ToolbarItem *toolbarItem = [[ToolbarItem alloc] initWithItemIdentifier:itemIdentifier];
+        toolbarItem.target = self;
+        toolbarItem.action = @selector(foo:);
+        
         toolbarItem.image = [NSImage imageWithSystemSymbolName:@"paintpalette" accessibilityDescription:nil];
         toolbarItem.label = @"runCustomizationPalette";
+        
+        return [toolbarItem autorelease];
+    } else if ([itemIdentifier isEqualToString:AppDelegateIdentifiers::progressIndicatorItemIdentifier]) {
+        ToolbarItem *toolbarItem = [[ToolbarItem alloc] initWithItemIdentifier:itemIdentifier];
+        toolbarItem.target = self;
+        toolbarItem.action = @selector(foo:);
+        
+        NSProgressIndicator *indicator = [NSProgressIndicator new];
+        indicator.usesThreadedAnimation = YES;
+        indicator.style = NSProgressIndicatorStyleSpinning;
+        indicator.indeterminate = YES;
+        [indicator startAnimation:nil];
+        
+        toolbarItem.view = indicator;
+        [indicator release];
+        
+        return [toolbarItem autorelease];
+    } else {
+        return nil;
     }
-    
-    return [toolbarItem autorelease];
 }
 
 - (void)toolbarWillAddItem:(NSNotification *)notification {
@@ -127,7 +161,8 @@ static NSToolbarItemIdentifier const runCustomizationPaletteItemIdentifier = @"c
     return @[
         AppDelegateIdentifiers::showsBaselineSeparatorItemIdentifier,
         AppDelegateIdentifiers::toggleInspectorItemIdentifier,
-        AppDelegateIdentifiers::runCustomizationPaletteItemIdentifier
+        AppDelegateIdentifiers::runCustomizationPaletteItemIdentifier,
+        AppDelegateIdentifiers::progressIndicatorItemIdentifier
     ];
 }
 
@@ -135,12 +170,13 @@ static NSToolbarItemIdentifier const runCustomizationPaletteItemIdentifier = @"c
     return @[
         AppDelegateIdentifiers::showsBaselineSeparatorItemIdentifier,
         AppDelegateIdentifiers::toggleInspectorItemIdentifier,
-        AppDelegateIdentifiers::runCustomizationPaletteItemIdentifier
+        AppDelegateIdentifiers::runCustomizationPaletteItemIdentifier,
+        AppDelegateIdentifiers::progressIndicatorItemIdentifier
     ];
 }
 
 - (NSSet<NSToolbarItemIdentifier> *)toolbarImmovableItemIdentifiers:(NSToolbar *)toolbar {
-    return [NSSet set];
+    return [NSSet setWithObjects:AppDelegateIdentifiers::progressIndicatorItemIdentifier, nil];
 }
 
 - (NSArray<NSToolbarItemIdentifier> *)toolbarSelectableItemIdentifiers:(NSToolbar *)toolbar {
