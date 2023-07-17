@@ -9,6 +9,10 @@
 #import "RootViewController.hpp"
 #import "NSObject+Foundation_IvarDescription.h"
 #import <objc/message.h>
+#import <string>
+#import <vector>
+#import <ranges>
+#import <algorithm>
 
 @interface ToolbarItem : NSToolbarItem
 @property (retain) NSMenuItem *menuFormRepresentation; // public: readonly
@@ -39,6 +43,11 @@ static NSToolbarItemIdentifier const toggleInspectorItemIdentifier = @"com.pookj
 static NSToolbarItemIdentifier const showsBaselineSeparatorItemIdentifier = @"com.pookjw.MiscellaneousAppKit.AppDelegate.showsBaselineSeparator";
 static NSToolbarItemIdentifier const runCustomizationPaletteItemIdentifier = @"com.pookjw.MiscellaneousAppKit.AppDelegate.runCustomizationPalette";
 static NSToolbarItemIdentifier const progressIndicatorItemIdentifier = @"com.pookjw.MiscellaneousAppKit.AppDelegate.progressIndicator";
+
+static NSToolbarItemIdentifier const groupItemIdentifier = @"com.pookjw.MiscellaneousAppKit.AppDelegate.groupIndicator";
+static NSToolbarItemIdentifier const numberOneItemIdentifier = @"com.pookjw.MiscellaneousAppKit.AppDelegate.nunberOne";
+static NSToolbarItemIdentifier const numberTwoItemIdentifier = @"com.pookjw.MiscellaneousAppKit.AppDelegate.numberTwo";
+static NSToolbarItemIdentifier const numberThreeItemIdentifier = @"com.pookjw.MiscellaneousAppKit.AppDelegate.numberThree";
 }
 
 @interface AppDelegate () <NSToolbarDelegate>
@@ -144,6 +153,43 @@ static NSToolbarItemIdentifier const progressIndicatorItemIdentifier = @"com.poo
         [indicator release];
         
         return [toolbarItem autorelease];
+    } else if ([itemIdentifier isEqualToString:AppDelegateIdentifiers::groupItemIdentifier]) {
+        auto imageNames = std::vector<std::string> {"1.circle.fill", "2.circle.fill", "3.circle.fill"} |
+        std::views::transform([](const std::string value) -> NSString * {
+            return [NSString stringWithCString:value.data() encoding:NSUTF8StringEncoding];
+        });
+        
+        std::vector<NSImage *> images;
+        std::transform(imageNames.begin(), imageNames.end(), std::back_inserter(images), [](NSString *value) -> NSImage * {
+            return [NSImage imageWithSystemSymbolName:value accessibilityDescription:nullptr];
+        });
+        
+        
+        NSArray<NSImage *> *imagesArray = [NSArray arrayWithObjects:images.data() count:images.size()];
+        
+        NSToolbarItemGroup *group = [NSToolbarItemGroup groupWithItemIdentifier:itemIdentifier
+                                                                         images:imagesArray
+                                                                  selectionMode:NSToolbarItemGroupSelectionModeMomentary // TODO
+                                                                         labels:[NSArray arrayWithObjects:std::vector<NSString *>(imageNames.begin(), imageNames.end()).data() count:imageNames.size()]
+                                                                         target:self
+                                                                         action:@selector(foo:)];
+        
+        std::uint8_t i {0};
+        auto subitems = std::vector<const NSToolbarItemIdentifier> {
+            AppDelegateIdentifiers::numberOneItemIdentifier,
+            AppDelegateIdentifiers::numberTwoItemIdentifier,
+            AppDelegateIdentifiers::numberThreeItemIdentifier
+        } |
+        std::views::transform([&i, &imageNames](const NSToolbarItemIdentifier itemIdentifier) -> std::pair<const NSToolbarItemIdentifier, NSString *> {
+            std::pair<const NSToolbarItemIdentifier, NSString *> pair = std::make_pair(itemIdentifier, imageNames[i]);
+            i++;
+            return pair;
+        })
+        
+        // TODO
+        ;
+        
+        return group;
     } else {
         return nil;
     }
@@ -162,7 +208,8 @@ static NSToolbarItemIdentifier const progressIndicatorItemIdentifier = @"com.poo
         AppDelegateIdentifiers::showsBaselineSeparatorItemIdentifier,
         AppDelegateIdentifiers::toggleInspectorItemIdentifier,
         AppDelegateIdentifiers::runCustomizationPaletteItemIdentifier,
-        AppDelegateIdentifiers::progressIndicatorItemIdentifier
+        AppDelegateIdentifiers::progressIndicatorItemIdentifier,
+        AppDelegateIdentifiers::groupItemIdentifier
     ];
 }
 
@@ -171,7 +218,8 @@ static NSToolbarItemIdentifier const progressIndicatorItemIdentifier = @"com.poo
         AppDelegateIdentifiers::showsBaselineSeparatorItemIdentifier,
         AppDelegateIdentifiers::toggleInspectorItemIdentifier,
         AppDelegateIdentifiers::runCustomizationPaletteItemIdentifier,
-        AppDelegateIdentifiers::progressIndicatorItemIdentifier
+        AppDelegateIdentifiers::progressIndicatorItemIdentifier,
+        AppDelegateIdentifiers::groupItemIdentifier
     ];
 }
 
