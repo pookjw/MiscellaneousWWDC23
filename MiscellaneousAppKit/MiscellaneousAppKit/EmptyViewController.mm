@@ -16,7 +16,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.wantsLayer = YES;
-    self.view.layer.backgroundColor = NSColor.purpleColor.CGColor;
+    self.view.layer.backgroundColor = NSColor.whiteColor.CGColor;
 }
 
 @end

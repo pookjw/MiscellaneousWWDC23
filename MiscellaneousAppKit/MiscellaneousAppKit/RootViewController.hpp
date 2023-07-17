@@ -8,4 +8,5 @@
 #import <Cocoa/Cocoa.h>
 
 @interface RootViewController : NSViewController
+@property (retain, readonly) NSSplitViewController *splitViewController;
 @end
