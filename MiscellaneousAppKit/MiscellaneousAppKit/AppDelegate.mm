@@ -35,7 +35,7 @@
 
 @end
 
-// TODO: NSToolbarItemGroup, NSTrackingSeparatorToolbarItem, NSSearchToolbarItem, NSMenuToolbarItem, NSUIViewToolbarItem
+// TODO: NSTrackingSeparatorToolbarItem, NSSearchToolbarItem, NSMenuToolbarItem, NSUIViewToolbarItem
 
 namespace AppDelegateIdentifiers {
 static NSToolbarIdentifier const toolbarIdentifier = @"com.pookjw.MiscellaneousAppKit.AppDelegate.toolbar";
@@ -48,6 +48,8 @@ static NSToolbarItemIdentifier const groupItemIdentifier = @"com.pookjw.Miscella
 static NSToolbarItemIdentifier const numberOneItemIdentifier = @"com.pookjw.MiscellaneousAppKit.AppDelegate.nunberOne";
 static NSToolbarItemIdentifier const numberTwoItemIdentifier = @"com.pookjw.MiscellaneousAppKit.AppDelegate.numberTwo";
 static NSToolbarItemIdentifier const numberThreeItemIdentifier = @"com.pookjw.MiscellaneousAppKit.AppDelegate.numberThree";
+
+static NSToolbarItemIdentifier const trackingSeparatorItemIdentifier = @"com.pookjw.MiscellaneousAppKit.AppDelegate.trackingSeparator";
 }
 
 @interface AppDelegate () <NSToolbarDelegate>
@@ -101,10 +103,17 @@ static NSToolbarItemIdentifier const numberThreeItemIdentifier = @"com.pookjw.Mi
         sender.toolbar.showsBaselineSeparator = !sender.toolbar.showsBaselineSeparator;
     } else if ([sender.itemIdentifier isEqualToString:AppDelegateIdentifiers::runCustomizationPaletteItemIdentifier]) {
         [sender.toolbar runCustomizationPalette:sender];
+    } else if ([sender.itemIdentifier isEqualToString:AppDelegateIdentifiers::groupItemIdentifier]) {
+        auto group = static_cast<NSToolbarItemGroup *>(sender);
+        auto selectedItem = group.subitems[group.selectedIndex];
+        auto selectedItemIdentifier = selectedItem.itemIdentifier;
+        NSLog(@"%@, %@", selectedItem, selectedItemIdentifier);
+        
+        group.title = @(group.selectedIndex).stringValue;
     }
     
-    auto _toolbarView = reinterpret_cast<__kindof NSView * (*)(id, SEL)>(objc_msgSend)(sender.toolbar, NSSelectorFromString(@"_toolbarView"));
-    NSLog(@"%@", [_toolbarView _fd_ivarDescription]);
+//    auto _toolbarView = reinterpret_cast<__kindof NSView * (*)(id, SEL)>(objc_msgSend)(sender.toolbar, NSSelectorFromString(@"_toolbarView"));
+//    NSLog(@"%@", [_toolbarView _fd_ivarDescription]);
 }
 
 #pragma mark - NSToolbarDelegate
@@ -126,7 +135,7 @@ static NSToolbarItemIdentifier const numberThreeItemIdentifier = @"com.pookjw.Mi
         
         toolbarItem.image = [NSImage imageWithSystemSymbolName:@"line.diagonal" accessibilityDescription:nil];
         toolbarItem.label = @"showsBaselineSeparator";
-        toolbarItem.possibleLabels = [NSSet setWithObject:@"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"];
+//        toolbarItem.possibleLabels = [NSSet setWithObject:@"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"];
         
         return [toolbarItem autorelease];
     } else if ([itemIdentifier isEqualToString:AppDelegateIdentifiers::runCustomizationPaletteItemIdentifier]) {
@@ -169,10 +178,13 @@ static NSToolbarItemIdentifier const numberThreeItemIdentifier = @"com.pookjw.Mi
         
         NSToolbarItemGroup *group = [NSToolbarItemGroup groupWithItemIdentifier:itemIdentifier
                                                                          images:imagesArray
-                                                                  selectionMode:NSToolbarItemGroupSelectionModeMomentary // TODO
+                                                                  selectionMode:NSToolbarItemGroupSelectionModeSelectAny
                                                                          labels:[NSArray arrayWithObjects:std::vector<NSString *>(imageNames.begin(), imageNames.end()).data() count:imageNames.size()]
                                                                          target:self
                                                                          action:@selector(foo:)];
+        
+        group.title = @"TEST"; // will presented when NSToolbarItemGroupControlRepresentationCollapsed
+        group.controlRepresentation = NSToolbarItemGroupControlRepresentationCollapsed;
         
         std::uint8_t i {0};
         auto subitems = std::vector<const NSToolbarItemIdentifier> {
@@ -180,16 +192,41 @@ static NSToolbarItemIdentifier const numberThreeItemIdentifier = @"com.pookjw.Mi
             AppDelegateIdentifiers::numberTwoItemIdentifier,
             AppDelegateIdentifiers::numberThreeItemIdentifier
         } |
-        std::views::transform([&i, &imageNames](const NSToolbarItemIdentifier itemIdentifier) -> std::pair<const NSToolbarItemIdentifier, NSString *> {
-            std::pair<const NSToolbarItemIdentifier, NSString *> pair = std::make_pair(itemIdentifier, imageNames[i]);
+        std::views::transform([&i, &images](const NSToolbarItemIdentifier itemIdentifier) -> std::pair<const NSToolbarItemIdentifier, NSImage *> {
+            std::pair<const NSToolbarItemIdentifier, NSImage *> pair = std::make_pair(itemIdentifier, images[i]);
             i++;
             return pair;
-        })
+        }) |
+        std::views::transform([self](std::pair<const NSToolbarItemIdentifier, NSImage *> pair) {
+            ToolbarItem *toolbarItem = [[ToolbarItem alloc] initWithItemIdentifier:pair.first];
+            
+            // only invoked when menu style (collapsed)
+            toolbarItem.target = self;
+            toolbarItem.action = @selector(foo:);
+            
+            // Will Override NSToolbarItemGroup's labels
+            toolbarItem.label = [pair.first componentsSeparatedByString:@"."].lastObject;
+            
+            //            toolbarItem.image = pair.second;
+            
+            // Ignored when using NSToolbarItemGroup
+            toolbarItem.image = [NSImage imageWithSystemSymbolName:@"square.and.arrow.up.circle.fill" accessibilityDescription:nil];
+            
+            return [toolbarItem autorelease];
+        });
         
-        // TODO
-        ;
+        // If you comment this, NSToolbarItemGroup will create Items at initializer.
+        //        group.subitems = [NSArray arrayWithObjects:std::vector<ToolbarItem *>(subitems.begin(), subitems.end()).data() count:subitems.size()];
         
         return group;
+    } else if ([itemIdentifier isEqualToString:AppDelegateIdentifiers::trackingSeparatorItemIdentifier]) {
+        auto window = reinterpret_cast<NSWindow * (*)(id, SEL)>(objc_msgSend)(toolbar, NSSelectorFromString(@"_window"));
+        auto rootViewController = static_cast<RootViewController *>(window.contentViewController);
+        auto splitViewController = rootViewController.splitViewController;
+        
+        NSTrackingSeparatorToolbarItem *toolbarItem = [NSTrackingSeparatorToolbarItem trackingSeparatorToolbarItemWithIdentifier:itemIdentifier splitView:splitViewController.splitView dividerIndex:0];
+        
+        return toolbarItem;
     } else {
         return nil;
     }
@@ -209,7 +246,8 @@ static NSToolbarItemIdentifier const numberThreeItemIdentifier = @"com.pookjw.Mi
         AppDelegateIdentifiers::toggleInspectorItemIdentifier,
         AppDelegateIdentifiers::runCustomizationPaletteItemIdentifier,
         AppDelegateIdentifiers::progressIndicatorItemIdentifier,
-        AppDelegateIdentifiers::groupItemIdentifier
+        AppDelegateIdentifiers::groupItemIdentifier,
+        AppDelegateIdentifiers::trackingSeparatorItemIdentifier
     ];
 }
 
@@ -219,7 +257,8 @@ static NSToolbarItemIdentifier const numberThreeItemIdentifier = @"com.pookjw.Mi
         AppDelegateIdentifiers::toggleInspectorItemIdentifier,
         AppDelegateIdentifiers::runCustomizationPaletteItemIdentifier,
         AppDelegateIdentifiers::progressIndicatorItemIdentifier,
-        AppDelegateIdentifiers::groupItemIdentifier
+        AppDelegateIdentifiers::groupItemIdentifier,
+        AppDelegateIdentifiers::trackingSeparatorItemIdentifier
     ];
 }
 
