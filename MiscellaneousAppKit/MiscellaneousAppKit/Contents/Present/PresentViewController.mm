@@ -138,6 +138,9 @@ Class getIsa() {
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.view.wantsLayer = YES;
+    self.view.layer.backgroundColor = NSColor.systemGreenColor.CGColor;
+    
     //
     
     NSStackView *stackView = [NSStackView new];

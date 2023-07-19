@@ -155,7 +155,6 @@ static void custom(id self, SEL _cmd, NSImage *image, struct CGSize imageSize) {
         
         // NSToolbarButton (NSButton)
         auto _view = reinterpret_cast<NSButton * (*)(id, SEL)>(objc_msgSend)(toolbarItem, NSSelectorFromString(@"_view"));
-        [_view layout];
         
         // _NSToolbarButtonCell
         NSButtonCell *cell = static_cast<NSButtonCell *>(_view.cell);
