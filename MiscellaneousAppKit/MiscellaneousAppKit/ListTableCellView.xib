@@ -15,7 +15,7 @@
                 <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QfH-B0-HHk">
                     <rect key="frame" x="3" y="0.0" width="17" height="17"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="NSActionTemplate" catalog="system" id="xiR-jd-1I7"/>
+                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="NSActionTemplate" id="xiR-jd-1I7"/>
                 </imageView>
                 <textField focusRingType="none" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" allowsExpansionToolTips="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3he-mV-AeE">
                     <rect key="frame" x="25" y="0.0" width="105" height="17"/>
@@ -35,6 +35,6 @@
         </tableCellView>
     </objects>
     <resources>
-        <image name="NSActionTemplate" catalog="system" width="20" height="20"/>
+        <image name="NSActionTemplate" width="20" height="20"/>
     </resources>
 </document>

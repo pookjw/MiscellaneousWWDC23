@@ -8,8 +8,8 @@
 #import "RootViewController.hpp"
 #import "RootSplitView.hpp"
 #import "ListViewController.hpp"
-#import "EmptyViewController.hpp"
 #import "InspectorViewController.hpp"
+#import "MiscellaneousAppKit-Swift.h"
 
 @interface RootViewController ()
 @property (readonly, nonatomic) RootSplitView *rootSplitView;

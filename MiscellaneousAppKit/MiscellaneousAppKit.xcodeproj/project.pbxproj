@@ -14,7 +14,6 @@
 		4F43818E2A615C9900CCDA0A /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F43818D2A615C9900CCDA0A /* AppKit.framework */; };
 		4F4381912A61616300CCDA0A /* NSObject+Foundation_IvarDescription.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4F43818F2A61616300CCDA0A /* NSObject+Foundation_IvarDescription.mm */; };
 		4F4381942A6161E200CCDA0A /* ListViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4F4381932A6161E200CCDA0A /* ListViewController.mm */; };
-		4F4381972A6162D800CCDA0A /* EmptyViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4F4381962A6162D800CCDA0A /* EmptyViewController.mm */; };
 		4F43819A2A6163DB00CCDA0A /* InspectorViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4F4381992A6163DB00CCDA0A /* InspectorViewController.mm */; };
 		4F43819D2A6169BC00CCDA0A /* RootSplitView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4F43819C2A6169BC00CCDA0A /* RootSplitView.mm */; };
 		4F4381A12A6178F900CCDA0A /* NSApplicationViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4F4381A02A6178F900CCDA0A /* NSApplicationViewController.mm */; };
@@ -28,6 +27,7 @@
 		4FCAA8352A62CADC00CA29CB /* ProcessIndicatorViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4FCAA8342A62CADC00CA29CB /* ProcessIndicatorViewController.mm */; };
 		4FCAA8392A63024100CA29CB /* PresentViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4FCAA8382A63024100CA29CB /* PresentViewController.mm */; };
 		4FCAA83B2A6422A400CA29CB /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FCAA83A2A6422A400CA29CB /* QuartzCore.framework */; };
+		4FDD30AD2A66E160004045C8 /* EmptyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FDD30AC2A66E160004045C8 /* EmptyViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,8 +44,6 @@
 		4F4381902A61616300CCDA0A /* NSObject+Foundation_IvarDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Foundation_IvarDescription.h"; sourceTree = "<group>"; };
 		4F4381922A6161E200CCDA0A /* ListViewController.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ListViewController.hpp; sourceTree = "<group>"; };
 		4F4381932A6161E200CCDA0A /* ListViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ListViewController.mm; sourceTree = "<group>"; };
-		4F4381952A6162D800CCDA0A /* EmptyViewController.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = EmptyViewController.hpp; sourceTree = "<group>"; };
-		4F4381962A6162D800CCDA0A /* EmptyViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = EmptyViewController.mm; sourceTree = "<group>"; };
 		4F4381982A6163DB00CCDA0A /* InspectorViewController.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = InspectorViewController.hpp; sourceTree = "<group>"; };
 		4F4381992A6163DB00CCDA0A /* InspectorViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = InspectorViewController.mm; sourceTree = "<group>"; };
 		4F43819B2A6169BC00CCDA0A /* RootSplitView.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = RootSplitView.hpp; sourceTree = "<group>"; };
@@ -69,6 +67,8 @@
 		4FCAA8372A63024100CA29CB /* PresentViewController.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = PresentViewController.hpp; sourceTree = "<group>"; };
 		4FCAA8382A63024100CA29CB /* PresentViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = PresentViewController.mm; sourceTree = "<group>"; };
 		4FCAA83A2A6422A400CA29CB /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		4FDD30AB2A66E15F004045C8 /* MiscellaneousAppKit-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MiscellaneousAppKit-Bridging-Header.h"; sourceTree = "<group>"; };
+		4FDD30AC2A66E160004045C8 /* EmptyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,8 +116,7 @@
 				4F4381A22A617AB200CCDA0A /* ListTableCellView.hpp */,
 				4F4381A32A617AB200CCDA0A /* ListTableCellView.mm */,
 				4F4381A52A617ABD00CCDA0A /* ListTableCellView.xib */,
-				4F4381952A6162D800CCDA0A /* EmptyViewController.hpp */,
-				4F4381962A6162D800CCDA0A /* EmptyViewController.mm */,
+				4FDD30AC2A66E160004045C8 /* EmptyViewController.swift */,
 				4F4381982A6163DB00CCDA0A /* InspectorViewController.hpp */,
 				4F4381992A6163DB00CCDA0A /* InspectorViewController.mm */,
 				4F43819E2A6178DB00CCDA0A /* Contents */,
@@ -126,6 +125,7 @@
 				4F43818F2A61616300CCDA0A /* NSObject+Foundation_IvarDescription.mm */,
 				4F4381842A615C7300CCDA0A /* main.mm */,
 				4F4381862A615C7300CCDA0A /* MiscellaneousAppKit.entitlements */,
+				4FDD30AB2A66E15F004045C8 /* MiscellaneousAppKit-Bridging-Header.h */,
 			);
 			path = MiscellaneousAppKit;
 			sourceTree = "<group>";
@@ -248,6 +248,7 @@
 				TargetAttributes = {
 					4F4381752A615C7000CCDA0A = {
 						CreatedOnToolsVersion = 15.0;
+						LastSwiftMigration = 1500;
 					};
 				};
 			};
@@ -288,6 +289,7 @@
 			files = (
 				4F4381942A6161E200CCDA0A /* ListViewController.mm in Sources */,
 				4F4381A42A617AB200CCDA0A /* ListTableCellView.mm in Sources */,
+				4FDD30AD2A66E160004045C8 /* EmptyViewController.swift in Sources */,
 				4FCAA8392A63024100CA29CB /* PresentViewController.mm in Sources */,
 				4FCAA8352A62CADC00CA29CB /* ProcessIndicatorViewController.mm in Sources */,
 				4FCAA8252A6270E400CA29CB /* DisplayLinkViewController.mm in Sources */,
@@ -295,7 +297,6 @@
 				4F43817E2A615C7000CCDA0A /* RootViewController.mm in Sources */,
 				4F4381912A61616300CCDA0A /* NSObject+Foundation_IvarDescription.mm in Sources */,
 				4F4381852A615C7300CCDA0A /* main.mm in Sources */,
-				4F4381972A6162D800CCDA0A /* EmptyViewController.mm in Sources */,
 				4F4381A12A6178F900CCDA0A /* NSApplicationViewController.mm in Sources */,
 				4FCAA82D2A627BAA00CA29CB /* ButtonsViewController.mm in Sources */,
 				4FCAA8312A62876300CA29CB /* ColorWellViewController.mm in Sources */,
@@ -428,6 +429,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = MiscellaneousAppKit/MiscellaneousAppKit.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -445,6 +447,9 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.pookjw.MiscellaneousAppKit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "MiscellaneousAppKit/MiscellaneousAppKit-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -453,6 +458,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = MiscellaneousAppKit/MiscellaneousAppKit.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -470,6 +476,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.pookjw.MiscellaneousAppKit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "MiscellaneousAppKit/MiscellaneousAppKit-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};

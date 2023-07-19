@@ -13,6 +13,7 @@
 #import <vector>
 #import <ranges>
 #import <algorithm>
+#import <dlfcn.h>
 
 @interface ToolbarItem : NSToolbarItem
 @property (retain) NSMenuItem *menuFormRepresentation; // public: readonly
@@ -23,6 +24,7 @@
 
 - (NSMenuItem *)menuFormRepresentation {
     NSMenuItem *menuItem = [super menuFormRepresentation];
+    
     menuItem.title = self.label;
     menuItem.image = self.image;
     
@@ -35,7 +37,7 @@
 
 @end
 
-// TODO: NSTrackingSeparatorToolbarItem, NSSearchToolbarItem, NSMenuToolbarItem, NSUIViewToolbarItem
+// TODO: NSSearchToolbarItem, NSMenuToolbarItem, NSUIViewToolbarItem
 
 namespace AppDelegateIdentifiers {
 static NSToolbarIdentifier const toolbarIdentifier = @"com.pookjw.MiscellaneousAppKit.AppDelegate.toolbar";
@@ -50,6 +52,25 @@ static NSToolbarItemIdentifier const numberTwoItemIdentifier = @"com.pookjw.Misc
 static NSToolbarItemIdentifier const numberThreeItemIdentifier = @"com.pookjw.MiscellaneousAppKit.AppDelegate.numberThree";
 
 static NSToolbarItemIdentifier const trackingSeparatorItemIdentifier = @"com.pookjw.MiscellaneousAppKit.AppDelegate.trackingSeparator";
+static NSToolbarItemIdentifier const leftNavigationalItemIdentifier = @"com.pookjw.MiscellaneousAppKit.AppDelegate.leftNavigational";
+static NSToolbarItemIdentifier const rightNavigationalItemIdentifier = @"com.pookjw.MiscellaneousAppKit.AppDelegate.rightNavigational";
+}
+
+namespace NSMenuItemView {
+namespace _applyImage_withImageSize {
+static void (*original)(id, SEL, NSImage *, struct CGSize);
+static void custom(id self, SEL _cmd, NSImage *image, struct CGSize imageSize) {
+    original(self, _cmd, image, imageSize);
+    
+    NSImageView * _Nullable imageView = nullptr;
+    object_getInstanceVariable(self, "_imageView", reinterpret_cast<void **>(&imageView));
+    
+    if (imageView) {
+        [imageView addSymbolEffect:[[NSSymbolBounceEffect bounceUpEffect] effectWithByLayer] options:[NSSymbolEffectOptions optionsWithRepeating] animated:YES];
+    }
+}
+
+}
 }
 
 @interface AppDelegate () <NSToolbarDelegate>
@@ -57,6 +78,12 @@ static NSToolbarItemIdentifier const trackingSeparatorItemIdentifier = @"com.poo
 @end
 
 @implementation AppDelegate
+
++ (void)load {
+    Method method = class_getInstanceMethod(NSClassFromString(@"NSMenuItemView"), NSSelectorFromString(@"_applyImage:withImageSize:"));
+    NSMenuItemView::_applyImage_withImageSize::original = reinterpret_cast<void (*)(id, SEL, NSImage *, struct CGSize)>(method_getImplementation(method));
+    method_setImplementation(method, reinterpret_cast<IMP>(NSMenuItemView::_applyImage_withImageSize::custom));
+}
 
 - (void)dealloc {
     [_window release];
@@ -107,11 +134,10 @@ static NSToolbarItemIdentifier const trackingSeparatorItemIdentifier = @"com.poo
         auto group = static_cast<NSToolbarItemGroup *>(sender);
         auto selectedItem = group.subitems[group.selectedIndex];
         auto selectedItemIdentifier = selectedItem.itemIdentifier;
-        NSLog(@"%@, %@", selectedItem, selectedItemIdentifier);
         
         group.title = @(group.selectedIndex).stringValue;
     }
-    
+
 //    auto _toolbarView = reinterpret_cast<__kindof NSView * (*)(id, SEL)>(objc_msgSend)(sender.toolbar, NSSelectorFromString(@"_toolbarView"));
 //    NSLog(@"%@", [_toolbarView _fd_ivarDescription]);
 }
@@ -126,6 +152,18 @@ static NSToolbarItemIdentifier const trackingSeparatorItemIdentifier = @"com.poo
         
         toolbarItem.image = [NSImage imageWithSystemSymbolName:@"arrowshape.left.arrowshape.right.fill" accessibilityDescription:nil];
         toolbarItem.label = @"Inspector";
+        
+        // NSToolbarButton (NSButton)
+        auto _view = reinterpret_cast<NSButton * (*)(id, SEL)>(objc_msgSend)(toolbarItem, NSSelectorFromString(@"_view"));
+        [_view layout];
+        
+        // _NSToolbarButtonCell
+        NSButtonCell *cell = static_cast<NSButtonCell *>(_view.cell);
+        // Avoid NSIsEmptyRect
+        reinterpret_cast<void (*)(id, SEL, struct CGRect, id)>(objc_msgSend)(cell, NSSelectorFromString(@"_updateImageViewWithFrame:inView:"), CGRectMake(0.f, 0.f, 1.f, 1.f), _view);
+
+        auto buttonImageView = reinterpret_cast<__kindof NSView * (*)(NSButtonCell *, SEL)>(objc_msgSend)(cell, NSSelectorFromString(@"_buttonImageView"));
+        reinterpret_cast<void (*)(__kindof NSView *, SEL, NSSymbolEffect *, NSSymbolEffectOptions *, BOOL)>(objc_msgSend)(buttonImageView, @selector(addSymbolEffect:options:animated:), [[NSSymbolBounceEffect bounceUpEffect] effectWithByLayer], [NSSymbolEffectOptions optionsWithRepeating], YES);
         
         return [toolbarItem autorelease];
     } else if ([itemIdentifier isEqualToString:AppDelegateIdentifiers::showsBaselineSeparatorItemIdentifier]) {
@@ -224,9 +262,25 @@ static NSToolbarItemIdentifier const trackingSeparatorItemIdentifier = @"com.poo
         auto rootViewController = static_cast<RootViewController *>(window.contentViewController);
         auto splitViewController = rootViewController.splitViewController;
         
-        NSTrackingSeparatorToolbarItem *toolbarItem = [NSTrackingSeparatorToolbarItem trackingSeparatorToolbarItemWithIdentifier:itemIdentifier splitView:splitViewController.splitView dividerIndex:0];
+        NSTrackingSeparatorToolbarItem *toolbarItem = [NSTrackingSeparatorToolbarItem trackingSeparatorToolbarItemWithIdentifier:itemIdentifier splitView:splitViewController.splitView dividerIndex:1];
         
         return toolbarItem;
+    } else if ([itemIdentifier isEqualToString:AppDelegateIdentifiers::leftNavigationalItemIdentifier]) {
+        NSToolbarItem *item = [[NSToolbarItem alloc] initWithItemIdentifier:itemIdentifier];
+        item.target = self;
+        item.action = @selector(foo:);
+        item.image = [NSImage imageWithSystemSymbolName:@"chevron.left" accessibilityDescription:nil];
+        item.navigational = YES;
+        
+        return [item autorelease];
+    } else if ([itemIdentifier isEqualToString:AppDelegateIdentifiers::rightNavigationalItemIdentifier]) {
+           NSToolbarItem *item = [[NSToolbarItem alloc] initWithItemIdentifier:itemIdentifier];
+           item.target = self;
+           item.action = @selector(foo:);
+           item.image = [NSImage imageWithSystemSymbolName:@"chevron.right" accessibilityDescription:nil];
+           item.navigational = YES;
+           
+           return [item autorelease];
     } else {
         return nil;
     }
@@ -242,24 +296,27 @@ static NSToolbarItemIdentifier const trackingSeparatorItemIdentifier = @"com.poo
 
 - (NSArray<NSToolbarItemIdentifier> *)toolbarAllowedItemIdentifiers:(NSToolbar *)toolbar {
     return @[
+        AppDelegateIdentifiers::leftNavigationalItemIdentifier,
+        AppDelegateIdentifiers::rightNavigationalItemIdentifier,
+        AppDelegateIdentifiers::groupItemIdentifier,
         AppDelegateIdentifiers::showsBaselineSeparatorItemIdentifier,
         AppDelegateIdentifiers::toggleInspectorItemIdentifier,
         AppDelegateIdentifiers::runCustomizationPaletteItemIdentifier,
         AppDelegateIdentifiers::progressIndicatorItemIdentifier,
-        AppDelegateIdentifiers::groupItemIdentifier,
-        AppDelegateIdentifiers::trackingSeparatorItemIdentifier
+        AppDelegateIdentifiers::trackingSeparatorItemIdentifier,
+        NSToolbarSpaceItemIdentifier,
+        NSToolbarCloudSharingItemIdentifier,
+        NSToolbarPrintItemIdentifier,
+        NSToolbarShowColorsItemIdentifier,
+        NSToolbarShowFontsItemIdentifier,
+        NSToolbarInspectorTrackingSeparatorItemIdentifier,
+        NSToolbarFlexibleSpaceItemIdentifier,
+        NSToolbarToggleInspectorItemIdentifier
     ];
 }
 
 - (NSArray<NSToolbarItemIdentifier> *)toolbarDefaultItemIdentifiers:(NSToolbar *)toolbar {
-    return @[
-        AppDelegateIdentifiers::showsBaselineSeparatorItemIdentifier,
-        AppDelegateIdentifiers::toggleInspectorItemIdentifier,
-        AppDelegateIdentifiers::runCustomizationPaletteItemIdentifier,
-        AppDelegateIdentifiers::progressIndicatorItemIdentifier,
-        AppDelegateIdentifiers::groupItemIdentifier,
-        AppDelegateIdentifiers::trackingSeparatorItemIdentifier
-    ];
+    return [self toolbarAllowedItemIdentifiers:toolbar];
 }
 
 - (NSSet<NSToolbarItemIdentifier> *)toolbarImmovableItemIdentifiers:(NSToolbar *)toolbar {
