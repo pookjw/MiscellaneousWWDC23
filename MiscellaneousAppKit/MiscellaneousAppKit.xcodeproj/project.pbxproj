@@ -20,6 +20,7 @@
 		4F4381A42A617AB200CCDA0A /* ListTableCellView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4F4381A32A617AB200CCDA0A /* ListTableCellView.mm */; };
 		4F4381A62A617ABD00CCDA0A /* ListTableCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F4381A52A617ABD00CCDA0A /* ListTableCellView.xib */; };
 		4F4381A82A61854200CCDA0A /* Symbols.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F4381A72A61854200CCDA0A /* Symbols.framework */; };
+		4F74106F2A6EAE9F005F76CE /* MenuViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4F74106E2A6EAE9F005F76CE /* MenuViewController.mm */; };
 		4FCAA8252A6270E400CA29CB /* DisplayLinkViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4FCAA8242A6270E400CA29CB /* DisplayLinkViewController.mm */; };
 		4FCAA8292A6272AA00CA29CB /* TextViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4FCAA8282A6272AA00CA29CB /* TextViewController.mm */; };
 		4FCAA82D2A627BAA00CA29CB /* ButtonsViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4FCAA82C2A627BAA00CA29CB /* ButtonsViewController.mm */; };
@@ -54,6 +55,8 @@
 		4F4381A32A617AB200CCDA0A /* ListTableCellView.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ListTableCellView.mm; sourceTree = "<group>"; };
 		4F4381A52A617ABD00CCDA0A /* ListTableCellView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListTableCellView.xib; sourceTree = "<group>"; };
 		4F4381A72A61854200CCDA0A /* Symbols.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Symbols.framework; path = System/Library/Frameworks/Symbols.framework; sourceTree = SDKROOT; };
+		4F74106D2A6EAE9F005F76CE /* MenuViewController.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = MenuViewController.hpp; sourceTree = "<group>"; };
+		4F74106E2A6EAE9F005F76CE /* MenuViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = MenuViewController.mm; sourceTree = "<group>"; };
 		4FCAA8232A6270E400CA29CB /* DisplayLinkViewController.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = DisplayLinkViewController.hpp; sourceTree = "<group>"; };
 		4FCAA8242A6270E400CA29CB /* DisplayLinkViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = DisplayLinkViewController.mm; sourceTree = "<group>"; };
 		4FCAA8272A6272AA00CA29CB /* TextViewController.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = TextViewController.hpp; sourceTree = "<group>"; };
@@ -150,8 +153,18 @@
 				4FCAA82E2A62874E00CA29CB /* ColorWell */,
 				4FCAA8322A62C9B000CA29CB /* ProcessIndicator */,
 				4FCAA8362A63022B00CA29CB /* Present */,
+				4F74106A2A6EAE77005F76CE /* Menu */,
 			);
 			path = Contents;
+			sourceTree = "<group>";
+		};
+		4F74106A2A6EAE77005F76CE /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				4F74106D2A6EAE9F005F76CE /* MenuViewController.hpp */,
+				4F74106E2A6EAE9F005F76CE /* MenuViewController.mm */,
+			);
+			path = Menu;
 			sourceTree = "<group>";
 		};
 		4FCAA8212A6270CB00CA29CB /* NSApplication */ = {
@@ -288,6 +301,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4F4381942A6161E200CCDA0A /* ListViewController.mm in Sources */,
+				4F74106F2A6EAE9F005F76CE /* MenuViewController.mm in Sources */,
 				4F4381A42A617AB200CCDA0A /* ListTableCellView.mm in Sources */,
 				4FDD30AD2A66E160004045C8 /* EmptyViewController.swift in Sources */,
 				4FCAA8392A63024100CA29CB /* PresentViewController.mm in Sources */,

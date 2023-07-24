@@ -54,6 +54,8 @@ static NSToolbarItemIdentifier const numberThreeItemIdentifier = @"com.pookjw.Mi
 static NSToolbarItemIdentifier const trackingSeparatorItemIdentifier = @"com.pookjw.MiscellaneousAppKit.AppDelegate.trackingSeparator";
 static NSToolbarItemIdentifier const leftNavigationalItemIdentifier = @"com.pookjw.MiscellaneousAppKit.AppDelegate.leftNavigational";
 static NSToolbarItemIdentifier const rightNavigationalItemIdentifier = @"com.pookjw.MiscellaneousAppKit.AppDelegate.rightNavigational";
+
+static NSToolbarItemIdentifier const popoverItemIdentifier = @"com.pookjw.MiscellaneousAppKit.AppDelegate.popover";
 }
 
 namespace NSMenuItemView {
@@ -136,6 +138,17 @@ static void custom(id self, SEL _cmd, NSImage *image, struct CGSize imageSize) {
         auto selectedItemIdentifier = selectedItem.itemIdentifier;
         
         group.title = @(group.selectedIndex).stringValue;
+    } else if ([sender.itemIdentifier isEqualToString:AppDelegateIdentifiers::popoverItemIdentifier]) {
+        NSPopover *popover = [NSPopover new];
+        NSViewController *contentViewController = [NSViewController new];
+        popover.contentViewController = contentViewController;
+        [contentViewController release];
+        popover.behavior = NSPopoverBehaviorSemitransient;
+        popover.animates = YES;
+        popover.contentSize = NSMakeSize(400.f, 400.f);
+        [popover showRelativeToToolbarItem:sender];
+        
+        [popover release];
     }
 
 //    auto _toolbarView = reinterpret_cast<__kindof NSView * (*)(id, SEL)>(objc_msgSend)(sender.toolbar, NSSelectorFromString(@"_toolbarView"));
@@ -273,13 +286,21 @@ static void custom(id self, SEL _cmd, NSImage *image, struct CGSize imageSize) {
         
         return [item autorelease];
     } else if ([itemIdentifier isEqualToString:AppDelegateIdentifiers::rightNavigationalItemIdentifier]) {
-           NSToolbarItem *item = [[NSToolbarItem alloc] initWithItemIdentifier:itemIdentifier];
-           item.target = self;
-           item.action = @selector(foo:);
-           item.image = [NSImage imageWithSystemSymbolName:@"chevron.right" accessibilityDescription:nil];
-           item.navigational = YES;
-           
-           return [item autorelease];
+        NSToolbarItem *item = [[NSToolbarItem alloc] initWithItemIdentifier:itemIdentifier];
+        item.target = self;
+        item.action = @selector(foo:);
+        item.image = [NSImage imageWithSystemSymbolName:@"chevron.right" accessibilityDescription:nil];
+        item.navigational = YES;
+        
+        return [item autorelease];
+    } else if ([itemIdentifier isEqualToString:AppDelegateIdentifiers::popoverItemIdentifier]) {
+        ToolbarItem *toolbarItem = [[ToolbarItem alloc] initWithItemIdentifier:itemIdentifier];
+        toolbarItem.target = self;
+        toolbarItem.action = @selector(foo:);
+        toolbarItem.label = @"Popover";
+        toolbarItem.image = [NSImage imageWithSystemSymbolName:@"rectangle.portrait.and.arrow.right" accessibilityDescription:nil];
+        
+        return [toolbarItem autorelease];
     } else {
         return nil;
     }
@@ -303,6 +324,7 @@ static void custom(id self, SEL _cmd, NSImage *image, struct CGSize imageSize) {
         AppDelegateIdentifiers::runCustomizationPaletteItemIdentifier,
         AppDelegateIdentifiers::progressIndicatorItemIdentifier,
         AppDelegateIdentifiers::trackingSeparatorItemIdentifier,
+        AppDelegateIdentifiers::popoverItemIdentifier,
         NSToolbarSpaceItemIdentifier,
         NSToolbarCloudSharingItemIdentifier,
         NSToolbarPrintItemIdentifier,

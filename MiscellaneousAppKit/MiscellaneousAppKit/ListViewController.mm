@@ -15,6 +15,7 @@
 #import "ColorWellViewController.hpp"
 #import "ProcessIndicatorViewController.hpp"
 #import "PresentViewController.hpp"
+#import "MenuViewController.hpp"
 
 static NSUserInterfaceItemIdentifier const NSUserInterfaceItemIdentifierClassNameTableColumn = @"NSUserInterfaceItemIdentifierClassNameTableColumn";
 static NSUserInterfaceItemIdentifier const NSUserInterfaceItemIdentifierListTableCellView = @"NSUserInterfaceItemIdentifierListTableCellView";
@@ -43,7 +44,8 @@ static NSUserInterfaceItemIdentifier const NSUserInterfaceItemIdentifierListTabl
         ButtonsViewController.class,
         ColorWellViewController.class,
         ProcessIndicatorViewController.class,
-        PresentViewController.class
+        PresentViewController.class,
+        MenuViewController.class
     };
     self.classes = classes;
     

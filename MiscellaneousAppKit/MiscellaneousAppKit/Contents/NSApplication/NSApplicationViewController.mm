@@ -64,7 +64,13 @@
 - (void)didClickActivateButton:(NSButton *)sender {
 //    [NSApp deactivate];
     
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, static_cast<std::int64_t>(2.f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+////            [slackApp activateWithOptions:NSApplicationActivateAllWindows];
+//        NSRunningApplication *safariApp = [NSRunningApplication runningApplicationsWithBundleIdentifier:@"com.apple.Safari"].firstObject;
+//        [NSRunningApplication.currentApplication activateFromApplication:safariApp options:NSApplicationActivateAllWindows];
+//    });
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, static_cast<std::int64_t>(1.f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
 //        [NSApplication.sharedApplication activateIgnoringOtherApps:YES];
         NSRunningApplication *slackApp = [NSRunningApplication runningApplicationsWithBundleIdentifier:@"com.tinyspeck.slackmacgap"].firstObject;
 //        NSRunningApplication *myApp = [NSRunningApplication runningApplicationsWithBundleIdentifier:@"com.pookjw.MyApp"].firstObject;
@@ -73,8 +79,9 @@
 //        BOOL r = [safariApp activateFromApplication:myApp options:NSApplicationActivateAllWindows];
         [NSApp yieldActivationToApplication:safariApp];
         
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            [slackApp activateWithOptions:NSApplicationActivateAllWindows];
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//            [slackApp activateWithOptions:NSApplicationActivateAllWindows];
+            [NSRunningApplication.currentApplication activateFromApplication:safariApp options:NSApplicationActivateAllWindows];
         });
 //        [NSApp activate];
 //        assert(r);
