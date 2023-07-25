@@ -30,6 +30,7 @@
 		4F3FFEC92A2EE7C7001F3BEC /* ContentUnavailableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F3FFEC82A2EE7C7001F3BEC /* ContentUnavailableViewController.m */; };
 		4F3FFECC2A2F25AA001F3BEC /* UIDevice+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F3FFECB2A2F25AA001F3BEC /* UIDevice+Category.m */; };
 		4F40749E2A40BE770046332F /* WindowSceneDragInteractionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F40749D2A40BE770046332F /* WindowSceneDragInteractionViewController.m */; };
+		4F7C170F2A701547006AA9E5 /* MenuViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4F7C170E2A701547006AA9E5 /* MenuViewController.mm */; };
 		4F83914A2A30D9510014137B /* ShapeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F8391492A30D9510014137B /* ShapeViewController.m */; };
 		4F83916F2A30ED840014137B /* UniformAcrossSiblingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F83916E2A30ED840014137B /* UniformAcrossSiblingsViewController.m */; };
 		4F8391722A30EE050014137B /* UniformAcrossSiblingsContentConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F8391712A30EE050014137B /* UniformAcrossSiblingsContentConfiguration.m */; };
@@ -95,6 +96,8 @@
 		4F3FFECB2A2F25AA001F3BEC /* UIDevice+Category.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+Category.m"; sourceTree = "<group>"; };
 		4F40749C2A40BE770046332F /* WindowSceneDragInteractionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WindowSceneDragInteractionViewController.h; sourceTree = "<group>"; };
 		4F40749D2A40BE770046332F /* WindowSceneDragInteractionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WindowSceneDragInteractionViewController.m; sourceTree = "<group>"; };
+		4F7C170D2A701547006AA9E5 /* MenuViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
+		4F7C170E2A701547006AA9E5 /* MenuViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = MenuViewController.mm; sourceTree = "<group>"; };
 		4F8391482A30D9510014137B /* ShapeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShapeViewController.h; sourceTree = "<group>"; };
 		4F8391492A30D9510014137B /* ShapeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShapeViewController.m; sourceTree = "<group>"; };
 		4F83916D2A30ED840014137B /* UniformAcrossSiblingsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UniformAcrossSiblingsViewController.h; sourceTree = "<group>"; };
@@ -264,6 +267,7 @@
 				4FE4C7712A49DFFC003A4483 /* Document */,
 				4FE4C77E2A4B4596003A4483 /* SpringDuration */,
 				4FCAA81D2A626B2400CA29CB /* ActivateSceneSession */,
+				4F7C170C2A701534006AA9E5 /* Menu */,
 				4F3FFEB22A2EE107001F3BEC /* Assets.xcassets */,
 				4F3FFEB42A2EE107001F3BEC /* LaunchScreen.storyboard */,
 				4F3FFEB72A2EE107001F3BEC /* Info.plist */,
@@ -302,6 +306,15 @@
 				4F40749D2A40BE770046332F /* WindowSceneDragInteractionViewController.m */,
 			);
 			path = WindowSceneDragInteraction;
+			sourceTree = "<group>";
+		};
+		4F7C170C2A701534006AA9E5 /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				4F7C170D2A701547006AA9E5 /* MenuViewController.h */,
+				4F7C170E2A701547006AA9E5 /* MenuViewController.mm */,
+			);
+			path = Menu;
 			sourceTree = "<group>";
 		};
 		4F8391472A30D9460014137B /* Shape */ = {
@@ -503,6 +516,7 @@
 				4F40749E2A40BE770046332F /* WindowSceneDragInteractionViewController.m in Sources */,
 				4FCAA8202A626B7F00CA29CB /* ActivateSceneSessionViewController.m in Sources */,
 				4F0C470B2A3F1B530076BF2B /* ViewIsAppearingViewController.m in Sources */,
+				4F7C170F2A701547006AA9E5 /* MenuViewController.mm in Sources */,
 				4F0C473C2A409AB90076BF2B /* NSObject+Foundation_IvarDescription.mm in Sources */,
 				4F0C47032A3ED94D0076BF2B /* SymbolEffectsViewController.m in Sources */,
 				4F3FFEB92A2EE107001F3BEC /* main.m in Sources */,

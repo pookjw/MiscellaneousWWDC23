@@ -28,7 +28,8 @@ typedef NS_ENUM(NSUInteger, FeaturesItemModelType) {
     FeaturesItemModelTypeLocaleImage,
     FeaturesItemModelTypeDocument,
     FeaturesItemModelTypeSpringDuration,
-    FeaturesItemModelTypeActivateSceneSession
+    FeaturesItemModelTypeActivateSceneSession,
+    FeaturesItemModelTypeMenu
 };
 
 @interface FeaturesItemModel : NSObject

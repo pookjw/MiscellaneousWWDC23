@@ -26,6 +26,7 @@
 #import "DocumentRootViewController.h"
 #import "SpringDurationViewController.h"
 #import "ActivateSceneSessionViewController.h"
+#import "MenuViewController.h"
 
 @interface FeaturesViewController () <UICollectionViewDelegate>
 @property (retain) UICollectionView *collectionView;
@@ -387,6 +388,20 @@
                 cell.contentConfiguration = contentConfiguration;
                 break;
             }
+            case FeaturesItemModelTypeMenu: {
+                UICellAccessoryOutlineDisclosure *outlineDisclosure = [UICellAccessoryOutlineDisclosure new];
+                
+                cell.accessories = @[
+                    outlineDisclosure
+                ];
+                
+                [outlineDisclosure release];
+                
+                UIListContentConfiguration *contentConfiguration = [UIListContentConfiguration cellConfiguration];
+                contentConfiguration.text = @"Menu";
+                cell.contentConfiguration = contentConfiguration;
+                break;
+            }
             default:
                 break;
         }
@@ -540,6 +555,14 @@
             case FeaturesItemModelTypeActivateSceneSession: {
                 [NSOperationQueue.mainQueue addOperationWithBlock:^{
                     ActivateSceneSessionViewController *viewController = [ActivateSceneSessionViewController new];
+                    [self.navigationController pushViewController:viewController animated:YES];
+                    [viewController release];
+                }];
+                break;
+            }
+            case FeaturesItemModelTypeMenu: {
+                [NSOperationQueue.mainQueue addOperationWithBlock:^{
+                    MenuViewController *viewController = [MenuViewController new];
                     [self.navigationController pushViewController:viewController animated:YES];
                     [viewController release];
                 }];
