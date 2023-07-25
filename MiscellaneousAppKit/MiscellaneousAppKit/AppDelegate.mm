@@ -9,6 +9,7 @@
 #import "RootViewController.hpp"
 #import "NSObject+Foundation_IvarDescription.h"
 #import <objc/message.h>
+#import <objc/runtime.h>
 #import <string>
 #import <vector>
 #import <ranges>
@@ -71,8 +72,33 @@ static void custom(id self, SEL _cmd, NSImage *image, struct CGSize imageSize) {
         [imageView addSymbolEffect:[[NSSymbolBounceEffect bounceUpEffect] effectWithByLayer] options:[NSSymbolEffectOptions optionsWithRepeating] animated:YES];
     }
 }
-
 }
+}
+
+namespace NSPaletteMenuItemView {
+namespace layout {
+static std::uint8_t *associationKey;
+static void (*original)(id, SEL);
+static void custom(id self, SEL _cmd) {
+    original(self, _cmd);
+    
+    auto menuItem = reinterpret_cast<NSMenuItem * _Nullable (*)(id, SEL)>(objc_msgSend)(self, @selector(menuItem));
+    NSSymbolEffect *effect = objc_getAssociatedObject(menuItem, associationKey);
+    
+    if (effect) {
+        [static_cast<__kindof NSView *>(self).subviews enumerateObjectsUsingBlock:^(__kindof NSView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            if ([obj isKindOfClass:NSImageView.class]) {
+                auto imageView = static_cast<NSImageView *>(obj);
+                [imageView addSymbolEffect:effect options:[NSSymbolEffectOptions optionsWithRepeating] animated:YES];
+            }
+        }];
+    }
+}
+}
+}
+
+const std::uint8_t * NSPaletteMenuItemView_associationKey() {
+    return NSPaletteMenuItemView::layout::associationKey;
 }
 
 @interface AppDelegate () <NSToolbarDelegate>
@@ -82,9 +108,13 @@ static void custom(id self, SEL _cmd, NSImage *image, struct CGSize imageSize) {
 @implementation AppDelegate
 
 + (void)load {
-    Method method = class_getInstanceMethod(NSClassFromString(@"NSMenuItemView"), NSSelectorFromString(@"_applyImage:withImageSize:"));
-    NSMenuItemView::_applyImage_withImageSize::original = reinterpret_cast<void (*)(id, SEL, NSImage *, struct CGSize)>(method_getImplementation(method));
-    method_setImplementation(method, reinterpret_cast<IMP>(NSMenuItemView::_applyImage_withImageSize::custom));
+    Method method_1 = class_getInstanceMethod(NSClassFromString(@"NSMenuItemView"), NSSelectorFromString(@"_applyImage:withImageSize:"));
+    NSMenuItemView::_applyImage_withImageSize::original = reinterpret_cast<void (*)(id, SEL, NSImage *, struct CGSize)>(method_getImplementation(method_1));
+    method_setImplementation(method_1, reinterpret_cast<IMP>(NSMenuItemView::_applyImage_withImageSize::custom));
+    
+    Method method_2 = class_getInstanceMethod(NSClassFromString(@"NSPaletteMenuItemView"), @selector(layout));
+    NSPaletteMenuItemView::layout::original = reinterpret_cast<void (*)(id, SEL)>(method_getImplementation(method_2));
+    method_setImplementation(method_2, reinterpret_cast<IMP>(NSPaletteMenuItemView::layout::custom));
 }
 
 - (void)dealloc {
@@ -93,6 +123,8 @@ static void custom(id self, SEL _cmd, NSImage *image, struct CGSize imageSize) {
 }
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
+    NSPaletteMenuItemView::layout::associationKey = new std::uint8_t;
+    
     RootViewController *viewController = [RootViewController new];
     NSToolbar *toolbar = [[NSToolbar alloc] initWithIdentifier:AppDelegateIdentifiers::toolbarIdentifier];
     NSWindow *window = [NSWindow new];
