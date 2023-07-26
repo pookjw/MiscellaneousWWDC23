@@ -57,6 +57,8 @@ static NSToolbarItemIdentifier const leftNavigationalItemIdentifier = @"com.pook
 static NSToolbarItemIdentifier const rightNavigationalItemIdentifier = @"com.pookjw.MiscellaneousAppKit.AppDelegate.rightNavigational";
 
 static NSToolbarItemIdentifier const popoverItemIdentifier = @"com.pookjw.MiscellaneousAppKit.AppDelegate.popover";
+
+static NSToolbarItemIdentifier const searchItemIdentifier = @"com.pookjw.MiscellaneousAppKit.search";
 }
 
 namespace NSMenuItemView {
@@ -101,7 +103,7 @@ const std::uint8_t * NSPaletteMenuItemView_associationKey() {
     return NSPaletteMenuItemView::layout::associationKey;
 }
 
-@interface AppDelegate () <NSToolbarDelegate>
+@interface AppDelegate () <NSToolbarDelegate, NSSearchFieldDelegate>
 @property (retain) NSWindow *window;
 @end
 
@@ -333,6 +335,23 @@ const std::uint8_t * NSPaletteMenuItemView_associationKey() {
         toolbarItem.image = [NSImage imageWithSystemSymbolName:@"rectangle.portrait.and.arrow.right" accessibilityDescription:nil];
         
         return [toolbarItem autorelease];
+    } else if ([itemIdentifier isEqualToString:AppDelegateIdentifiers::searchItemIdentifier]) {
+        NSSearchToolbarItem *searchItem = [[NSSearchToolbarItem alloc] initWithItemIdentifier:AppDelegateIdentifiers::searchItemIdentifier];
+        reinterpret_cast<void (*)(id, SEL, id)>(objc_msgSend)(searchItem, NSSelectorFromString(@"setPlaceholderString:"), @"Pl🎃ceholder");
+        searchItem.preferredWidthForSearchField = 200.f;
+        searchItem.resignsFirstResponderWithCancel = NO;
+        
+        NSSearchField *searchField = searchItem.searchField;
+        searchField.delegate = self;
+        searchField.sendsSearchStringImmediately = YES;
+        
+        /*
+         NO : 글자 입력만 하면 action이 감
+         YES : 엔터치거나 캔슬해야 action이 감
+         */
+        searchField.sendsWholeSearchString = YES;
+        
+        return [searchItem autorelease];
     } else {
         return nil;
     }
@@ -362,6 +381,7 @@ const std::uint8_t * NSPaletteMenuItemView_associationKey() {
         NSToolbarPrintItemIdentifier,
         NSToolbarShowColorsItemIdentifier,
         NSToolbarShowFontsItemIdentifier,
+        AppDelegateIdentifiers::searchItemIdentifier,
         NSToolbarInspectorTrackingSeparatorItemIdentifier,
         NSToolbarFlexibleSpaceItemIdentifier,
         NSToolbarToggleInspectorItemIdentifier
@@ -382,6 +402,16 @@ const std::uint8_t * NSPaletteMenuItemView_associationKey() {
 
 - (BOOL)toolbar:(NSToolbar *)toolbar itemIdentifier:(NSToolbarItemIdentifier)itemIdentifier canBeInsertedAtIndex:(NSInteger)index {
     return YES;
+}
+
+#pragma mark - NSSearchFieldDelegate
+
+- (void)searchFieldDidStartSearching:(NSSearchField *)sender {
+    
+}
+
+- (void)searchFieldDidEndSearching:(NSSearchField *)sender {
+    
 }
 
 @end
