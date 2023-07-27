@@ -8,6 +8,7 @@
 #import "AppDelegate.hpp"
 #import "RootViewController.hpp"
 #import "NSObject+Foundation_IvarDescription.h"
+#import "NSPaletteMenuItem+copyWithZone.hpp"
 #import <objc/message.h>
 #import <objc/runtime.h>
 #import <string>
@@ -22,7 +23,6 @@
 
 @implementation ToolbarItem
 @dynamic menuFormRepresentation;
-
 - (NSMenuItem *)menuFormRepresentation {
     NSMenuItem *menuItem = [super menuFormRepresentation];
     
@@ -35,10 +35,21 @@
 - (BOOL)allowsDuplicatesInToolbar {
     return YES;
 }
-
 @end
 
-// TODO: NSSearchToolbarItem, NSMenuToolbarItem, NSUIViewToolbarItem
+@interface MenuToolbarItem : NSMenuToolbarItem
+@end
+@implementation MenuToolbarItem
+
+- (NSMenuItem *)menuFormRepresentation {
+    NSMenuItem *item = [super menuFormRepresentation];
+    item.title = self.title;
+    item.image = self.image;
+    return item;
+}
+@end
+
+// TODO: NSMenuToolbarItem, NSUIViewToolbarItem
 
 namespace AppDelegateIdentifiers {
 static NSToolbarIdentifier const toolbarIdentifier = @"com.pookjw.MiscellaneousAppKit.AppDelegate.toolbar";
@@ -59,6 +70,9 @@ static NSToolbarItemIdentifier const rightNavigationalItemIdentifier = @"com.poo
 static NSToolbarItemIdentifier const popoverItemIdentifier = @"com.pookjw.MiscellaneousAppKit.AppDelegate.popover";
 
 static NSToolbarItemIdentifier const searchItemIdentifier = @"com.pookjw.MiscellaneousAppKit.search";
+static NSSearchFieldRecentsAutosaveName const searchFieldRecentsAutosaveName = @"com.pookjw.MiscellaneousAppKit.searchRecents";
+
+static NSToolbarItemIdentifier const menuToolbarItemIdentifier = @"com.pookjw.MiscellaneousAppKit.menuToolbar";
 }
 
 namespace NSMenuItemView {
@@ -110,6 +124,8 @@ const std::uint8_t * NSPaletteMenuItemView_associationKey() {
 @implementation AppDelegate
 
 + (void)load {
+    registerNSPaletteMenuItemCopyMethod();
+    
     Method method_1 = class_getInstanceMethod(NSClassFromString(@"NSMenuItemView"), NSSelectorFromString(@"_applyImage:withImageSize:"));
     NSMenuItemView::_applyImage_withImageSize::original = reinterpret_cast<void (*)(id, SEL, NSImage *, struct CGSize)>(method_getImplementation(method_1));
     method_setImplementation(method_1, reinterpret_cast<IMP>(NSMenuItemView::_applyImage_withImageSize::custom));
@@ -187,6 +203,10 @@ const std::uint8_t * NSPaletteMenuItemView_associationKey() {
 
 //    auto _toolbarView = reinterpret_cast<__kindof NSView * (*)(id, SEL)>(objc_msgSend)(sender.toolbar, NSSelectorFromString(@"_toolbarView"));
 //    NSLog(@"%@", [_toolbarView _fd_ivarDescription]);
+}
+
+- (void)searchFieldFoo:(NSSearchField *)sender {
+    NSLog(@"%@", sender.stringValue);
 }
 
 #pragma mark - NSToolbarDelegate
@@ -343,15 +363,76 @@ const std::uint8_t * NSPaletteMenuItemView_associationKey() {
         
         NSSearchField *searchField = searchItem.searchField;
         searchField.delegate = self;
+        
+        // delay를 가질지 말지
         searchField.sendsSearchStringImmediately = YES;
         
-        /*
-         NO : 글자 입력만 하면 action이 감
-         YES : 엔터치거나 캔슬해야 action이 감
-         */
-        searchField.sendsWholeSearchString = YES;
+        // 엔터 및 캔슬할 때만 이벤트 보내기
+        searchField.sendsWholeSearchString = NO;
+        
+        searchField.recentsAutosaveName = AppDelegateIdentifiers::searchFieldRecentsAutosaveName;
+        searchField.maximumRecents = 10;
+        
+        NSMenu *searchMenu = [[NSMenu alloc] initWithTitle:@"Menu"];
+        
+        NSMenuItem *recentsTitleMenuItem = [[NSMenuItem alloc] initWithTitle:@"Recents" action:nullptr keyEquivalent:@""];
+        recentsTitleMenuItem.tag = NSSearchFieldRecentsTitleMenuItemTag;
+        
+        NSMenuItem *recentsMenuItem = [[NSMenuItem alloc] initWithTitle:@"Recents" action:nullptr keyEquivalent:@""];
+        recentsMenuItem.tag = NSSearchFieldRecentsMenuItemTag;
+        
+        NSMenuItem *noRecentsMenuItem = [[NSMenuItem alloc] initWithTitle:@"No Recents" action:nullptr keyEquivalent:@""];
+        noRecentsMenuItem.tag = NSSearchFieldNoRecentsMenuItemTag;
+        
+        NSMenuItem *clearMenuItem = [[NSMenuItem alloc] initWithTitle:@"Clear" action:nullptr keyEquivalent:@""];
+        clearMenuItem.tag = NSSearchFieldClearRecentsMenuItemTag;
+        clearMenuItem.image = [NSImage imageWithSystemSymbolName:@"trash" accessibilityDescription:nullptr];
+        
+        [searchMenu addItem:recentsTitleMenuItem];
+        [searchMenu addItem:recentsMenuItem];
+        [searchMenu addItem:noRecentsMenuItem];
+        [searchMenu addItem:NSMenuItem.separatorItem];
+        [searchMenu addItem:clearMenuItem];
+        [recentsTitleMenuItem release];
+        [recentsMenuItem release];
+        [noRecentsMenuItem release];
+        [clearMenuItem release];
+        
+        searchField.searchMenuTemplate = searchMenu;
+        [searchMenu release];
+        
+        searchField.target = self;
+        searchField.action = @selector(searchFieldFoo:);
         
         return [searchItem autorelease];
+    } else if ([itemIdentifier isEqualToString:AppDelegateIdentifiers::menuToolbarItemIdentifier]) {
+        MenuToolbarItem *toolbarItem = [[MenuToolbarItem alloc] initWithItemIdentifier:itemIdentifier];
+        toolbarItem.title = @"Palette";
+        toolbarItem.image = [NSImage imageWithSystemSymbolName:@"paintpalette" accessibilityDescription:nullptr];
+        
+        NSMenu *menu = [[NSMenu alloc] initWithTitle:@"Memu"];
+        [menu addItemWithTitle:@"Test" action:nullptr keyEquivalent:@""];
+        
+        NSMenu *paletteMenu = [NSMenu paletteMenuWithColors:@[NSColor.systemRedColor, NSColor.systemOrangeColor, NSColor.systemYellowColor, NSColor.systemGreenColor, NSColor.systemBlueColor, NSColor.systemPurpleColor]
+                                                     titles:@[]
+                                           selectionHandler:^(NSMenu * _Nonnull menu) {
+            
+        }];
+        
+        [paletteMenu.itemArray enumerateObjectsUsingBlock:^(NSMenuItem * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            NSLog(@"%@", obj);
+        }];
+        
+        NSMenuItem *paletteMenuItem = [[NSMenuItem alloc] initWithTitle:@"Palette" action:nullptr keyEquivalent:@""];
+        paletteMenuItem.submenu = paletteMenu;
+        
+        [menu addItem:paletteMenuItem];
+        [paletteMenuItem release];
+        
+        toolbarItem.menu = menu;
+        [menu release];
+        
+        return [toolbarItem autorelease];
     } else {
         return nil;
     }
@@ -376,6 +457,7 @@ const std::uint8_t * NSPaletteMenuItemView_associationKey() {
         AppDelegateIdentifiers::progressIndicatorItemIdentifier,
         AppDelegateIdentifiers::trackingSeparatorItemIdentifier,
         AppDelegateIdentifiers::popoverItemIdentifier,
+        AppDelegateIdentifiers::menuToolbarItemIdentifier,
         NSToolbarSpaceItemIdentifier,
         NSToolbarCloudSharingItemIdentifier,
         NSToolbarPrintItemIdentifier,
@@ -407,7 +489,7 @@ const std::uint8_t * NSPaletteMenuItemView_associationKey() {
 #pragma mark - NSSearchFieldDelegate
 
 - (void)searchFieldDidStartSearching:(NSSearchField *)sender {
-    
+    NSLog(@"%@", sender.recentSearches);
 }
 
 - (void)searchFieldDidEndSearching:(NSSearchField *)sender {

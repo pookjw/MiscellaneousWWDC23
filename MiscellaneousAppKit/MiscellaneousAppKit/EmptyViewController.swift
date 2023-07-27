@@ -31,4 +31,19 @@ final class EmptyViewController: NSViewController {
         ])
         self.textField = textField
     }
+    
+    override func viewDidAppear() {
+        super.viewDidAppear()
+        
+        let menu: NSMenu = .palette(colors: [.systemRed, .systemOrange])
+        menu
+            .items
+            .forEach { item in
+                print(item)
+                let mirror: Mirror = .init(reflecting: item)
+                for child in mirror.children {
+                    print(child)
+                }
+            }
+    }
 }

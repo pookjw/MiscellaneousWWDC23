@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4F39B0A42A720FD7001AB5F2 /* NSPaletteMenuItem+color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F39B0A32A720FD7001AB5F2 /* NSPaletteMenuItem+color.swift */; };
 		4F43817B2A615C7000CCDA0A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4F43817A2A615C7000CCDA0A /* AppDelegate.mm */; };
 		4F43817E2A615C7000CCDA0A /* RootViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4F43817D2A615C7000CCDA0A /* RootViewController.mm */; };
 		4F4381802A615C7300CCDA0A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F43817F2A615C7300CCDA0A /* Assets.xcassets */; };
@@ -20,6 +21,7 @@
 		4F4381A42A617AB200CCDA0A /* ListTableCellView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4F4381A32A617AB200CCDA0A /* ListTableCellView.mm */; };
 		4F4381A62A617ABD00CCDA0A /* ListTableCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F4381A52A617ABD00CCDA0A /* ListTableCellView.xib */; };
 		4F4381A82A61854200CCDA0A /* Symbols.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F4381A72A61854200CCDA0A /* Symbols.framework */; };
+		4F4E66F32A721219008EA066 /* NSPaletteMenuItem+copyWithZone.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4F4E66F22A721219008EA066 /* NSPaletteMenuItem+copyWithZone.mm */; };
 		4F74106F2A6EAE9F005F76CE /* MenuViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4F74106E2A6EAE9F005F76CE /* MenuViewController.mm */; };
 		4FCAA8252A6270E400CA29CB /* DisplayLinkViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4FCAA8242A6270E400CA29CB /* DisplayLinkViewController.mm */; };
 		4FCAA8292A6272AA00CA29CB /* TextViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4FCAA8282A6272AA00CA29CB /* TextViewController.mm */; };
@@ -32,6 +34,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4F39B0A32A720FD7001AB5F2 /* NSPaletteMenuItem+color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSPaletteMenuItem+color.swift"; sourceTree = "<group>"; };
 		4F4381762A615C7000CCDA0A /* MiscellaneousAppKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MiscellaneousAppKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F4381792A615C7000CCDA0A /* AppDelegate.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = AppDelegate.hpp; sourceTree = "<group>"; };
 		4F43817A2A615C7000CCDA0A /* AppDelegate.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = AppDelegate.mm; sourceTree = "<group>"; };
@@ -55,6 +58,8 @@
 		4F4381A32A617AB200CCDA0A /* ListTableCellView.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ListTableCellView.mm; sourceTree = "<group>"; };
 		4F4381A52A617ABD00CCDA0A /* ListTableCellView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListTableCellView.xib; sourceTree = "<group>"; };
 		4F4381A72A61854200CCDA0A /* Symbols.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Symbols.framework; path = System/Library/Frameworks/Symbols.framework; sourceTree = SDKROOT; };
+		4F4E66F12A721219008EA066 /* NSPaletteMenuItem+copyWithZone.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = "NSPaletteMenuItem+copyWithZone.hpp"; sourceTree = "<group>"; };
+		4F4E66F22A721219008EA066 /* NSPaletteMenuItem+copyWithZone.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "NSPaletteMenuItem+copyWithZone.mm"; sourceTree = "<group>"; };
 		4F74106D2A6EAE9F005F76CE /* MenuViewController.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = MenuViewController.hpp; sourceTree = "<group>"; };
 		4F74106E2A6EAE9F005F76CE /* MenuViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = MenuViewController.mm; sourceTree = "<group>"; };
 		4FCAA8232A6270E400CA29CB /* DisplayLinkViewController.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = DisplayLinkViewController.hpp; sourceTree = "<group>"; };
@@ -122,6 +127,9 @@
 				4FDD30AC2A66E160004045C8 /* EmptyViewController.swift */,
 				4F4381982A6163DB00CCDA0A /* InspectorViewController.hpp */,
 				4F4381992A6163DB00CCDA0A /* InspectorViewController.mm */,
+				4F39B0A32A720FD7001AB5F2 /* NSPaletteMenuItem+color.swift */,
+				4F4E66F12A721219008EA066 /* NSPaletteMenuItem+copyWithZone.hpp */,
+				4F4E66F22A721219008EA066 /* NSPaletteMenuItem+copyWithZone.mm */,
 				4F43819E2A6178DB00CCDA0A /* Contents */,
 				4F43817F2A615C7300CCDA0A /* Assets.xcassets */,
 				4F4381902A61616300CCDA0A /* NSObject+Foundation_IvarDescription.h */,
@@ -308,12 +316,14 @@
 				4FCAA8352A62CADC00CA29CB /* ProcessIndicatorViewController.mm in Sources */,
 				4FCAA8252A6270E400CA29CB /* DisplayLinkViewController.mm in Sources */,
 				4FCAA8292A6272AA00CA29CB /* TextViewController.mm in Sources */,
+				4F4E66F32A721219008EA066 /* NSPaletteMenuItem+copyWithZone.mm in Sources */,
 				4F43817E2A615C7000CCDA0A /* RootViewController.mm in Sources */,
 				4F4381912A61616300CCDA0A /* NSObject+Foundation_IvarDescription.mm in Sources */,
 				4F4381852A615C7300CCDA0A /* main.mm in Sources */,
 				4F4381A12A6178F900CCDA0A /* NSApplicationViewController.mm in Sources */,
 				4FCAA82D2A627BAA00CA29CB /* ButtonsViewController.mm in Sources */,
 				4FCAA8312A62876300CA29CB /* ColorWellViewController.mm in Sources */,
+				4F39B0A42A720FD7001AB5F2 /* NSPaletteMenuItem+color.swift in Sources */,
 				4F43819D2A6169BC00CCDA0A /* RootSplitView.mm in Sources */,
 				4F43817B2A615C7000CCDA0A /* AppDelegate.mm in Sources */,
 				4F43819A2A6163DB00CCDA0A /* InspectorViewController.mm in Sources */,
