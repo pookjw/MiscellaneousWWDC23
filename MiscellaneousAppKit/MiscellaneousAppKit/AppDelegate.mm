@@ -49,7 +49,7 @@
 }
 @end
 
-// TODO: NSMenuToolbarItem, NSUIViewToolbarItem
+// TODO: NSUIViewToolbarItem
 
 namespace AppDelegateIdentifiers {
 static NSToolbarIdentifier const toolbarIdentifier = @"com.pookjw.MiscellaneousAppKit.AppDelegate.toolbar";
