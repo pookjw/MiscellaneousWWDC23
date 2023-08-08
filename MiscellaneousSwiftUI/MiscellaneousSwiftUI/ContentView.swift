@@ -25,6 +25,7 @@ struct ContentView: View {
         }
         .onChange(of: viewModel.paths, { oldValue, newValue in
             print(newValue)
+            $viewModel.paths.publisher.values
             
         })
         .onAppear {
