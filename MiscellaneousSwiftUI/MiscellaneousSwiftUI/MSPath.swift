@@ -9,6 +9,7 @@ import SwiftUI
 
 enum MSPath: String, CaseIterable, Hashable, Identifiable, Sendable {
     case dismissWindowAction = "DismissWindowAction"
+    case nunber = "Number"
     
     var id: String {
         rawValue
