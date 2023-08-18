@@ -59,8 +59,9 @@
         FeaturesItemModel *springDurationItemModel = [[FeaturesItemModel alloc] initWithType:FeaturesItemModelTypeSpringDuration];
         FeaturesItemModel *activateSceneSessionItemModel = [[FeaturesItemModel alloc] initWithType:FeaturesItemModelTypeActivateSceneSession];
         FeaturesItemModel *menuItemModel = [[FeaturesItemModel alloc] initWithType:FeaturesItemModelTypeMenu];
+        FeaturesItemModel *windowActivationItemModel = [[FeaturesItemModel alloc] initWithType:FeaturesItemModelTypeWindowActivation];
         
-        [snapshot appendItemsWithIdentifiers:@[contentUnavilableViewItemModel, shapeItemModel, uniformAcrossSiblingsItemModel, pageControlItemModel, labelVibrancyItemModel, lefferformAwareAdjustingItemModel, hdrImageItemModel, symbolEffectsItemModel, textViewBorderItemModel, viewIsAppearingItemModel, searchControllerItemModel, textSelectionDisplayItemModel, windowSceneDragInteractionItemModel, symbolTransitionItemModel, typesettingLanguageItemModel, localeImageItemModel, documentItemModel, springDurationItemModel, activateSceneSessionItemModel, menuItemModel] intoSectionWithIdentifier:firstSection];
+        [snapshot appendItemsWithIdentifiers:@[contentUnavilableViewItemModel, shapeItemModel, uniformAcrossSiblingsItemModel, pageControlItemModel, labelVibrancyItemModel, lefferformAwareAdjustingItemModel, hdrImageItemModel, symbolEffectsItemModel, textViewBorderItemModel, viewIsAppearingItemModel, searchControllerItemModel, textSelectionDisplayItemModel, windowSceneDragInteractionItemModel, symbolTransitionItemModel, typesettingLanguageItemModel, localeImageItemModel, documentItemModel, springDurationItemModel, activateSceneSessionItemModel, menuItemModel, windowActivationItemModel] intoSectionWithIdentifier:firstSection];
         
         [contentUnavilableViewItemModel release];
         [shapeItemModel release];
@@ -82,6 +83,7 @@
         [springDurationItemModel release];
         [activateSceneSessionItemModel release];
         [menuItemModel release];
+        [windowActivationItemModel release];
         
         [dataSource applySnapshot:snapshot animatingDifferences:YES completion:completionHandler];
         [snapshot release];

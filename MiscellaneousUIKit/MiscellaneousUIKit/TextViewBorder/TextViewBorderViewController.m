@@ -28,7 +28,7 @@
     
     // ???????
     // I set watchpoint but it never calls
-    textView.borderStyle = UITextViewBorderStyleRoundedRect;
+//    textView.borderStyle = UITextViewBorderStyleRoundedRect;
     textView.layer.borderColor = UIColor.systemBlueColor.CGColor;
     textView.layer.borderWidth = 2.f;
     textView.translatesAutoresizingMaskIntoConstraints = NO;

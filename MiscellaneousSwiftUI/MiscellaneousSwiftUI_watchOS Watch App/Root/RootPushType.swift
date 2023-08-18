@@ -9,6 +9,7 @@ import SwiftUI
 
 enum RootPushType: Int, CaseIterable, Identifiable, Codable, Sendable {
     case environmentDemo
+    case transformEnvironment
     
     var id: Int {
         rawValue
@@ -18,13 +19,19 @@ enum RootPushType: Int, CaseIterable, Identifiable, Codable, Sendable {
         switch self {
         case .environmentDemo:
             "EnvironmentDemoView"
+        case .transformEnvironment:
+            "TransformEnvironmentDemoView"
         }
     }
     
     var body: some View {
-        switch self {
-        case .environmentDemo:
-            EnvironmentDemoView()
+        Group {
+            switch self {
+            case .environmentDemo:
+                EnvironmentDemoView()
+            case .transformEnvironment:
+                TransformEnvironmentDemoView()
+            }
         }
     }
 }

@@ -7,6 +7,7 @@
 
 #import "AppDelegate.h"
 #import "SceneDelegate.h"
+#import "DismissalSceneDelegate.h"
 
 @interface AppDelegate ()
 @end
@@ -18,8 +19,18 @@
 }
 
 - (UISceneConfiguration *)application:(UIApplication *)application configurationForConnectingSceneSession:(UISceneSession *)connectingSceneSession options:(UISceneConnectionOptions *)options {
+    NSUserActivity * _Nullable userActivity = options.userActivities.allObjects.firstObject;
+    
+    BOOL isDismissalScene = [userActivity.activityType isEqualToString:@"test"];
+    
     UISceneConfiguration *configuration = connectingSceneSession.configuration;
-    configuration.delegateClass = SceneDelegate.class;
+    
+    if (isDismissalScene) {
+        configuration.delegateClass = DismissalSceneDelegate.class;
+    } else {
+        configuration.delegateClass = SceneDelegate.class;
+    }
+    
     return configuration;
 }
 

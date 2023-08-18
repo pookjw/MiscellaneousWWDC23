@@ -9,6 +9,8 @@ import WatchKit
 
 @Observable
 final class AppDelegate: NSObject, WKApplicationDelegate {
+    var count: Int = .zero
+    
     func applicationDidBecomeActive() {
         
     }

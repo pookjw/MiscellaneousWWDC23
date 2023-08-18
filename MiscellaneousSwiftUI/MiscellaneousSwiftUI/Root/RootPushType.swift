@@ -10,6 +10,8 @@ import SwiftUI
 enum RootPushType: Int, CaseIterable, Identifiable, Codable, Sendable {
     case appStorage
     case sceneStorage
+    case settingsLink
+    case openWindow
     
     var id: Int {
         rawValue
@@ -18,9 +20,13 @@ enum RootPushType: Int, CaseIterable, Identifiable, Codable, Sendable {
     var text: String {
         switch self {
         case .appStorage:
-            "AppStorage"
+            "AppStorageDemoView"
         case .sceneStorage:
-            "SceneStorage"
+            "SceneStorageDemoView"
+        case .settingsLink:
+            "SettingsLinkDemoView"
+        case .openWindow:
+            "OpenWindowDemoView"
         }
     }
     
@@ -31,6 +37,10 @@ enum RootPushType: Int, CaseIterable, Identifiable, Codable, Sendable {
                 AppStorageDemoView()
             case .sceneStorage:
                 SceneStorageDemoView()
+            case .settingsLink:
+                SettingsLinkDemoView()
+            case .openWindow:
+                OpenWindowDemoView()
             }
         }
     }

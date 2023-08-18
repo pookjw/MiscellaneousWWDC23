@@ -27,6 +27,7 @@
 #import "SpringDurationViewController.h"
 #import "ActivateSceneSessionViewController.h"
 #import "MenuViewController.h"
+#import "WindowActivationViewController.h"
 
 @interface FeaturesViewController () <UICollectionViewDelegate>
 @property (retain) UICollectionView *collectionView;
@@ -402,6 +403,20 @@
                 cell.contentConfiguration = contentConfiguration;
                 break;
             }
+            case FeaturesItemModelTypeWindowActivation: {
+                UICellAccessoryOutlineDisclosure *outlineDisclosure = [UICellAccessoryOutlineDisclosure new];
+                
+                cell.accessories = @[
+                    outlineDisclosure
+                ];
+                
+                [outlineDisclosure release];
+                
+                UIListContentConfiguration *contentConfiguration = [UIListContentConfiguration cellConfiguration];
+                contentConfiguration.text = @"UIWindowSceneActivationAction";
+                cell.contentConfiguration = contentConfiguration;
+                break;
+            }
             default:
                 break;
         }
@@ -567,6 +582,13 @@
                     [viewController release];
                 }];
                 break;
+            }
+            case FeaturesItemModelTypeWindowActivation: {
+                [NSOperationQueue.mainQueue addOperationWithBlock:^{
+                    WindowActivationViewController *viewController = [WindowActivationViewController new];
+                    [self.navigationController pushViewController:viewController animated:YES];
+                    [viewController release];
+                }];
             }
             default:
                 break;

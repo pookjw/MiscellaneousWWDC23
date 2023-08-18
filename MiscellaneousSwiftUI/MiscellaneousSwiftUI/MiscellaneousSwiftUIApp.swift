@@ -10,9 +10,18 @@ import SwiftUI
 @main
 struct MiscellaneousSwiftUIApp: App {
     var body: some Scene {
-        WindowGroup {
+        WindowGroup(id: "default") {
             RootView()
         }
         .defaultSize(width: 300.0, height: 300.0)
+        
+        WindowGroup(id: "DemoWindowGroup_1") {
+            DismissWindowDemoView()
+        }
+#if os(macOS)
+        Settings {
+            RootView()
+        }
+#endif
     }
 }
