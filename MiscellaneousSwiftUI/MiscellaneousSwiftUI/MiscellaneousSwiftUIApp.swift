@@ -18,6 +18,14 @@ struct MiscellaneousSwiftUIApp: App {
         WindowGroup(id: "DemoWindowGroup_1") {
             DismissWindowDemoView()
         }
+        
+        automaticWindow
+        hiddenTitleBarWindow
+        plainWindow
+        titleBarWindow
+        volumetricWindow
+        customWindow
+        
 #if os(macOS)
         Settings {
             RootView()
