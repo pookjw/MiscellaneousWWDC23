@@ -7,7 +7,6 @@
 
 import SwiftUI
 
-//let _automaticWindow: some Scene = Windowgroup
 let automaticWindow: some Scene = WindowGroup("DefaultWindowStyle", id: "DefaultWindowStyle") { 
     DismissWindowDemoView()
 }

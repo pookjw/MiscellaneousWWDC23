@@ -13,6 +13,7 @@ enum RootPushType: Int, CaseIterable, Identifiable, Codable, Sendable {
     case settingsLink
     case openWindow
     case windowStyles
+    case windowToolbarStyle
     
     var id: Int {
         rawValue
@@ -30,6 +31,8 @@ enum RootPushType: Int, CaseIterable, Identifiable, Codable, Sendable {
             "OpenWindowDemoView"
         case .windowStyles:
             "WindowStylesDemoView"
+        case .windowToolbarStyle:
+            "WindowToolbarStyleDemoView"
         }
     }
     
@@ -46,6 +49,8 @@ enum RootPushType: Int, CaseIterable, Identifiable, Codable, Sendable {
                 OpenWindowDemoView()
             case .windowStyles:
                 WindowStylesDemoView()
+            case .windowToolbarStyle:
+                WindowToolbarStyleDemo.ContentView()
             }
         }
     }

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4F0DB3C82A9A35BA00598A17 /* WindowToolbarStyleDemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0DB3C72A9A35BA00598A17 /* WindowToolbarStyleDemoView.swift */; };
 		4F5A7CB72A8FAD8900277B3D /* TransformEnvironmentDemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F5A7CB62A8FAD8900277B3D /* TransformEnvironmentDemoView.swift */; };
 		4F5A7CD42A8FB4CD00277B3D /* SettingsLinkDemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F5A7CD32A8FB4CD00277B3D /* SettingsLinkDemoView.swift */; };
 		4F5A7CD82A8FB5F000277B3D /* OpenWindowDemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F5A7CD72A8FB5F000277B3D /* OpenWindowDemoView.swift */; };
@@ -58,6 +59,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		4F0DB3C72A9A35BA00598A17 /* WindowToolbarStyleDemoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowToolbarStyleDemoView.swift; sourceTree = "<group>"; };
 		4F5A7CB62A8FAD8900277B3D /* TransformEnvironmentDemoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransformEnvironmentDemoView.swift; sourceTree = "<group>"; };
 		4F5A7CD32A8FB4CD00277B3D /* SettingsLinkDemoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsLinkDemoView.swift; sourceTree = "<group>"; };
 		4F5A7CD72A8FB5F000277B3D /* OpenWindowDemoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenWindowDemoView.swift; sourceTree = "<group>"; };
@@ -116,6 +118,7 @@
 				4F5A7CD72A8FB5F000277B3D /* OpenWindowDemoView.swift */,
 				4F5A7CD92A8FB67D00277B3D /* DismissWindowDemoView.swift */,
 				4FE8DD4F2A99952A003B11C1 /* WindowStylesDemoView.swift */,
+				4F0DB3C72A9A35BA00598A17 /* WindowToolbarStyleDemoView.swift */,
 			);
 			path = Children;
 			sourceTree = "<group>";
@@ -325,6 +328,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4F0DB3C82A9A35BA00598A17 /* WindowToolbarStyleDemoView.swift in Sources */,
 				4F5A7CDA2A8FB67D00277B3D /* DismissWindowDemoView.swift in Sources */,
 				4FE8DD582A999BBE003B11C1 /* NSObject+Foundation_IvarDescription.mm in Sources */,
 				4FE8DD502A99952A003B11C1 /* WindowStylesDemoView.swift in Sources */,

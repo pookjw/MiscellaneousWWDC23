@@ -9,7 +9,11 @@ import SwiftUI
 
 @main
 struct MiscellaneousSwiftUIApp: App {
-    var body: some Scene {
+    @SceneBuilder private var body_1: some Scene {
+        WindowGroup(id: "default") {
+            RootView()
+        }
+        
         WindowGroup(id: "default") {
             RootView()
         }
@@ -25,11 +29,25 @@ struct MiscellaneousSwiftUIApp: App {
         titleBarWindow
         volumetricWindow
         customWindow
+    }
+    
+    @SceneBuilder private  var body_2: some Scene {
+        WindowToolbarStyleDemo.automaticWindow
+        WindowToolbarStyleDemo.expandedWindow
         
 #if os(macOS)
+        MenuBarExtra("Test") {
+            Text("Hello World!")
+        }
+        
         Settings {
             RootView()
         }
 #endif
+    }
+    
+    var body: some Scene {
+        body_1
+        body_2
     }
 }
